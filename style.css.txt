@@ -1,0 +1,143 @@
+/* Grundinställningar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  background-color: #ece6f0;
+  padding: 2rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #b48cc7;
+}
+
+.header-text h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #5f3b81;
+}
+
+/* OM MIG */
+.profile {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f4f0f8;
+  border-radius: 12px;
+}
+
+.om-mig-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.om-mig-header i {
+  font-size: 1.5rem;
+  color: #8d6bbd;
+}
+
+.meditationsfigur {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.meditationsfigur img {
+  max-width: 100px;
+  opacity: 0.8;
+}
+
+/* TJÄNSTER */
+.services {
+  padding: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.service {
+  background-color: #f8f5fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.service i {
+  font-size: 2rem;
+  color: #7e57c2;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* KONTAKT */
+.contact {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.contact button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #6a48aa;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ece6f0;
+  margin-top: 2rem;
+}

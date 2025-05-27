@@ -2,74 +2,127 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En tryggare väg</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f9fafb, #e5f4ff);
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #0077b6;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        main {
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1, h2 {
-            color: #023e8a;
-        }
-        section {
-            margin-bottom: 2rem;
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        footer {
-            background-color: #caf0f8;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #555;
-        }
-        a {
-            color: #0077b6;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En tryggare väg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #cfe8e2;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #2f4f4f;
+    }
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+    .service {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+    }
+    .service h3 {
+      margin-top: 0.5rem;
+      color: #468189;
+    }
+    .about, .contact {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a.button {
+      background-color: #9fc4b7;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    a.button:hover {
+      background-color: #7da99a;
+    }
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>En tryggare väg</h1>
-        <p>Professionellt samtalsstöd online – för dig som vill må bättre</p>
-    </header>
-    <main>
-        <section>
-            <h2>Om oss</h2>
-            <p>Vi erbjuder samtalsstöd med fokus på ångesthantering, nedstämdhet och inre stress. Här får du ett tryggt bemötande och konkreta verktyg för att hitta tillbaka till balansen i livet.</p>
-        </section>
-        <section>
-            <h2>Tillvägagångssätt</h2>
-            <p>Vi utgår från metoder som har visat god effekt vid psykisk ohälsa, men vi arbetar utan journalföring eller sjukvårdsanslutning. All kontakt sker digitalt via mejl eller videosamtal.</p>
-        </section>
-        <section>
-            <h2>Kontakt</h2>
-            <p>För att boka ett första samtal eller ställa frågor, vänligen kontakta oss via mejl:</p>
-            <p><a href="mailto:kontakt@entryggarevag.se">kontakt@entryggarevag.se</a></p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 En tryggare väg. All rights reserved.
-    </footer>
+  <header>
+    <h1>En tryggare väg</h1>
+  </header>
+  <div class="intro">
+    <p>Välkommen. Jag erbjuder samtalsstöd online med fokus på trygghet, återhämtning och att hitta en väg framåt. Här får du ett professionellt bemötande – på dina villkor.</p>
+  </div>
+  <div class="services">
+    <div class="service">
+      <h3>Samtalsstöd</h3>
+      <p>Trygga och strukturerade samtal – för dig som behöver någon att prata med.</p>
+    </div>
+    <div class="service">
+      <h3>Ångesthantering</h3>
+      <p>Verktyg och vägledning för att hantera oro, stress och inre tryck.</p>
+    </div>
+    <div class="service">
+      <h3>Vägledning</h3>
+      <p>Stöd i att hitta riktning, mening och lösningar på livets utmaningar.</p>
+    </div>
+  </div>
+  <div class="about">
+    <h2>Om mig</h2>
+    <p>Jag har lång erfarenhet av samtalsarbete och möter dig med värme, nyfikenhet och respekt. Tillsammans arbetar vi för att skapa trygghet och förändring.</p>
+  </div>
+  <div class="contact">
+    <h2>Kontakt</h2>
+    <p>Mejla mig för att boka ett samtal eller ställa frågor:</p>
+    <a href="mailto:kontakt@entryggarevag.se" class="button">Skicka mejl</a>
+  </div>
+  <footer>
+    &copy; 2025 En tryggare väg. All rights reserved.
+  </footer>
 </body>
 </html>

@@ -1,204 +1,203 @@
-<style>
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f9f6f1;
-    color: #333;
-    line-height: 1.6;
-  }
-  header {
-    background-color: #d5e5e3;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 960px;
-    margin: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  header img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #a7cfc8;
-  }
-  header .welcome-text {
-    font-size: 1.25rem;
-    color: #2a3d3b;
-  }
-  .features {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 3rem auto;
-    max-width: 960px;
-    flex-wrap: wrap;
-  }
-  .feature {
-    flex: 1 1 250px;
-    background: white;
-    padding: 1.8rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-  .feature svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-    stroke: #2a3d3b;
-  }
-  .feature.angsthantering {
-    background-color: #d6c0e1; /* ljus plommon */
-    color: #3f2d52;
-    position: relative;
-  }
-  .feature.angsthantering .plus-circle {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 48px;
-    background: #5b3e7a;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .feature.angsthantering .plus-circle svg {
-    stroke: white;
-    stroke-width: 3;
-  }
-  .feature h3 {
-    margin-top: 0.5rem;
-    font-size: 1.3rem;
-    color: inherit;
-  }
-  .feature p {
-    font-size: 1rem;
-  }
-  .feature.depression svg {
-    margin-bottom: 0.5rem;
-  }
-  .about-section {
-    max-width: 960px;
-    margin: 3rem auto;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background-color: #e4f0eb; /* mild ljusgrön */
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  }
-  .meditation-figure {
-    flex-shrink: 0;
-    width: 140px;
-    height: 140px;
-  }
-  .about-text {
-    flex: 1;
-  }
-  .about-text h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #2a3d3b;
-  }
-  .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #3b4a48;
-    font-weight: 400;
-  }
-  .contact-section {
-    max-width: 960px;
-    margin: 3rem auto 5rem;
-    padding: 2rem;
-    background-color: #d5e5e3;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  }
-  .contact-section p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #2a3d3b;
-  }
-  .contact-btn {
-    background-color: #a7cfc8;
-    color: white;
-    padding: 0.85rem 2rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-  }
-  .contact-btn:hover {
-    background-color: #8fbab3;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En tryggare väg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Grundstilar */
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f9f6f1;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
 
+    /* Header */
+    header {
+      background-color: #d5e5e3;
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .hero-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 4px solid #a7cfc8;
+    }
+    .hero-text h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.8rem;
+      margin: 0;
+      color: #2a3d3b;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0;
+    }
+
+    /* Tjänster */
+    section.services {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section.services h2 {
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem;
+      color: #2a3d3b;
+    }
+    .service-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    .service-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      width: 280px;
+      text-align: center;
+      position: relative;
+    }
+    .service-card .icon {
+      font-size: 2.5rem;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+    .service-card.angst { background-color: #f0eafc; }
+    .service-card.depression { background-color: #e8f0fe; }
+
+    .service-card h3 {
+      font-family: 'Raleway', sans-serif;
+      margin: 0.5rem 0;
+      color: #2a3d3b;
+    }
+    .service-card p { margin: 0; }
+
+    /* Om mig */
+    section.about {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #eae6df;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    section.about h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2a3d3b;
+    }
+    section.about p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Kontakt */
+    section.contact {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    section.contact h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      color: #2a3d3b;
+    }
+    section.contact p { font-size: 1rem; }
+    section.contact a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #a7cfc8;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    section.contact a.button:hover { background-color: #8fbab3; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      background-color: #d5e5e3;
+    }
+
+    /* Responsiv */
+    @media (max-width: 768px) {
+      .hero-content { flex-direction: column; }
+      .service-card { width: 100%; max-width: 320px; }
+    }
+  </style>
+</head>
 <body>
   <header>
-    <img src="hemsida/jag.jpg" alt="Profilbild" />
-    <div class="welcome-text">
-      <p><strong>Välkommen!</strong> Jag erbjuder professionellt samtalsstöd online för dig som vill börja leva fullt ut igen. Här finns hjälp för oro, ångest och andra livsutmaningar.</p>
+    <div class="hero-content">
+      <img src="jag.jpg" alt="Profilbild" class="hero-image">
+      <div class="hero-text">
+        <h1>Välkommen till En tryggare väg</h1>
+        <p>Stöd i livets svåra stunder – samtalsstöd online utan diagnoser eller journalföring.</p>
+      </div>
     </div>
   </header>
 
-  <section class="features">
-    <div class="feature samtalstod">
-      <!-- Chattbubbla ikon -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle" viewBox="0 0 24 24">
-        <path d="M21 11.5a8.38 8.38 0 01-1.9 5.4 8.5 8.5 0 01-6.6 3.6 8.38 8.38 0 01-5.4-1.9L3 21l1.9-4.1a8.38 8.38 0 01-1.9-5.4 8.5 8.5 0 013.6-6.6 8.38 8.38 0 015.4-1.9 8.5 8.5 0 016.6 3.6 8.38 8.38 0 011.9 5.4z"/>
-      </svg>
-      <h3>Samtalstöd</h3>
-      <p>Du som behöver någon att prata med</p>
-    </div>
-
-    <div class="feature angsthantering">
-      <div class="plus-circle" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  <section class="services">
+    <h2>Vad vi erbjuder</h2>
+    <div class="service-grid">
+      <div class="service-card chat">
+        <span class="icon">💬</span>
+        <h3>Samtalsstöd</h3>
+        <p>Empatiska samtal i en trygg digital miljö, där du får utrymme att utforska dina tankar och känslor.</p>
       </div>
-      <h3>Ångesthantering</h3>
-      <p>En tryggare väg med KBT</p>
-    </div>
-
-    <div class="feature depression">
-      <!-- Regnmoln ikon -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2a3d3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-rain" viewBox="0 0 24 24">
-        <line x1="16" y1="13" x2="16" y2="19"></line>
-        <line x1="8" y1="13" x2="8" y2="19"></line>
-        <line x1="12" y1="15" x2="12" y2="21"></line>
-        <path d="M20 16.58A5 5 0 0018 9h-1.26A8 8 0 104 16.25"></path>
-      </svg>
-      <h3>Depression</h3>
-      <p>Du som lider av depression</p>
+      <div class="service-card angst">
+        <span class="icon">➕</span>
+        <h3>Ångesthantering</h3>
+        <p>Verktyg och strategier för att hantera oro, stress och inre tryck.</p>
+      </div>
+      <div class="service-card depression">
+        <span class="icon">☔️</span>
+        <h3>Depression</h3>
+        <p>Stöd i perioder av nedstämdhet, ensamhet eller låg självkänsla.</p>
+      </div>
     </div>
   </section>
 
-  <section class="about-section">
-    <div class="meditation-figure" aria-hidden="true">
-      <!-- Mjukare SVG mediterande figur -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#2a3d3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="32" cy="14" r="6" />
-        <path d="M26 40c0-8 12-8 12 0s-4 12-6 12-6-4-6-12z" fill="#a7cfc8"/>
-        <path d="M21 42c-3 6-1 12-1 12h22s1-7-3-12" />
-        <path d="M22 44l-3 10m22-10l3 10" />
-      </svg>
-    </div>
-    <div class="about-text">
-      <h2>Om mig</h2>
-      <p>Jag har många års erfarenhet av att hjälpa individer att må bättre. Mitt fokus är att stötta dig i att gå från att bara överleva till att återigen kunna leva ett värdigt och meningsfullt liv.</p>
-    </div>
+  <section class="about">
+    <h2>Om mig</h2>
+    <p>Jag har lång erfarenhet av att erbjuda samtalsstöd online, med fokus på trygghet, empati och praktiska verktyg. Mitt mål är att vara en närvarande medmänniska som hjälper dig hitta balans och riktning i livet, utan att koppla samtalen till vård eller journalföring.</p>
   </section>
 
-  <section class="contact-section">
-    <p>För att boka ett samtal eller om du har frågor, vänligen kontakta mig via e-post.</p>
-    <button class="contact-btn" onclick="window.location.href='mailto:kontakt@entryggarevag.se'">Skicka e-post</button>
+  <section class="contact">
+    <h2>Kontakt</h2>
+    <p>Mejla gärna för att boka ett första samtal eller om du har frågor:</p>
+    <a href="mailto:kontakt@entryggarevag.se" class="button">Skicka mejl</a>
   </section>
+
+  <footer>
+    &copy; 2025 En tryggare väg – Alla rättigheter förbehållna.
+  </footer>
 </body>
+</html>

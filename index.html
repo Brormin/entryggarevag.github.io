@@ -2,150 +2,319 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>En tryggare väg</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet" />
   <style>
+    /* Tema färger */
+    :root {
+      --color-bg: #f9f6f1;
+      --color-primary: #2a3d3b;        /* Mörkgrön/blågrön */
+      --color-secondary: #d5e5e3;      /* Ljusgrön/grå */
+      --color-accent: #a7cfc8;         /* Turkosgrön */
+      --color-text: #333;
+      --color-plommon: #9c7ca6;        /* Ljus plommon */
+      --color-plommon-dark: #7b5f82;   /* Mörkare plommon */
+      --color-white: #fff;
+      --color-box-bg: #fff;
+    }
+    /* Reset & grund */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f6f1;
-      color: #333;
+      background-color: var(--color-bg);
+      color: var(--color-text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    header {
-      background-color: #d5e5e3;
-      padding: 4rem 2rem;
-      text-align: center;
-      border-bottom: 5px solid #c1d1cf;
-      position: relative; /* För att kunna positionera pulserande cirkel */
+    a {
+      text-decoration: none;
+      color: var(--color-accent);
     }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #2a3d3b;
+    a:hover {
+      color: var(--color-plommon-dark);
     }
-    /* Pulsande cirkel i headern */
-    .pulse-circle {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      width: 40px;
-      height: 40px;
-      background-color: #a7cfc8;
-      border-radius: 50%;
-      opacity: 0.6;
-      animation: pulse 4s ease-in-out infinite;
-      box-shadow: 0 0 10px #a7cfc8;
-    }
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 0.3;
-      }
-    }
-    header p {
-      font-size: 1.1rem;
-    }
-    .section {
-      padding: 3rem 2rem;
+
+    /* Container maxbredd */
+    .container {
       max-width: 960px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
+
+    /* HEADER med bild + text i flex */
+    header {
+      background-color: var(--color-secondary);
+      border-bottom: 5px solid var(--color-primary);
+      padding: 2rem 1rem;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .profile-pic {
+      flex: 0 0 140px;
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 4px solid var(--color-accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: var(--color-white);
+    }
+    .header-text {
+      flex: 1 1 300px;
+      color: var(--color-primary);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    /* TRE RUTOR: Flex container */
     .features {
       display: flex;
+      gap: 1.5rem;
+      margin: 3rem auto 4rem;
+      max-width: 960px;
       flex-wrap: wrap;
-      gap: 2rem;
       justify-content: center;
-      margin-top: 2rem;
     }
     .feature {
       flex: 1 1 250px;
-      background: white;
-      padding: 1.5rem;
+      background-color: var(--color-box-bg);
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem 1.5rem;
       text-align: center;
+      color: var(--color-primary);
+      position: relative;
+      font-weight: 600;
+      font-size: 1.15rem;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
     }
-    .feature h3 {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      color: #2a3d3b;
+
+    /* Specifik feature bakgrund & färger */
+    .feature.samtalstod {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
     }
-    .about {
-      background-color: #eae6df;
+    .feature.angesthantering {
+      background-color: var(--color-plommon);
+      color: var(--color-white);
+    }
+    .feature.depression {
+      background-color: var(--color-box-bg);
+      color: var(--color-primary);
+    }
+
+    /* Ikoner som SVG inline styles */
+    .feature svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto;
+      fill: currentColor;
+    }
+
+    /* Plus-ring för ångesthantering */
+    .feature.angesthantering .plus-ring {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+    .feature.angesthantering .plus-ring svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-white);
+      margin: 0;
+    }
+
+    /* OM MIG sektion */
+    .about-section {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+    }
+    .meditation-figure {
+      flex: 0 0 140px;
+      width: 140px;
+      height: 140px;
+      background: var(--color-secondary);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    /* Enkel stilren meditativ figur (SVG) */
+    .meditation-figure svg {
+      width: 80px;
+      height: 80px;
+      fill: var(--color-primary);
+    }
+    .about-text {
+      flex: 1 1 300px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .about-description {
+      flex: 1 1 300px;
+      font-size: 1rem;
+      color: var(--color-text);
+      max-width: 560px;
+      line-height: 1.5;
+    }
+
+    /* KONTAKT sektion */
+    .contact-section {
+      background-color: var(--color-secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto 3rem;
       border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     }
-    .contact {
-      text-align: center;
-      margin-top: 3rem;
+    .contact-text {
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
-    .contact a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #a7cfc8;
-      color: white;
-      padding: 0.75rem 1.5rem;
+    .contact-button {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border: none;
       border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
     }
-    .contact a:hover {
-      background-color: #8fbab3;
+    .contact-button:hover,
+    .contact-button:focus {
+      background-color: var(--color-plommon-dark);
+      outline: none;
     }
-    footer {
-      background-color: #d5e5e3;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .header-inner, .about-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header-text, .about-text, .about-description {
+        text-align: center;
+      }
+      .features {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .feature {
+        min-height: unset;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>En tryggare väg</h1>
-    <div class="pulse-circle" aria-hidden="true"></div>
-    <p>Samtalsstöd för dig som vill hantera ångest, nedstämdhet eller hitta riktning i livet.</p>
+    <div class="header-inner">
+      <!-- Byt src till din bildfil -->
+      <img src="https://via.placeholder.com/140x140.png?text=Din+Bild" alt="Porträttfoto" class="profile-pic" />
+      <p class="header-text">
+        Välkommen! Jag erbjuder tryggt samtalsstöd online för dig som vill hitta tillbaka till livsglädjen. Oavsett oro, ångest eller andra utmaningar finns jag här för dig.
+      </p>
+    </div>
   </header>
 
-  <section class="section">
-    <h2 style="text-align:center;">Vad vi erbjuder</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Samtalsstöd</h3>
-        <p>Empatiska samtal i en trygg digital miljö, där du får utrymme att utforska dina tankar och känslor.</p>
-      </div>
-      <div class="feature">
-        <h3>Ångesthantering</h3>
-        <p>Verktyg och strategier för att hantera oro, stress och inre tryck – på dina villkor.</p>
-      </div>
-      <div class="feature">
-        <h3>Värderad riktning</h3>
-        <p>Stöd att hitta tillbaka till det som är viktigt för dig och ta steg mot ett mer meningsfullt liv.</p>
-      </div>
-    </div>
-  </section>
+  <main class="container">
+    <section class="features" aria-label="Våra tjänster">
+      <!-- Samtalstöd -->
+      <article class="feature samtalstod" tabindex="0" aria-labelledby="samtalstod-title">
+        <!-- SMS-ikon -->
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+        </svg>
+        <h3 id="samtalstod-title">Samtalstöd</h3>
+        <p>Du som behöver någon att prata med</p>
+      </article>
 
-  <section class="section about">
-    <h2>Om mig</h2>
-    <p>Jag som driver En tryggare väg har lång erfarenhet av att arbeta med samtalsstöd, med särskilt fokus på stress och psykisk ohälsa. Jag är inte legitimerad psykolog eller psykoterapeut, utan erbjuder samtal som ett komplement för dig som vill prata med någon utanför vården.</p>
-  </section>
+      <!-- Ångesthantering -->
+      <article class="feature angesthantering" tabindex="0" aria-labelledby="angesthantering-title">
+        <div class="plus-ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" >
+            <rect x="10" y="4" width="4" height="16" rx="1"/>
+            <rect x="4" y="10" width="16" height="4" rx="1"/>
+          </svg>
+        </div>
+        <h3 id="angesthantering-title" style="margin-top: 48px;">Ångesthantering</h3>
+        <p>En tryggare väg med KBT</p>
+      </article>
 
-  <section class="section contact">
-    <h2>Kontakt</h2>
-    <p>Du är varmt välkommen att kontakta mig via e-post för att boka ett första samtal eller ställa frågor:</p>
-    <a href="mailto:kontakt@entryggarevag.se">kontakt@entryggarevag.se</a>
-  </section>
+      <!-- Depression -->
+      <article class="feature depression" tabindex="0" aria-labelledby="depression-title">
+        <!-- Regnmoln-ikon -->
+        <svg aria-hidden="true" viewBox="0 0 24 24" >
+          <path d="M6 19a4 4 0 0 1 0-8 5 5 0 0 1 9.9-1.4 3.5 3.5 0 0 1 .6 6.9H6z"/>
+        </svg>
+        <h3 id="depression-title">Depression</h3>
+        <p>Du som lider av depression</p>
+      </article>
+    </section>
 
-  <footer>
-    &copy; 2025 En tryggare väg – Allt innehåll är skyddat.
-  </footer>
+    <section class="about-section" aria-labelledby="about-heading">
+      <div class="meditation-figure" aria-hidden="true">
+        <!-- Enkel meditativ figur SVG -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meditativ figur">
+          <circle cx="32" cy="14" r="10"/>
+          <path d="M22 54c0-10 20-10 20 0" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M32 24v20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <path d="M22 44c0-4 20-4 20 0" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h2 id="about-heading" class="about-text">Om mig</h2>
+        <p class="about-description">
+          Med många års erfarenhet av att stötta människor i svåra livssituationer hjälper jag dig att gå från att bara överleva till att verkligen leva ett meningsfullt och värdigt liv.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-label="Kontakt">
+      <p class="contact-text">
+        För att boka ett samtal eller om du har frågor, vänligen kontakta mig via e-post.
+      </p>
+      <button class="contact-button" onclick="window.location.href='mailto:kontakt@example.com'">Skicka e-post</button>
+    </section>
+  </main>
+
 </body>
+</html>

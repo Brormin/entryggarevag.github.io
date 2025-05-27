@@ -18,12 +18,36 @@
       padding: 4rem 2rem;
       text-align: center;
       border-bottom: 5px solid #c1d1cf;
+      position: relative; /* För att kunna positionera pulserande cirkel */
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #2a3d3b;
+    }
+    /* Pulsande cirkel i headern */
+    .pulse-circle {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background-color: #a7cfc8;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: pulse 4s ease-in-out infinite;
+      box-shadow: 0 0 10px #a7cfc8;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+      }
     }
     header p {
       font-size: 1.1rem;
@@ -83,41 +107,15 @@
       font-size: 0.9rem;
       margin-top: 2rem;
     }
-header {
-  position: relative; /* så att pulserande cirkeln kan positioneras i förhållande till headern */
-}
-
-.pulse-circle {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  width: 40px;
-  height: 40px;
-  background-color: #a7cfc8;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: pulse 4s ease-in-out infinite;
-  box-shadow: 0 0 10px #a7cfc8;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.3;
-  }
-}
   </style>
 </head>
 <body>
   <header>
     <h1>En tryggare väg</h1>
-<div class="pulse-circle" aria-hidden="true"></div>
+    <div class="pulse-circle" aria-hidden="true"></div>
     <p>Samtalsstöd för dig som vill hantera ångest, nedstämdhet eller hitta riktning i livet.</p>
   </header>
+
   <section class="section">
     <h2 style="text-align:center;">Vad vi erbjuder</h2>
     <div class="features">
@@ -151,4 +149,3 @@ header {
     &copy; 2025 En tryggare väg – Allt innehåll är skyddat.
   </footer>
 </body>
-</html>

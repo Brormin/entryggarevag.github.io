@@ -1,203 +1,71 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>En tryggare väg</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Grundstilar */
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f9f6f1;
-      color: #333;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header {
-      background-color: #d5e5e3;
-      padding: 3rem 1rem;
-      text-align: center;
-      position: relative;
-    }
-    .hero-content {
-      max-width: 900px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .hero-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 4px solid #a7cfc8;
-    }
-    .hero-text h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 2.8rem;
-      margin: 0;
-      color: #2a3d3b;
-    }
-    .hero-text p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0;
-    }
-
-    /* Tjänster */
-    section.services {
-      padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section.services h2 {
-      text-align: center;
-      font-family: 'Raleway', sans-serif;
-      font-size: 2.2rem;
-      color: #2a3d3b;
-    }
-    .service-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      justify-content: center;
-    }
-    .service-card {
-      background-color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      width: 280px;
-      text-align: center;
-      position: relative;
-    }
-    .service-card .icon {
-      font-size: 2.5rem;
-      display: block;
-      margin: 0 auto 0.5rem;
-    }
-    .service-card.angst { background-color: #f0eafc; }
-    .service-card.depression { background-color: #e8f0fe; }
-
-    .service-card h3 {
-      font-family: 'Raleway', sans-serif;
-      margin: 0.5rem 0;
-      color: #2a3d3b;
-    }
-    .service-card p { margin: 0; }
-
-    /* Om mig */
-    section.about {
-      padding: 3rem 1rem;
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: #eae6df;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    section.about h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #2a3d3b;
-    }
-    section.about p {
-      font-size: 1rem;
-      margin: 0;
-    }
-
-    /* Kontakt */
-    section.contact {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    section.contact h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 2rem;
-      color: #2a3d3b;
-    }
-    section.contact p { font-size: 1rem; }
-    section.contact a.button {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #a7cfc8;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    section.contact a.button:hover { background-color: #8fbab3; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      background-color: #d5e5e3;
-    }
-
-    /* Responsiv */
-    @media (max-width: 768px) {
-      .hero-content { flex-direction: column; }
-      .service-card { width: 100%; max-width: 320px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://kit.fontawesome.com/a2d9d5a4a0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header>
-    <div class="hero-content">
-      <img src="https://github.com/Brormin/entryggarevag.github.io/blob/main/jag.jpg.jpg" alt="Profilbild" class="hero-image">
-      <div class="hero-text">
-        <h1>Välkommen till En tryggare väg</h1>
-        <p>Stöd i livets svåra stunder – samtalsstöd online utan diagnoser eller journalföring.</p>
-      </div>
-    </div>
+    <h1>En tryggare väg</h1>
+    <p>Stöd och samtal för dig som behöver en förändring</p>
   </header>
 
-  <section class="services">
-    <h2>Vad vi erbjuder</h2>
-    <div class="service-grid">
-      <div class="service-card chat">
-        <span class="icon">💬</span>
-        <h3>Samtalsstöd</h3>
-        <p>Empatiska samtal i en trygg digital miljö, där du får utrymme att utforska dina tankar och känslor.</p>
+  <main>
+    <section class="profile">
+      <img src="jag.jpg.jpg" alt="Profilbild" class="profile-img">
+      <h2><i class="fas fa-person-meditating"></i> Om mig</h2>
+      <p>Jag erbjuder samtalsstöd med fokus på ångest, stress och livets utmaningar. Med evidensbaserade metoder som ACT, KBT och MCT skapar vi tillsammans en trygg väg framåt.</p>
+    </section>
+
+    <section class="services">
+      <div class="service">
+        <i class="fas fa-brain"></i>
+        <h3>Ångest</h3>
+        <p>Hitta lugnet i kaoset. Vi arbetar med verktyg för att förstå och hantera ångest.</p>
       </div>
-      <div class="service-card angst">
-        <span class="icon">➕</span>
-        <h3>Ångesthantering</h3>
-        <p>Verktyg och strategier för att hantera oro, stress och inre tryck.</p>
-      </div>
-      <div class="service-card depression">
-        <span class="icon">☔️</span>
+      <div class="service">
+        <i class="fas fa-cloud"></i>
         <h3>Depression</h3>
-        <p>Stöd i perioder av nedstämdhet, ensamhet eller låg självkänsla.</p>
+        <p>När livet känns tungt finns det hjälp. Vi utforskar vägar till mening och energi.</p>
       </div>
-    </div>
-  </section>
+      <div class="service">
+        <i class="fas fa-compass"></i>
+        <h3>Coaching</h3>
+        <p>Har du fastnat i vardagen eller i din utveckling? Coaching hjälper dig att hitta nästa steg.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Samtalsstöd</h3>
+        <p>Ibland behöver vi bara bli hörda. Här får du ett tryggt utrymme för reflektion.</p>
+      </div>
+    </section>
 
-  <section class="about">
-    <h2>Om mig</h2>
-    <p>Jag har lång erfarenhet av att erbjuda samtalsstöd online, med fokus på trygghet, empati och praktiska verktyg. Mitt mål är att vara en närvarande medmänniska som hjälper dig hitta balans och riktning i livet, utan att koppla samtalen till vård eller journalföring.</p>
-  </section>
+    <section class="contact">
+      <h2>Kontakt</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <label for="name">Namn</label>
+        <input type="text" id="name" name="name" required>
 
-  <section class="contact">
-    <h2>Kontakt</h2>
-    <p>Mejla gärna för att boka ett första samtal eller om du har frågor:</p>
-    <a href="mailto:kontakt@entryggarevag.se" class="button">Skicka mejl</a>
-  </section>
+        <label for="email">E-post</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Meddelande</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 En tryggare väg – Alla rättigheter förbehållna.
+    <p>&copy; 2025 En tryggare väg</p>
   </footer>
 </body>
+
 </html>

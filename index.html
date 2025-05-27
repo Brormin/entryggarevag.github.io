@@ -6,324 +6,266 @@
   <title>En tryggare väg</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet" />
   <style>
-    /* Grundinställningar */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #f9f6f1;
       color: #333;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-
-    /* Header med flytande ruta */
     header {
       background-color: #d5e5e3;
-      padding: 3rem 1rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .header-container {
-      background: white;
-      max-width: 960px;
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
       display: flex;
       align-items: center;
-      gap: 2rem;
-      padding: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      flex-shrink: 0;
-    }
-
-    .welcome-text {
-      flex: 1 1 300px;
-      font-size: 1.25rem;
-      color: #2a3d3b;
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* Sektion för rutor */
-    .section {
       max-width: 960px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      margin: 2rem auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      gap: 2rem;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    header .welcome-text {
+      font-family: 'Playfair Display', serif;
+      color: #2a3d3b;
+      font-size: 1.4rem;
+      max-width: 600px;
     }
 
-    .card-container {
+    main {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      flex-grow: 1;
+    }
+
+    .cards {
       display: flex;
+      gap: 1.5rem;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      margin-top: 2rem;
     }
-
-    /* Standardruta */
     .card {
       background: white;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
       flex: 1 1 280px;
-      max-width: 300px;
-      padding: 2rem 1.5rem 2.5rem;
+      max-width: 320px;
       text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    /* Färgsättning för specialruta ångesthantering */
-    .card.angsthantering {
-      background-color: #d8c4e2; /* ljuslila/plommon */
-      color: #3e2e56;
+      color: #2a3d3b;
       position: relative;
     }
-
-    /* Cirkel + över ångesthantering */
-    .circle-plus {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #3e2e56;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 2rem;
-      line-height: 50px;
-      font-weight: bold;
-      user-select: none;
+    .card h3 {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+    }
+    .card p {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: #555;
     }
 
-    /* Ikoner */
-    .icon {
-      font-size: 48px;
-      color: #6a9e96;
-      flex-shrink: 0;
-    }
-
-    /* Ikon för samtalsstöd - telefonlur istället för brev */
-    .icon.phone {
-      color: #6a9e96;
-    }
-
-    /* Ikon för depression - moln med regn */
-    .icon.rain-cloud {
-      position: relative;
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-    }
-
-    .icon.rain-cloud svg {
-      width: 48px;
-      height: 48px;
+    /* Samtalsstöd - chattbubbla ikon */
+    .card.samtalsstod svg {
+      width: 56px;
+      height: 56px;
       fill: #6a9e96;
     }
 
-    /* Rubriker */
-    .card h3 {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: inherit;
+    /* Ångesthantering - plommonfärg och plus-symbol */
+    .card.angesthantering {
+      background-color: #b39ddb; /* ljusplommon */
+      color: #3e2f5b;
+    }
+    .card.angesthantering svg.plus-circle {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      fill: none;
+      stroke: #3e2f5b;
+      stroke-width: 4;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .card.angesthantering svg.plus-symbol {
+      stroke: #3e2f5b;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .card.angesthantering h3 {
+      margin-top: 3.5rem; /* för att ge plats åt plus-symbol */
     }
 
-    /* Text under rubrik */
-    .card p {
-      margin: 0;
-      font-size: 1rem;
-      color: inherit;
+    /* Depression - regnmoln med regn */
+    .card.depression svg {
+      width: 56px;
+      height: 56px;
+      fill: #6a9e96;
+      stroke: #6a9e96;
+      stroke-width: 2;
+    }
+    .card.depression p {
+      margin-top: 0.75rem;
+      color: #555;
     }
 
     /* Om mig sektion */
     .about-section {
-      max-width: 960px;
-      margin: 4rem auto 5rem;
-      padding: 0 1rem;
       display: flex;
       align-items: center;
+      margin-top: 3rem;
       gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    /* Mediterande figur */
-    .meditation-figure {
-      flex-shrink: 0;
-      width: 160px;
-      height: 160px;
-      background: #d5e5e3;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1rem;
       border-radius: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: relative;
-    }
-
-    /* Enkel mediterande figur - SVG */
-    .meditation-figure svg {
-      width: 100px;
-      height: 100px;
-      fill: #6a9e96;
-    }
-
-    .about-text {
-      flex: 1 1 300px;
-      font-family: 'Playfair Display', serif;
+      background-color: #eae6df;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       color: #2a3d3b;
     }
-
-    .about-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .about-illustration {
+      flex-shrink: 0;
+      width: 150px;
+      height: 150px;
     }
-
-    .about-text p {
-      font-size: 1.15rem;
-      line-height: 1.5;
+    .about-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      line-height: 1.4;
       max-width: 600px;
     }
 
-    /* Kontakt-sektion */
+    /* Kontakt */
     .contact-section {
-      background-color: #d5e5e3;
-      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 1rem;
       text-align: center;
     }
-
-    .contact-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #2a3d3b;
-    }
-
-    .contact-text {
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
+    .contact-section p {
       font-size: 1.1rem;
       color: #2a3d3b;
+      margin-bottom: 1rem;
     }
-
     .contact-button {
       background-color: #6a9e96;
       color: white;
-      padding: 0.85rem 2rem;
-      font-size: 1.1rem;
       border: none;
-      border-radius: 10px;
+      padding: 0.85rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s ease;
       display: inline-block;
-      user-select: none;
+      transition: background-color 0.3s;
+    }
+    .contact-button:hover {
+      background-color: #557c70;
     }
 
-    .contact-button:hover,
-    .contact-button:focus {
-      background-color: #558073;
-      outline: none;
-    }
-
-    /* Responsivitet */
-    @media (max-width: 700px) {
-      .header-container {
+    /* Responsive */
+    @media (max-width: 720px) {
+      header {
         flex-direction: column;
         text-align: center;
       }
-
+      header .welcome-text {
+        max-width: 100%;
+        font-size: 1.2rem;
+      }
       .about-section {
         flex-direction: column;
         text-align: center;
       }
-
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .card {
+      .about-text {
         max-width: 100%;
+      }
+      .cards {
+        flex-direction: column;
+        gap: 1rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-container" role="banner" aria-label="Välkomstsektion">
-      <img src="hemsida/jag.jpg" alt="Profilbild" class="profile-pic" />
-      <p class="welcome-text">
-        Välkommen! Jag erbjuder samtalstöd online för dig som vill börja leva ditt liv fullt ut igen – oavsett oro, ångest eller livets utmaningar.
-      </p>
+    <img src="jag.jpg" alt="Profilbild" />
+    <div class="welcome-text">
+      <p>Välkommen! Jag erbjuder tryggt och professionellt samtalsstöd online för dig som vill börja leva igen –  
+      oavsett oro, ångest eller andra livsutmaningar.</p>
     </div>
   </header>
 
   <main>
-    <section class="section" aria-labelledby="tjänster-header">
-      <h2 id="tjänster-header" style="text-align:center; font-family: 'Playfair Display', serif; color: #2a3d3b; margin-bottom: 2rem;">Vad vi erbjuder</h2>
-      <div class="card-container">
-        <div class="card">
-          <!-- Telefonlur ikon (SVG) -->
-          <svg class="icon phone" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a.5.5 0 01.5.5V7a2 2 0 01-2 2H4a1 1 0 00-1 1v1.5a.5.5 0 00.5.5H7a2 2 0 012 2v1.5a.5.5 0 01-.5.5H5a2 2 0 01-2-2V5z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 14a6.5 6.5 0 016.5-6.5h2a.5.5 0 01.5.5V11a6.5 6.5 0 01-6.5 6.5H10a.5.5 0 01-.5-.5v-2z" />
-          </svg>
-          <h3>Samtalsstöd</h3>
-          <p>Tryggt samtal med erfaren samtalsterapeut för ångest, stress och oro.</p>
-        </div>
-
-        <div class="card angsthantering">
-          <div class="circle-plus" aria-hidden="true">+</div>
-          <h3>Ångesthantering</h3>
-          <p>Verktyg och metoder för att hantera oro och ångest i vardagen.</p>
-        </div>
-
-        <div class="card">
-          <!-- Moln med regn ikon -->
-          <div class="icon rain-cloud" aria-hidden="true" role="img" aria-label="Moln med regn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#6a9e96">
-              <path d="M48 28a8 8 0 0 0-7.93-7.999A10.001 10.001 0 0 0 28 18a10 10 0 0 0-1.17 19.878 6.5 6.5 0 1 0 13.67 2.99A6 6 0 0 0 48 28z"/>
-              <line x1="22" y1="50" x2="22" y2="58" stroke="#6a9e96" stroke-width="3" stroke-linecap="round"/>
-              <line x1="30" y1="52" x2="30" y2="60" stroke="#6a9e96" stroke-width="3" stroke-linecap="round"/>
-              <line x1="38" y1="50" x2="38" y2="58" stroke="#6a9e96" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Depression</h3>
-          <p>Information och stöd för dig som känner dig nedstämd eller deprimerad.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section" aria-labelledby="about-header">
-      <div class="meditation-figure" aria-hidden="true">
-        <!-- Enkel mediterande figur SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <circle cx="32" cy="14" r="10" fill="#6a9e96" />
-          <path fill="#6a9e96" d="M21 48c0-6 10-6 10-6s10 0 10 6v6H21v-6z" />
-          <path fill="#6a9e96" d="M32 36c-7 0-12-4-12-12v-4h24v4c0 8-5 12-12 12z" />
+    <div class="cards">
+      <div class="card samtalsstod" role="region" aria-label="Samtalsstöd">
+        <!-- Chattbubbla ikon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6l-4 4V6a2 2 0 0 1 2-2z" />
         </svg>
+        <h3>Samtalsstöd</h3>
+        <p>Tryggt samtal med erfaren samtalsterapeut för ångest, stress och oro.</p>
       </div>
+
+      <div class="card angesthantering" role="region" aria-label="Ångesthantering">
+        <!-- Plus cirkel -->
+        <svg class="plus-circle" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" stroke="#3e2f5b" stroke-width="4" fill="none" />
+          <line class="plus-symbol" x1="24" y1="12" x2="24" y2="36" />
+          <line class="plus-symbol" x1="12" y1="24" x2="36" y2="24" />
+        </svg>
+        <h3>Ångesthantering</h3>
+        <p>En tryggare väg med KBT.</p>
+      </div>
+
+      <div class="card depression" role="region" aria-label="Depression">
+        <!-- Regnmoln med regn -->
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" stroke="#6a9e96" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Moln -->
+          <path d="M20 40a12 12 0 0 1 24 0h8a8 8 0 0 1 0 16H20a12 12 0 0 1 0-24 12 12 0 0 1 0 8z" fill="#c4d6d6"/>
+          <!-- Regndroppar -->
+          <line x1="26" y1="56" x2="26" y2="62" />
+          <line x1="32" y1="56" x2="32" y2="62" />
+          <line x1="38" y1="56" x2="38" y2="62" />
+        </svg>
+        <h3>Depression</h3>
+        <p>Stöd för dig som kämpar med nedstämdhet och trötthet.</p>
+      </div>
+    </div>
+
+    <section class="about-section" aria-label="Om mig">
+      <svg class="about-illustration" viewBox="0 0 64 64" fill="none" stroke="#6a9e96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <!-- Meditation-figur -->
+        <circle cx="32" cy="18" r="8" fill="#c4d6d6" />
+        <path d="M20 54c3-6 12-6 16 0" stroke="#6a9e96" stroke-width="3" />
+        <path d="M24 26c2 8 8 8 12 0" stroke="#6a9e96" stroke-width="3" />
+        <line x1="32" y1="26" x2="32" y2="40" />
+        <path d="M18 48c4-2 12-2 16 0" />
+      </svg>
       <div class="about-text">
-        <h2 id="about-header">Om mig</h2>
-        <p>Jag är en erfaren samtalsterapeut med fokus på ångesthantering, stressreduktion och personlig utveckling. Min ambition är att skapa en trygg och öppen plats där du kan växa och finna balans i livet.</p>
+        <p>Jag heter [Denis Apelfröjd], och jag finns här för att hjälpa dig genom tryggt och stödjande samtal.  
+        Tillsammans hittar vi en väg framåt, oavsett vilka utmaningar du står inför.</p>
       </div>
     </section>
 
-    <section class="contact-section" aria-labelledby="contact-header">
-      <h2 id="contact-header">Kontakta mig</h2>
-      <p class="contact-text">Vill du boka ett samtal eller har frågor? Hör gärna av dig så hjälper jag dig på bästa sätt.</p>
+    <section class="contact-section" aria-label="Kontakt">
+      <p>Kontakta mig gärna för en första kostnadsfri konsultation.</p>
       <a href="mailto:info@tryggarevag.se" class="contact-button">Skicka e-post</a>
     </section>
   </main>

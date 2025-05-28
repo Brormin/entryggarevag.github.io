@@ -1,165 +1,146 @@
-/* Grundinställningar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #fdfdfd;
-  color: #333;
-  padding: 0;
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  background: #fefefe;
+  color: #333;
 }
 
-/* Header */
 header {
-  background: #a7c4bc;
-  color: white;
-  padding: 40px 20px;
+  background: #dbe6f2;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
 }
 
 .header-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px;
-  border: 4px solid white;
+  margin-bottom: 15px;
+  border: 3px solid #ccc;
 }
 
 .header-text h1 {
-  font-size: 2.2em;
+  margin: 0;
+  font-size: 2rem;
+  color: #2c3e50;
 }
 
 .header-text p {
-  font-size: 1.1em;
-  margin-top: 5px;
+  margin-top: 8px;
+  font-size: 1.1rem;
 }
 
-/* Profilsektion */
-.profile {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: #fff;
+main {
+  padding: 20px;
 }
 
 .om-mig-header {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .om-mig-header i {
-  font-size: 1.5em;
-  margin-right: 10px;
-  color: #5d6d7e;
+  font-size: 1.5rem;
+  color: #5c7096;
 }
 
-.meditationsfigur i {
-  font-size: 3em;
-  color: #88a4a2;
-  margin-top: 20px;
+.meditationsfigur img {
+  width: 100px;
+  margin: 20px auto;
+  display: block;
 }
 
-.meditationsfigur p {
-  margin-top: 5px;
-  font-size: 0.95em;
-  color: #666;
-}
-
-/* Tjänster */
 .services {
-  background-color: #f4f4f4;
-  padding: 40px 20px;
+  margin-top: 30px;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .service {
-  background-color: white;
-  border-radius: 10px;
-  padding: 25px;
+  background: #f0f4fa;
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .service i {
-  font-size: 2em;
+  font-size: 2.5rem;
+  color: #6b90c7;
   margin-bottom: 10px;
-  color: #5e7b7d;
 }
 
 .service h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #333;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #2c3e50;
 }
 
-/* Kontaktformulär */
 .contact {
-  padding: 40px 20px;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-top: 40px;
+  background: #eaf0f9;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .contact h2 {
-  margin-bottom: 20px;
   text-align: center;
-}
-
-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: inherit;
+  color: #2c3e50;
 }
 
-button[type="submit"] {
-  background-color: #5e7b7d;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #5c7096;
   color: white;
-  padding: 12px 25px;
   border: none;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  transition: background-color 0.2s;
 }
 
-button[type="submit"]:hover {
-  background-color: #3d5557;
+button:hover {
+  background-color: #3e5173;
 }
 
-/* Footer */
 footer {
-  background-color: #a7c4bc;
-  color: white;
   text-align: center;
   padding: 20px;
+  background: #dbe6f2;
   margin-top: 40px;
 }

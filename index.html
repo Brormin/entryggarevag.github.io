@@ -2,74 +2,58 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>En tryggare väg</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="https://kit.fontawesome.com/a2d9d5a4a0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="shield.png" type="image/png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <img src="jag.jpg" alt="Profilbild" class="profile-img" />
-      <div class="header-text">
-        <h1>En tryggare väg</h1>
-        <p>Stöd och samtal för dig som behöver en förändring</p>
-      </div>
-    </div>
+    <h1>En tryggare väg</h1>
+    <button onclick="toggleLanguage()">English</button>
   </header>
   <main>
-    <section class="profile">
-      <div class="om-mig-header">
-        <i class="fas fa-person-meditating"></i>
-        <h2>Om mig</h2>
+    <section class="grid">
+      <div class="card">
+        <i class="fas fa-bolt"></i>
+        <h2>Ångesthantering</h2>
+        <p>Stöd och verktyg för att hantera din ångest och återta kontrollen.</p>
       </div>
-      <p>
-        Jag erbjuder samtalsstöd med fokus på ångest, stress och livets utmaningar. Med evidensbaserade metoder som ACT, KBT och MCT skapar vi tillsammans en trygg väg framåt. Jag tror på trygghet, empati och att varje människa har möjlighet till förändring och helande i sin egen takt.
-      </p>
-      <div class="meditationsfigur">
-        <img src="meditation.svg" alt="Meditationsfigur" />
+      <div class="card">
+        <i class="fas fa-comments"></i>
+        <h2>Samtalsstöd</h2>
+        <p>Närvarande samtal som möter dig där du är, oavsett livssituation.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-cloud"></i>
+        <h2>Depression</h2>
+        <p>För dig som kämpar i mörkret – du behöver inte göra det ensam.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h2>Coaching</h2>
+        <p>För dig som vill utvecklas, hitta mening eller byta riktning i livet.</p>
       </div>
     </section>
-    <section class="services">
-      <div class="service-grid">
-        <div class="service">
-          <i class="fas fa-brain"></i>
-          <h3>Ångest</h3>
-          <p>Hitta lugnet i kaoset. Vi arbetar med verktyg för att förstå och hantera ångest.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-cloud-rain"></i>
-          <h3>Depression</h3>
-          <p>När livet känns tungt finns det hjälp. Vi utforskar vägar till mening och energi.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-compass"></i>
-          <h3>Coaching</h3>
-          <p>Har du fastnat i vardagen eller i din utveckling? Coaching hjälper dig att hitta nästa steg.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-comments"></i>
-          <h3>Samtalsstöd</h3>
-          <p>Ibland behöver vi bara bli hörda. Här får du ett tryggt utrymme för reflektion.</p>
-        </div>
+    <section class="about">
+      <div class="about-image">
+        <img src="shield.png" alt="Trygg symbol"/>
+      </div>
+      <div class="about-text">
+        <h2>Om mig</h2>
+        <p>Jag erbjuder ett tryggt samtalsrum för vuxna, par och organisationer. Med erfarenhet och förståelse möter jag dig där du är i livet. Arbetet grundar sig i evidensbaserade och beprövade metoder med fokus på att skapa varaktig förändring.</p>
       </div>
     </section>
     <section class="contact">
-      <h2>Kontakt</h2>
-      <form action="https://formspree.io/f/yourformid" method="POST">
-        <label for="name">Namn</label>
-        <input type="text" id="name" name="name" required />
-        <label for="email">E-post</label>
-        <input type="email" id="email" name="email" required />
-        <label for="message">Meddelande</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+      <h2>Kontakta mig</h2>
+      <form action="https://formspree.io/f/xoqgzvkj" method="POST">
+        <input type="text" name="name" placeholder="Ditt namn" required/>
+        <input type="email" name="email" placeholder="Din e-post" required/>
+        <textarea name="message" placeholder="Ditt meddelande" required></textarea>
         <button type="submit">Skicka</button>
       </form>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 En tryggare väg</p>
-  </footer>
 </body>
 </html>

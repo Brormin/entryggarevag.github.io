@@ -3,66 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>En Tryggare Väg</title>
+  <title>En tryggare väg</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="shield.svg" type="image/svg+xml">
-  <script src="https://kit.fontawesome.com/8fa2042737.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="skold.svg" />
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>En Tryggare Väg</h1>
-    <button onclick="toggleLanguage()">EN / SV</button>
+    <h1>En tryggare väg</h1>
+    <button onclick="toggleLanguage()">🌍 English</button>
   </header>
 
-  <main id="content">
+  <main>
     <section class="grid">
       <div class="card">
-        <i class="fas fa-user-injured"></i>
-        <h2>Ångesthantering</h2>
-        <p>Stöd i att hantera oro, ältande och grubblande.</p>
+        <i class="fas fa-user-mind"></i>
+        <h2 data-sv="Ångesthantering" data-en="Anxiety Management">Ångesthantering</h2>
       </div>
       <div class="card">
-        <i class="fas fa-cloud-showers-heavy"></i>
-        <h2>Depression</h2>
-        <p>När livet känns tungt och energin tryter.</p>
+        <i class="fas fa-comment-dots"></i>
+        <h2 data-sv="Samtalsstöd" data-en="Counselling">Samtalsstöd</h2>
       </div>
       <div class="card">
-        <i class="fas fa-comments"></i>
-        <h2>Samtalsstöd</h2>
-        <p>Trygga samtal med fokus på din utveckling.</p>
+        <i class="fas fa-people-arrows"></i>
+        <h2 data-sv="Coaching" data-en="Coaching">Coaching</h2>
       </div>
       <div class="card">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <h2>Coaching</h2>
-        <p>Stöd för dig som vill ta nästa steg i livet eller arbetslivet.</p>
+        <i class="fas fa-cloud-rain"></i>
+        <h2 data-sv="Depression" data-en="Depression">Depression</h2>
       </div>
     </section>
 
     <section class="about">
-      <div class="about-container">
-        <img src="shield.svg" alt="Trygghetssymbol" class="about-img" />
-        <div>
-          <h2>Om mig</h2>
-          <p>Jag erbjuder samtalsstöd och coaching baserat på evidens och beprövade metoder. Jag möter vuxna, par och organisationer som söker hjälp för psykisk ohälsa eller som vill utvecklas och ta nästa steg.</p>
-        </div>
+      <img src="jag.jpg" alt="Profilbild" class="profile-pic" />
+      <div>
+        <h2 data-sv="Om mig" data-en="About Me">Om mig</h2>
+        <p data-sv="Jag erbjuder samtalsstöd för vuxna, par och organisationer. Fokus ligger på psykisk hälsa, personlig utveckling och ett tryggt bemötande. Arbetet utgår från evidensbaserade metoder." 
+           data-en="I offer support for individuals, couples, and organizations. The focus is on mental well-being, personal development, and creating a safe space. I work with evidence-based practices.">
+          Jag erbjuder samtalsstöd för vuxna, par och organisationer. Fokus ligger på psykisk hälsa, personlig utveckling och ett tryggt bemötande. Arbetet utgår från evidensbaserade metoder.
+        </p>
       </div>
     </section>
 
     <section class="contact">
-      <h2>Kontakta mig</h2>
-      <form action="https://formspree.io/f/mwkdglky" method="POST">
-        <input type="text" name="name" placeholder="Ditt namn" required />
-        <input type="email" name="email" placeholder="Din e-post" required />
-        <textarea name="message" placeholder="Ditt meddelande" required></textarea>
-        <button type="submit">Skicka</button>
+      <h2 data-sv="Kontakta mig" data-en="Contact Me">Kontakta mig</h2>
+      <form action="https://formspree.io/f/YOUR-ID-HERE" method="POST">
+        <input type="text" name="name" placeholder="Namn" required />
+        <input type="email" name="email" placeholder="E-post" required />
+        <textarea name="message" placeholder="Meddelande" required></textarea>
+        <button type="submit" data-sv="Skicka" data-en="Send">Skicka</button>
       </form>
     </section>
   </main>
 
-<script>
-  function toggleLanguage() {
-    alert("Den engelska versionen kommer snart!");
-  }
-</script>
+  <footer>
+    <img src="skold.svg" alt="Trygghetssymbol" class="shield" />
+    <p>© En tryggare väg</p>
+  </footer>
+
+  <script>
+    function toggleLanguage() {
+      const elements = document.querySelectorAll("[data-en]");
+      elements.forEach(el => {
+        const isSwedish = el.innerText === el.getAttribute("data-sv");
+        el.innerText = isSwedish ? el.getAttribute("data-en") : el.getAttribute("data-sv");
+      });
+    }
+  </script>
 </body>
 </html>

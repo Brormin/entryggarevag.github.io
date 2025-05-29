@@ -5,62 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>En tryggare väg</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/svg+xml" href="skold.svg" />
-  <script src="https://kit.fontawesome.com/4f3bfc0835.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/45c89313e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <header>
-    <div class="header-content">
-      <img src="jag.jpg" alt="Profilbild" class="profilbild">
+    <div class="header-container">
+      <img src="jag.jpg" alt="Profilbild" class="profile-img" />
       <h1>En tryggare väg</h1>
-      <button onclick="toggleLanguage()" class="lang-btn">EN / SV</button>
+      <button onclick="toggleLanguage()" class="lang-btn">🇬🇧</button>
     </div>
   </header>
 
   <main>
-    <section class="grid">
-      <div class="card">
+    <section class="services">
+      <div class="service">
         <i class="fas fa-user-circle"></i>
-        <h2 data-sv="Samtalsstöd" data-en="Talk Support">Samtalsstöd</h2>
-        <p data-sv="För dig som söker stöd i en trygg miljö." data-en="For those seeking support in a safe space.">För dig som söker stöd i en trygg miljö.</p>
+        <h2>Ångesthantering</h2>
+        <p>Känner du dig fast i oro eller ältande tankar? Här finns stöd att hitta balans.</p>
       </div>
-      <div class="card">
-        <i class="fas fa-brain"></i>
-        <h2 data-sv="Ångesthantering" data-en="Anxiety Support">Ångesthantering</h2>
-        <p data-sv="Lär dig hantera oro, ältande och inre stress." data-en="Learn to manage rumination and inner stress.">Lär dig hantera oro, ältande och inre stress.</p>
+      <div class="service">
+        <i class="fas fa-comments"></i>
+        <h2>Samtalsstöd</h2>
+        <p>När du behöver någon som lyssnar – tryggt, professionellt och utan krav.</p>
       </div>
-      <div class="card">
-        <i class="fas fa-cloud-rain"></i>
-        <h2 data-sv="Depression" data-en="Depression">Depression</h2>
-        <p data-sv="När livet känns tungt – du behöver inte bära det själv." data-en="When life feels heavy – you don't have to carry it alone.">När livet känns tungt – du behöver inte bära det själv.</p>
+      <div class="service">
+        <i class="fas fa-user-tie"></i>
+        <h2>Coaching</h2>
+        <p>För dig som vill ta nästa steg i livet, arbetet eller relationen.</p>
       </div>
-      <div class="card">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <h2 data-sv="Coaching" data-en="Coaching">Coaching</h2>
-        <p data-sv="För dig som vill ta nästa steg i livet." data-en="For those who want to move forward in life.">För dig som vill ta nästa steg i livet.</p>
+      <div class="service">
+        <i class="fas fa-cloud"></i>
+        <h2>Depression</h2>
+        <p>Nedstämdhet, håglöshet eller tappad riktning – vi hittar vägen tillsammans.</p>
       </div>
     </section>
 
-    <section class="about-section">
-      <div class="about-container">
-        <img src="skold.svg" alt="Sköldsymbol" class="about-image" />
-        <div class="about-text">
-          <h2 data-sv="Om mig" data-en="About Me">Om mig</h2>
-          <p data-sv="Jag erbjuder stöd till vuxna, par och organisationer. Här får du möta en trygg samtalsmiljö, oavsett om du söker hjälp för psykisk ohälsa eller personlig utveckling. Arbetet grundar sig på evidens och beprövade metoder." 
-             data-en="I support adults, couples, and organizations. You'll find a safe therapeutic space, whether you're struggling with mental health or seeking personal growth. My work is based on evidence and proven methods.">
-            Jag erbjuder stöd till vuxna, par och organisationer. Här får du möta en trygg samtalsmiljö, oavsett om du söker hjälp för psykisk ohälsa eller personlig utveckling. Arbetet grundar sig på evidens och beprövade metoder.
-          </p>
+    <section class="about">
+      <div class="about-card">
+        <img src="shield.svg" alt="Trygghetssymbol" class="about-icon" />
+        <div>
+          <h2>Om mig</h2>
+          <p>Jag erbjuder samtalsstöd och coaching för vuxna, par och organisationer. Arbetet utgår från trygghet, respekt och evidensbaserade metoder. Tillsammans skapar vi en plats för riktning, utveckling och återhämtning.</p>
         </div>
       </div>
     </section>
 
     <section class="contact">
-      <h2 data-sv="Kontakta mig" data-en="Contact Me">Kontakta mig</h2>
-      <form action="https://formspree.io/f/mnqeybwp" method="POST">
-        <input type="text" name="name" placeholder="Namn" required>
-        <input type="email" name="email" placeholder="E-post" required>
+      <h2>Kontakta mig</h2>
+      <form action="https://formspree.io/f/mlekzqyo" method="POST">
+        <input type="text" name="name" placeholder="Ditt namn" required>
+        <input type="email" name="email" placeholder="Din e-post" required>
         <textarea name="message" placeholder="Ditt meddelande" required></textarea>
-        <button type="submit" data-sv="Skicka" data-en="Send">Skicka</button>
+        <button type="submit">Skicka</button>
       </form>
     </section>
   </main>
@@ -71,12 +68,9 @@
 
   <script>
     function toggleLanguage() {
-      const elements = document.querySelectorAll("[data-sv]");
-      elements.forEach(el => {
-        const current = el.textContent.trim();
-        el.textContent = current === el.dataset.sv ? el.dataset.en : el.dataset.sv;
-      });
+      alert("Den engelska versionen är under utveckling.");
     }
   </script>
+
 </body>
 </html>

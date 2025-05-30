@@ -1,38 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>En tryggare väg</title>
+  <title>En Tryggare Väg</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
-    <img src="jag.jpg" alt="Profilbild" class="profile-img" />
-    <h1>En tryggare väg</h1>
+  <header id="home">
+    <h1>En Tryggare Väg</h1>
+    <nav>
+      <ul>
+        <li><a href="#angest">Ångest</a></li>
+        <li><a href="#depression">Depression</a></li>
+        <li><a href="#coaching">Coaching</a></li>
+        <li><a href="#samtalsstod">Samtalsstöd</a></li>
+        <li><a href="#om-mig">Om mig</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
-  <main class="cards-container">
-    <section class="card">
-      <img src="icons/thinking.svg" alt="Ångesthantering" class="icon" />
-      <h2>Ångesthantering</h2>
-      <p>Hantera oro, ältande och tankefällor med stödjande samtal och evidensbaserade metoder.</p>
-    </section>
-    <section class="card">
-      <img src="icons/sad.svg" alt="Depression" class="icon" />
-      <h2>Depression</h2>
-      <p>Stöd vid nedstämdhet, hopplöshet och tappad energi. Vi skapar ljusglimtar tillsammans.</p>
-    </section>
-    <section class="card">
-      <img src="icons/mentorship.svg" alt="Coaching" class="icon" />
-      <h2>Coaching</h2>
-      <p>För dig som vill utvecklas, växa i livsval eller ta nästa steg i karriär eller relation.</p>
-    </section>
-    <section class="card">
-      <img src="icons/chat.svg" alt="Samtalsstöd" class="icon" />
-      <h2>Samtalsstöd</h2>
-      <p>En medmänsklig och professionell närvaro i vardagen. Vi pratar om det som känns.</p>
-    </section>
-  </main>
+
+  <section id="angest">
+    <h2>Ångest</h2>
+    <p>Ångest är en naturlig del av livet men kan ibland ta överhanden. Genom att arbeta med tankemönster, andning och närvaro hittar vi tillsammans strategier för att återta kontrollen. Din oro får plats här – och verktyg att hantera den.</p>
+  </section>
+
+  <section id="depression">
+    <h2>Depression</h2>
+    <p>När livet tappar färg och kraft kan det kännas som att allt står stilla. Här får du stöd att börja röra dig framåt igen. Vi arbetar tillsammans för att återfinna mening, riktning och glädje – i din takt.</p>
+  </section>
+
+  <section id="coaching">
+    <h2>Coaching</h2>
+    <p>Vill du utvecklas, byta riktning eller förverkliga något? Coaching är ett empatiskt och målfokuserat stöd som hjälper dig att ta nästa steg. Du bestämmer riktningen – jag stöttar processen.</p>
+  </section>
+
+  <section id="samtalsstod">
+    <h2>Samtalsstöd</h2>
+    <p>Ibland behöver vi bara bli hörda – utan att någon försöker fixa oss. Samtalsstöd hos mig är en trygg plats där dina tankar och känslor får ta plats. Vi utforskar tillsammans, utan dömande.</p>
+  </section>
+
+  <section id="om-mig">
+    <h2>Om mig</h2>
+    <p>Jag heter [Ditt Namn] och har en bakgrund inom psykologi och samtalsmetodik. Min mission är att göra psykiskt stöd tillgängligt, mänskligt och värdigt. Jag tror på att bygga allians, att lyssna och att tillsammans skapa en tryggare väg framåt.</p>
+    <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="Lugn animation" />
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakta mig</h2>
+    <form>
+      <input type="text" placeholder="Ditt namn" required />
+      <input type="email" placeholder="Din e-post" required />
+      <textarea placeholder="Ditt meddelande" required></textarea>
+      <button type="submit">Skicka</button>
+    </form>
+  </section>
 </body>
 </html>

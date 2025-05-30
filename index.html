@@ -1,16 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>En Tryggare Väg</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header id="home">
-    <h1>En Tryggare Väg</h1>
+  <header>
     <nav>
       <ul>
         <li><a href="#angest">Ångest</a></li>
@@ -23,40 +22,42 @@
     </nav>
   </header>
 
-  <section id="angest">
-    <h2>Ångest</h2>
-    <p>Ångest är en naturlig del av livet men kan ibland ta överhanden. Genom att arbeta med tankemönster, andning och närvaro hittar vi tillsammans strategier för att återta kontrollen. Din oro får plats här – och verktyg att hantera den.</p>
-  </section>
+  <main>
+    <section id="angest" class="section">
+      <h2>Ångest</h2>
+      <p>Ångest är en naturlig men ibland överväldigande känsla. Vi arbetar med att förstå, acceptera och skapa strategier för att hantera den på ett hållbart sätt.</p>
+    </section>
 
-  <section id="depression">
-    <h2>Depression</h2>
-    <p>När livet tappar färg och kraft kan det kännas som att allt står stilla. Här får du stöd att börja röra dig framåt igen. Vi arbetar tillsammans för att återfinna mening, riktning och glädje – i din takt.</p>
-  </section>
+    <section id="depression" class="section">
+      <h2>Depression</h2>
+      <p>Depression påverkar både tankar, känslor och beteenden. Här får du stöd i att återfinna mening, kraft och riktning i tillvaron.</p>
+    </section>
 
-  <section id="coaching">
-    <h2>Coaching</h2>
-    <p>Vill du utvecklas, byta riktning eller förverkliga något? Coaching är ett empatiskt och målfokuserat stöd som hjälper dig att ta nästa steg. Du bestämmer riktningen – jag stöttar processen.</p>
-  </section>
+    <section id="coaching" class="section">
+      <h2>Coaching</h2>
+      <p>Genom coaching får du hjälp att tydliggöra mål, övervinna hinder och agera i linje med dina värderingar. Vi bygger på styrkor och riktning.</p>
+    </section>
 
-  <section id="samtalsstod">
-    <h2>Samtalsstöd</h2>
-    <p>Ibland behöver vi bara bli hörda – utan att någon försöker fixa oss. Samtalsstöd hos mig är en trygg plats där dina tankar och känslor får ta plats. Vi utforskar tillsammans, utan dömande.</p>
-  </section>
+    <section id="samtalsstod" class="section">
+      <h2>Samtalsstöd</h2>
+      <p>I samtalsstödet får du ett tryggt utrymme att reflektera, sörja, växa eller bara vara. Allians, närvaro och empati står i centrum.</p>
+    </section>
 
-  <section id="om-mig">
-    <h2>Om mig</h2>
-    <p>Jag heter [Ditt Namn] och har en bakgrund inom psykologi och samtalsmetodik. Min mission är att göra psykiskt stöd tillgängligt, mänskligt och värdigt. Jag tror på att bygga allians, att lyssna och att tillsammans skapa en tryggare väg framåt.</p>
-    <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="Lugn animation" />
-  </section>
+    <section id="om-mig" class="section about">
+      <h2>Om mig</h2>
+      <p>Jag är legitimerad behandlare med lång erfarenhet av ångest, stress, trauma och förändringsarbete. Mitt fokus ligger alltid på din upplevelse, trygghet och riktning.</p>
+      <img src="https://placehold.co/400x250?text=Om+Mig" alt="Porträttbild" />
+    </section>
 
-  <section id="kontakt">
-    <h2>Kontakta mig</h2>
-    <form>
-      <input type="text" placeholder="Ditt namn" required />
-      <input type="email" placeholder="Din e-post" required />
-      <textarea placeholder="Ditt meddelande" required></textarea>
-      <button type="submit">Skicka</button>
-    </form>
-  </section>
+    <section id="kontakt" class="section contact">
+      <h2>Kontakta mig</h2>
+      <form>
+        <input type="text" name="name" placeholder="Namn" required />
+        <input type="email" name="email" placeholder="E-post" required />
+        <textarea name="message" placeholder="Ditt meddelande..." required></textarea>
+        <button type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>

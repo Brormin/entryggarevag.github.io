@@ -1,63 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>En Tryggare Väg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En tryggare väg</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <script>
-    function switchLanguage() {
-      document.body.classList.toggle("en");
-    }
-  </script>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <img src="jag.jpg" alt="Profilbild" class="profile-img">
-      <h1>En Tryggare Väg</h1>
-      <button onclick="switchLanguage()" class="lang-btn">English / Svenska</button>
-    </div>
+  <header class="header">
+    <img src="jag.jpg" alt="Profilbild" class="profile-img" />
+    <h1>En tryggare väg</h1>
   </header>
-
-  <section class="cards">
-    <div class="card">
-      <img src="icons/thinking.svg" alt="Ångesthantering" />
+  <main class="cards-container">
+    <section class="card">
+      <img src="icons/thinking.svg" alt="Ångesthantering" class="icon" />
       <h2>Ångesthantering</h2>
-      <p>För dig som kämpar med oro, ältande och inre stress.</p>
-    </div>
-    <div class="card">
-      <img src="icons/sad.svg" alt="Depression" />
+      <p>Hantera oro, ältande och tankefällor med stödjande samtal och evidensbaserade metoder.</p>
+    </section>
+    <section class="card">
+      <img src="icons/sad.svg" alt="Depression" class="icon" />
       <h2>Depression</h2>
-      <p>När vardagen känns tung, tom eller meningslös – här får du stöd att börja om.</p>
-    </div>
-    <div class="card">
-      <img src="icons/mentorship.svg" alt="Coaching" />
-      <h2>Coaching & Utveckling</h2>
-      <p>För dig som vill växa, ta steg framåt och hitta en tydligare riktning.</p>
-    </div>
-    <div class="card">
-      <img src="icons/chat.svg" alt="Samtalsstöd" />
+      <p>Stöd vid nedstämdhet, hopplöshet och tappad energi. Vi skapar ljusglimtar tillsammans.</p>
+    </section>
+    <section class="card">
+      <img src="icons/mentorship.svg" alt="Coaching" class="icon" />
+      <h2>Coaching</h2>
+      <p>För dig som vill utvecklas, växa i livsval eller ta nästa steg i karriär eller relation.</p>
+    </section>
+    <section class="card">
+      <img src="icons/chat.svg" alt="Samtalsstöd" class="icon" />
       <h2>Samtalsstöd</h2>
-      <p>Ibland räcker det att någon lyssnar. Vi möts i samtal – utan krav.</p>
-    </div>
-  </section>
-
-  <section class="about">
-    <div class="about-container">
-      <img src="images/shield.png" alt="Trygghetssymbol" />
-      <div class="about-text">
-        <h2>Om mig</h2>
-        <p>Jag erbjuder professionellt samtalsstöd till vuxna, par och organisationer.  
-        Arbetet utgår alltid från beprövade och evidensbaserade metoder – i en trygg och respektfull relation.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>Kontakta mig på <a href="mailto:kontakt@entryggarevag.se">kontakt@entryggarevag.se</a></p>
-  </footer>
+      <p>En medmänsklig och professionell närvaro i vardagen. Vi pratar om det som känns.</p>
+    </section>
+  </main>
 </body>
 </html>

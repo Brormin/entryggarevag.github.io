@@ -1,102 +1,67 @@
+
 body {
-  font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
-  background: #fafafa;
-  color: #222;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.header-container {
+.header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.header-container h1 {
-  margin: 0;
-  font-size: 1.8rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .profile-img {
-  height: 60px;
   width: 60px;
-  object-fit: cover;
+  height: 60px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-.lang-btn {
-  padding: 0.4rem 0.8rem;
-  background-color: #444;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+h1 {
+  font-size: 2rem;
+  margin: 0;
 }
 
-.cards {
+.cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  padding: 3rem 2rem;
-  background-color: #f0f4f8;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-.card img {
+.icon {
+  width: 50px;
   height: 50px;
   margin-bottom: 1rem;
 }
 
-.about {
-  background: #ffffff;
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: center;
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.about-container {
-  display: flex;
-  max-width: 900px;
-  gap: 2rem;
-  align-items: center;
-}
-
-.about-container img {
-  width: 120px;
-}
-
-.about-text {
-  max-width: 600px;
-}
-
-.about-text h2 {
-  margin-top: 0;
-}
-
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: underline;
+p {
+  font-size: 1rem;
+  color: #555;
 }

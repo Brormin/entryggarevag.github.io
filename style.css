@@ -110,7 +110,7 @@ body {
 
 /* Hero Sektion (Header) - Justerad för att visa mer av bilden */
 .hero-section {
-    background: url('image.jpg') no-repeat center center/cover; /* Ändrat till .jpg */
+    background: url('image.jpg') no-repeat center center/cover; /* Använder .jpg och cover */
     padding: 50px 20px; /* Mindre padding för att minska vertikalt utrymme */
     text-align: center;
     position: relative;

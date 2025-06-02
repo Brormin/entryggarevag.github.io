@@ -1,477 +1,144 @@
-/* Grundläggande stil för att nollställa och sätta upp typsnitt */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En tryggare väg</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600;700;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 
-:root {
-    /* Färgpalett från Coolors.co */
-    --color-pink: #F72585;
-    --color-purple1: #B5179E;
-    --color-purple2: #7209B7;
-    --color-purple3: #560BAD;
-    --color-purple4: #480CA8;
-    --color-purple5: #3A0CA3;
-    --color-blue1: #3F37C9;
-    --color-blue2: #4361EE;
-    --color-blue3: #4895EF;
-    --color-blue4: #4CC9F0;
+    <nav class="main-nav">
+        <a href="#home" class="nav-brand" data-text-sv="En tryggare väg" data-text-en="A Safer Path">En tryggare väg</a>
+        <div class="nav-links">
+            <a href="#services-section" data-text-sv="Tjänster" data-text-en="Services">Tjänster</a>
+            <a href="#about-section" data-text-sv="Om mig" data-text-en="About me">Om mig</a>
+            <a href="#contact-section" data-text-sv="Kontakt" data-text-en="Contact">Kontakt</a>
+        </div>
+        <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+    </nav>
 
-    /* Färgpalettens användning i designen */
-    --primary-color: var(--color-purple3); /* Huvudfärg för nav, knappar, huvudrubriker */
-    --secondary-color: var(--color-blue3); /* Accentfärg för ikoner, hover-effekter */
-    --text-dark: #2a2a2a; /* Mörk text för rubriker och viktig text */
-    --text-light: #555555; /* Ljusare text för brödtext */
-    --bg-light: #fdfdff; /* Lättaste bakgrund, nästan vit */
-    --bg-accent: #ebebeb; /* Lätt accentbakgrund, för att bryta av */
-    --border-color: #e0e0e0; /* Lätt kantlinje för boxar och fält */
+    <header id="home" class="hero-section">
+        <div class="hero-content-overlay">
+            <h1 data-text-sv="En tryggare väg" data-text-en="A Safer Path">En tryggare väg</h1>
+            <p class="tagline" data-text-sv="Din partner för personlig utveckling och välmående." data-text-en="Your partner for personal development and well-being.">Din partner för personlig utveckling och välmående.</p>
+        </div>
+    </header>
 
-    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
+    <main>
+        <section id="services-section" class="content-section services-grid">
+            <h2 class="section-title" data-text-sv="Våra Tjänster" data-text-en="Our Services">Våra Tjänster</h2>
+            <div class="info-box">
+                <i class="fas fa-brain service-icon" aria-hidden="true"></i> <h3 data-text-sv="Ångesthantering" data-text-en="Anxiety Management">Ångesthantering</h3>
+                <p data-text-sv="Lär dig konkreta strategier för att effektivt hantera oro, stress och ångest. Vi utforskar tankemönster och utvecklar verktyg för ett lugnare sinne och ökad livskvalitet." data-text-en="Learn concrete strategies to effectively manage worry, stress, and anxiety. We explore thought patterns and develop tools for a calmer mind and improved quality of life.">Lär dig konkreta strategier för att effektivt hantera oro, stress och ångest. Vi utforskar tankemönster och utvecklar verktyg för ett lugnare sinne och ökad livskvalitet.</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-cloud-showers-heavy service-icon" aria-hidden="true"></i> <h3 data-text-sv="Depression" data-text-en="Depression">Depression</h3>
+                <p data-text-sv="Få professionellt stöd att navigera genom nedstämdhet och depression. Tillsammans arbetar vi för att återfå energi, hitta glädje och skapa en meningsfull riktning framåt." data-text-en="Receive professional support to navigate through low mood and depression. Together, we work to regain energy, find joy, and create a meaningful path forward.">Få professionellt stöd att navigera genom nedstämdhet och depression. Tillsammans arbetar vi för att återfå energi, hitta glädje och skapa en meningsfull riktning framåt.</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-shield-alt service-icon" aria-hidden="true"></i> <h3 data-text-sv="Coaching" data-text-en="Coaching">Coaching</h3>
+                <p data-text-sv="Upptäck din fulla potential genom personlig coaching. Vi definierar tydliga mål, övervinner hinder och formulerar konkreta handlingsplaner för din professionella och personliga utveckling." data-text-en="Discover your full potential through personal coaching. We define clear goals, overcome obstacles, and formulate concrete action plans for your professional and personal development.">Upptäck din fulla potential genom personlig coaching. Vi definierar tydliga mål, övervinner hinder och formulerar konkreta handlingsplaner för din professionella och personliga utveckling.</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-comments service-icon" aria-hidden="true"></i> <h3 data-text-sv="Samtalsstöd" data-text-en="Talk Support">Samtalsstöd</h3>
+                <p data-text-sv="Ett tryggt och konfidentiellt utrymme där du kan utforska tankar och känslor. Vi erbjuder empatiskt lyssnande och vägledning för att hantera livets utmaningar och stärka din inre balans." data-text-en="A safe and confidential space where you can explore thoughts and feelings. We offer empathetic listening and guidance to manage life's challenges and strengthen your inner balance.">Ett tryggt och konfidentiellt utrymme där du kan utforska tankar och känslor. Vi erbjuder empatiskt lyssnande och vägledning för att hantera livets utmaningar och stärka din inre balans.</p>
+            </div>
+        </section>
 
-body {
-    font-family: 'Lato', sans-serif;
-    line-height: 1.6;
-    background-color: var(--bg-accent);
-    color: var(--text-light);
-    overflow-x: hidden; /* För att förhindra horisontell scroll */
-}
+        <section id="about-section" class="content-section about-me-container">
+            <h2 class="section-title" data-text-sv="Om mig" data-text-en="About Me">Om mig</h2>
+            <div class="about-me-content-box">
+                <i class="fas fa-leaf about-icon" aria-hidden="true"></i> <p data-text-sv="Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder." data-text-en="I offer talk support for those who want to feel better, find direction, or get help with mental health issues. With empathy and security, we work together towards your goals – always with proven and evidence-based methods.">Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.</p>
+            </div>
+        </section>
 
-/* Navigering */
-.main-nav {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow-light);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        <section id="contact-section" class="content-section contact-form-section">
+            <h2 class="section-title" data-text-sv="Kontakta mig" data-text-en="Contact Me">Kontakta mig</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name" data-text-sv="Namn:" data-text-en="Name:">Namn:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-text-sv="E-post:" data-text-en="Email:">E-post:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-text-sv="Meddelande:" data-text-en="Message:">Meddelande:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" data-text-sv="Skicka meddelande" data-text-en="Send Message">Skicka meddelande</button>
+            </form>
+        </section>
+    </main>
 
-.nav-brand {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #fff;
-    text-decoration: none;
-    flex-shrink: 0; /* Hindrar att den krymper */
-}
+    <footer>
+        <p data-text-sv="&copy; 2025 En tryggare väg. Alla rättigheter förbehållna." data-text-en="&copy; 2025 A Safer Path. All rights reserved.">&copy; 2025 En tryggare väg. Alla rättigheter förbehållna.</p>
+    </footer>
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    margin-left: auto; /* Pushar länkarna till höger */
-}
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                if (document.querySelector('.main-nav').classList.contains('active')) {
+                    document.querySelector('.main-nav').classList.remove('active');
+                }
+            });
+        });
 
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1.05rem;
-    transition: color 0.3s ease;
-}
+        // Hamburger menu for mobile
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
 
-.nav-links a:hover {
-    color: var(--color-blue4); /* En av de ljusare blåa från paletten */
-}
+        // Language toggle functionality
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const toggleButton = document.querySelector('.lang-toggle');
 
-.lang-toggle {
-    background-color: var(--secondary-color);
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-left: 30px;
-}
+            if (html.lang === 'sv') {
+                html.lang = 'en';
+                toggleButton.textContent = 'SV';
+                document.title = 'A Safer Path';
+                updateTexts('en');
+            } else {
+                html.lang = 'sv';
+                toggleButton.textContent = 'EN';
+                document.title = 'En tryggare väg';
+                updateTexts('sv');
+            }
+        }
 
-.lang-toggle:hover {
-    background-color: var(--color-blue4);
-}
+        function updateTexts(lang) {
+            document.querySelectorAll('[data-text-sv]').forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    // For form fields that might use placeholder, not textContent
+                } else {
+                    element.textContent = element.getAttribute(lang === 'sv' ? 'data-text-sv' : 'data-text-en');
+                }
+            });
 
-.hamburger {
-    display: none; /* Dold på större skärmar */
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    margin-left: 20px;
-}
+            // Specific updates for button texts
+            document.querySelector('button[type="submit"]').textContent = lang === 'sv' ? 'Skicka meddelande' : 'Send Message';
+            document.querySelector('.lang-toggle').textContent = lang === 'sv' ? 'EN' : 'SV';
 
-/* Hero Sektion (Header) */
-.hero-section {
-    background: url('image.jpeg') no-repeat center center/cover; /* NU MED image.jpeg! */
-    padding: 80px 20px; /* Lite mer padding för att ge utrymme */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    min-height: 400px; /* Säkrar en viss höjd */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-content-overlay {
-    background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-light);
-    color: #fff; /* Vit text över overlay */
-}
-
-.hero-section h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Textskugga för kontrast */
-}
-
-.hero-section .tagline {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.6rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Textskugga för kontrast */
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Allmänna sektionsstilar */
-.content-section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: 40px auto; /* Mer vertikalt utrymme mellan sektioner */
-    background-color: var(--bg-light);
-    box-shadow: var(--shadow-light);
-    border-radius: 12px; /* Mjukare hörn */
-}
-
-.section-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-/* Tjänster/Info-rutor */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Anpassad för 2x2 */
-    gap: 30px;
-}
-
-.info-box {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-
-.info-box:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
-.service-icon {
-    font-size: 3.8rem; /* Större ikoner */
-    color: var(--secondary-color);
-    margin-bottom: 25px;
-    transition: transform 0.3s ease;
-}
-
-.info-box:hover .service-icon {
-    transform: scale(1.1); /* Lätt animation vid hover */
-}
-
-.info-box h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-}
-
-.info-box p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    color: var(--text-light);
-}
-
-/* Om mig-sektion */
-.about-me-container {
-    text-align: center;
-    position: relative;
-    padding: 80px 40px;
-    background-color: var(--bg-light);
-    border-radius: 12px;
-}
-
-.about-me-content-box {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-icon {
-    font-size: 3rem; /* Storlek på den lilla ikonen */
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    display: block; /* För att centrera den */
-    text-align: center;
-}
-
-.about-me-content-box p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.25rem;
-    color: var(--text-dark);
-    line-height: 1.8;
-}
-
-/* Kontaktformulär */
-.contact-form-section {
-    text-align: center;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-color);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--color-blue1); /* Lätt fokusring */
-    outline: none;
-}
-
-.contact-form button[type="submit"] {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: auto;
-    display: inline-block;
-    margin-top: 25px;
-    box-shadow: var(--shadow-light);
-}
-
-.contact-form button[type="submit"]:hover {
-    background-color: var(--color-purple2); /* Mörkare lila vid hover */
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
-
-/* Footer */
-footer {
-    background-color: var(--text-dark);
-    color: #fff;
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 60px;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.95rem;
-}
-
-/* Mobilanpassning */
-@media (max-width: 900px) {
-    .main-nav {
-        flex-wrap: wrap;
-        padding: 15px 20px;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        background-color: var(--primary-color);
-        box-shadow: var(--shadow-light);
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        margin: 0;
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-    .lang-toggle {
-        order: 1;
-        margin-left: auto;
-        margin-right: 15px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hero-section {
-        padding: 40px 20px;
-        min-height: 300px; /* Justerad min-höjd för mobil */
-    }
-
-    .hero-content-overlay {
-        padding: 30px 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-section .tagline {
-        font-size: 1.3rem;
-    }
-
-    .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 40px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .info-box {
-        padding: 25px;
-    }
-
-    .service-icon {
-        font-size: 3.2rem;
-    }
-
-    .info-box h3 {
-        font-size: 1.5rem;
-    }
-
-    .about-me-container {
-        padding: 60px 20px;
-    }
-
-    .about-me-content-box p {
-        font-size: 1.1rem;
-    }
-
-    .contact-form {
-        padding: 25px;
-    }
-    .contact-form button[type="submit"] {
-        padding: 14px 25px;
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-nav {
-        padding: 10px 15px;
-    }
-    .nav-brand {
-        font-size: 1.4rem;
-    }
-    .lang-toggle {
-        padding: 6px 10px;
-        font-size: 0.8em;
-    }
-    .hamburger {
-        font-size: 1.8rem;
-    }
-
-    .hero-section h1 {
-        font-size: 2.2rem;
-    }
-    .hero-section .tagline {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-
-    .info-box h3 {
-        font-size: 1.4rem;
-    }
-    .info-box p {
-        font-size: 1rem;
-    }
-
-    .about-me-content-box p {
-        font-size: 1rem;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-    }
-    .form-group input, .form-group textarea {
-        padding: 10px;
-    }
-    .contact-form button[type="submit"] {
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
-}
+            // Specific updates for labels
+            document.querySelector('label[for="name"]').textContent = lang === 'sv' ? 'Namn:' : 'Name:';
+            document.querySelector('label[for="email"]').textContent = lang === 'sv' ? 'E-post:' : 'Email:';
+            document.querySelector('label[for="message"]').textContent = lang === 'sv' ? 'Meddelande:' : 'Message:';
+        }
+    </script>
+</body>
+</html>

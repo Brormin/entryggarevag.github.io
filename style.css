@@ -16,7 +16,7 @@
     --color-blue1: #3F37C9;
     --color-blue2: #4361EE;
     --color-blue3: #4895EF;
-    --color-blue4: #4CC9F0;
+    --color-blue4: #4CC9F0; /* Ljusare blå för variation */
 
     /* Färgpalettens användning i designen */
     --primary-color: var(--color-purple3); /* Huvudfärg för nav, knappar, huvudrubriker */
@@ -227,16 +227,17 @@ body {
     margin-bottom: 100px; /* Lägg till utrymme nedanför */
     padding: 50px 40px;
     border-radius: 15px;
-    background-color: var(--bg-accent); /* Färg från paletten */
+    background-color: var(--color-blue4); /* En ljusblå från paletten för variation */
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-light); /* Enhetlig skugga */
+    color: var(--text-dark); /* Säkerställ läsbarhet på ljusblå bakgrund */
 }
 
 .service-detail-section p {
     font-size: 1.15rem;
     line-height: 1.7;
     margin-bottom: 20px;
-    color: var(--text-dark);
+    color: var(--text-dark); /* Säkerställ att textfärgen är läsbar */
 }
 
 .detail-section-image {
@@ -247,7 +248,6 @@ body {
     border-radius: 10px; /* Lite rundade hörn för bilden */
     box-shadow: var(--shadow-light); /* Lätt skugga */
 }
-
 
 .back-to-services {
     display: inline-block;
@@ -270,37 +270,57 @@ body {
 
 /* Om mig-sektion - Förfinad utseende och font */
 .about-me-container {
-    text-align: center;
+    text-align: center; /* Centrera titeln */
     position: relative;
     padding: 80px 40px;
-    background-color: var(--bg-light);
+    background-color: var(--bg-light); /* Huvudbakgrund för sektionen */
     border-radius: 12px;
 }
 
-.about-me-content-box {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff;
+.about-me-layout {
+    display: flex;
+    flex-wrap: wrap; /* Tillåt omslag på mindre skärmar */
+    align-items: center; /* Centrera vertikalt */
+    gap: 40px; /* Utrymme mellan bild och text */
+    max-width: 900px; /* Maxbredd för layouten */
+    margin: 0 auto; /* Centrera layouten */
+    padding: 30px; /* Inre padding för hela boxen */
+    background-color: #fff; /* Bakgrund för layouten */
     border-radius: 10px;
     box-shadow: var(--shadow-light);
     border: 1px solid var(--border-color);
 }
 
-.about-icon-img { /* Ny stil för den uppladdade bilden */
-    width: 70px; /* Justera storlek vid behov */
-    height: auto;
-    display: block;
-    margin: 0 auto 25px auto;
+.about-me-image-wrapper {
+    flex: 0 0 auto; /* Fixerad storlek, ej krymbar/växande */
+    width: 200px; /* Bredd för bildbehållaren */
+    height: 200px; /* Höjd för bildbehållaren, för att göra den till en kvadrat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Säkerställ ingen vit bakgrund från denna wrapper */
+    border-radius: 50%; /* Gör behållaren rund om bilden ska vara rund */
+    overflow: hidden; /* Dölj delar av bilden om den är större än behållaren */
 }
 
-.about-me-content-box p {
+.about-icon-img { /* Stil för den uppladdade bilden */
+    width: 150px; /* Större bildstorlek */
+    height: auto;
+    display: block;
+    object-fit: contain; /* Säkerställ att hela bilden syns inom wrapper */
+}
+
+.about-me-text-wrapper {
+    flex: 1; /* Ta upp resterande utrymme */
+    text-align: left; /* Justera texten till vänster */
+    min-width: 280px; /* Minimibredd för texten på mindre skärmar */
+}
+
+.about-me-text-wrapper p {
     font-family: 'Lato', sans-serif;
     font-size: 1.15rem;
     color: var(--text-dark);
     line-height: 1.7;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 /* Kontaktformulär */
@@ -474,11 +494,28 @@ footer {
         font-size: 1rem;
     }
 
-    .about-me-container {
-        padding: 60px 20px;
+    /* Anpassning för Om mig-sektionen på mobil */
+    .about-me-layout {
+        flex-direction: column; /* Stacka på varandra på mobil */
+        gap: 20px;
+        padding: 20px;
     }
 
-    .about-me-content-box p {
+    .about-me-image-wrapper {
+        width: 150px; /* Mindre på mobil */
+        height: 150px;
+    }
+
+    .about-icon-img {
+        width: 120px; /* Mindre bild på mobil */
+    }
+
+    .about-me-text-wrapper {
+        text-align: center; /* Centrera texten på mobil */
+        min-width: unset;
+    }
+
+    .about-me-text-wrapper p {
         font-size: 1.1rem;
     }
 
@@ -525,7 +562,7 @@ footer {
         font-size: 1rem;
     }
 
-    .about-me-content-box p {
+    .about-me-text-wrapper p {
         font-size: 1rem;
     }
 

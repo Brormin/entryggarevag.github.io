@@ -110,7 +110,7 @@ body {
 
 /* Hero Sektion (Header) */
 .hero-section {
-    background: url('image.jpeg') no-repeat center center/cover; /* NU MED image.jpeg! */
+    background: url('image.jpg') no-repeat center center/cover; /* NU MED image.jpeg! */
     padding: 80px 20px; /* Lite mer padding för att ge utrymme */
     text-align: center;
     position: relative;

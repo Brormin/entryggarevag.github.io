@@ -108,14 +108,14 @@ body {
     margin-left: 20px;
 }
 
-/* Hero Sektion (Header) */
+/* Hero Sektion (Header) - Justerad för att inte vara för stor */
 .hero-section {
-    background: url('image.jpg') no-repeat center center/cover; /* NU MED image.jpeg! */
-    padding: 80px 20px; /* Lite mer padding för att ge utrymme */
+    background: url('image.jpeg') no-repeat center center/cover;
+    padding: 60px 20px; /* Mindre padding */
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 400px; /* Säkrar en viss höjd */
+    min-height: 320px; /* Mindre min-höjd för att minska storleken */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,16 +124,17 @@ body {
 
 .hero-content-overlay {
     background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
-    padding: 40px 30px;
+    padding: 30px 25px; /* Mindre padding för en mer kompakt look */
     border-radius: 10px;
     box-shadow: var(--shadow-light);
     color: #fff; /* Vit text över overlay */
+    max-width: 700px; /* Begränsa bredden för texten */
 }
 
 .hero-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3.5rem;
+    font-size: 3rem; /* Lite mindre rubrik */
     line-height: 1.1;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Textskugga för kontrast */
@@ -141,7 +142,7 @@ body {
 
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem; /* Lite mindre tagline */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Textskugga för kontrast */
     max-width: 800px;
     margin: 0 auto;
@@ -151,10 +152,10 @@ body {
 .content-section {
     padding: 60px 20px;
     max-width: 1100px;
-    margin: 40px auto; /* Mer vertikalt utrymme mellan sektioner */
+    margin: 40px auto;
     background-color: var(--bg-light);
     box-shadow: var(--shadow-light);
-    border-radius: 12px; /* Mjukare hörn */
+    border-radius: 12px;
 }
 
 .section-title {
@@ -163,14 +164,27 @@ body {
     font-size: 2.8rem;
     color: var(--text-dark);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 60px; /* Säkerställer att titeln är ovanför rutorna */
 }
 
-/* Tjänster/Info-rutor */
+/* Tjänster/Info-rutor - Justerad för 2x2 layout på större skärmar */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Anpassad för 2x2 */
+    grid-template-columns: repeat(2, 1fr); /* Tvingar 2 kolumner på större skärmar */
     gap: 30px;
+}
+
+/* Länk-wrapper för info-box */
+.info-box-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box-link:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
 }
 
 .info-box {
@@ -179,24 +193,18 @@ body {
     padding: 30px;
     text-align: center;
     box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
 }
 
-.info-box:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
 .service-icon {
-    font-size: 3.8rem; /* Större ikoner */
+    font-size: 3.8rem;
     color: var(--secondary-color);
     margin-bottom: 25px;
     transition: transform 0.3s ease;
 }
 
-.info-box:hover .service-icon {
-    transform: scale(1.1); /* Lätt animation vid hover */
+.info-box-link:hover .service-icon {
+    transform: scale(1.1);
 }
 
 .info-box h3 {
@@ -213,7 +221,42 @@ body {
     color: var(--text-light);
 }
 
-/* Om mig-sektion */
+/* Nya detaljsektioner för tjänster */
+.service-detail-section {
+    margin-top: 80px;
+    padding: 50px 40px;
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.service-detail-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.back-to-services {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: var(--color-purple1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.back-to-services:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+
+/* Om mig-sektion - Förfinad utseende och font */
 .about-me-container {
     text-align: center;
     position: relative;
@@ -225,21 +268,28 @@ body {
 .about-me-content-box {
     max-width: 800px;
     margin: 0 auto;
+    padding: 30px; /* Mer padding för innehållet */
+    background-color: #fff; /* Ljusare bakgrund för boxen */
+    border-radius: 10px;
+    box-shadow: var(--shadow-light); /* Lätt skugga */
+    border: 1px solid var(--border-color);
 }
 
 .about-icon {
-    font-size: 3rem; /* Storlek på den lilla ikonen */
+    font-size: 3.5rem; /* Större ikon */
     color: var(--secondary-color);
-    margin-bottom: 20px;
-    display: block; /* För att centrera den */
+    margin-bottom: 25px; /* Mer utrymme under ikonen */
+    display: block;
     text-align: center;
 }
 
 .about-me-content-box p {
     font-family: 'Lato', sans-serif;
-    font-size: 1.25rem;
-    color: var(--text-dark);
-    line-height: 1.8;
+    font-size: 1.15rem; /* Mindre font för bättre läsbarhet i längre text */
+    color: var(--text-dark); /* Mörkare text för bättre kontrast */
+    line-height: 1.7; /* Ökat radavstånd för läsbarhet */
+    max-width: 700px; /* Begränsa bredden för textblock för optimal läsbarhet */
+    margin: 0 auto; /* Centrera textblocket */
 }
 
 /* Kontaktformulär */
@@ -289,7 +339,7 @@ body {
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--color-blue1); /* Lätt fokusring */
+    box-shadow: 0 0 0 3px var(--color-blue1);
     outline: none;
 }
 
@@ -311,7 +361,7 @@ body {
 }
 
 .contact-form button[type="submit"]:hover {
-    background-color: var(--color-purple2); /* Mörkare lila vid hover */
+    background-color: var(--color-purple2);
     transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
@@ -373,19 +423,19 @@ footer {
 
     .hero-section {
         padding: 40px 20px;
-        min-height: 300px; /* Justerad min-höjd för mobil */
+        min-height: 250px; /* Justerad min-höjd för mobil */
     }
 
     .hero-content-overlay {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
 
     .hero-section h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .hero-section .tagline {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .section-title {
@@ -394,7 +444,7 @@ footer {
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Endast 1 kolumn på mobil */
     }
 
     .info-box {

@@ -6,6 +6,7 @@
 }
 
 :root {
+    /* Färgpalett från Coolors.co */
     --color-pink: #F72585;
     --color-purple1: #B5179E;
     --color-purple2: #7209B7;
@@ -17,14 +18,14 @@
     --color-blue3: #4895EF;
     --color-blue4: #4CC9F0;
 
-    /* Färgpalettens användning */
-    --primary-color: var(--color-purple3); /* Huvudfärg, t.ex. för knappar, nav */
-    --secondary-color: var(--color-blue3); /* Accentfärg, t.ex. ikoner */
-    --text-dark: #2a2a2a; /* Mörk text */
-    --text-light: #555555; /* Ljusare text */
-    --bg-light: #fdfdff; /* Lätt bakgrund */
-    --bg-accent: #ebebeb; /* Lätt accentbakgrund */
-    --border-color: #e0e0e0; /* Lätt kantlinje */
+    /* Färgpalettens användning i designen */
+    --primary-color: var(--color-purple3); /* Huvudfärg för nav, knappar, huvudrubriker */
+    --secondary-color: var(--color-blue3); /* Accentfärg för ikoner, hover-effekter */
+    --text-dark: #2a2a2a; /* Mörk text för rubriker och viktig text */
+    --text-light: #555555; /* Ljusare text för brödtext */
+    --bg-light: #fdfdff; /* Lättaste bakgrund, nästan vit */
+    --bg-accent: #ebebeb; /* Lätt accentbakgrund, för att bryta av */
+    --border-color: #e0e0e0; /* Lätt kantlinje för boxar och fält */
 
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -241,7 +242,8 @@ body {
     width: 100%;
     height: 100%;
     /* Ersätt med din egen bakgrundsbild för en mediterande siluett */
-    background: url('path/to/your/meditation-silhouette.jpg') no-repeat center center/cover;
+    /* Exempel: background: url('images/meditation-silhouette.jpg') no-repeat center center/cover; */
+    background: url('https://via.placeholder.com/1200x600/EFEFEF/CCCCCC?text=Din+bakgrundsbild+här') no-repeat center center/cover; /* Placeholder */
     opacity: 0.1; /* Diskret transparens */
     z-index: 0;
     border-radius: 12px;
@@ -503,4 +505,4 @@ footer {
         padding: 12px 20px;
         font-size: 1rem;
     }
-}
+        }

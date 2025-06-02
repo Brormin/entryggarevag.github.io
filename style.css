@@ -1,266 +1,123 @@
-/* Grundläggande stil för att nollställa och sätta upp typsnitt */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* style.css */
 
 body {
-    font-family: 'Poppins', 'Lato', sans-serif;
-    line-height: 1.6;
-    background-color: #F8F8F8; /* Ljus, lugn bakgrund */
-    color: #333; /* Mörkgrå text */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+#services {
     display: flex;
-    justify-content: center;
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2rem;
 }
 
-.container {
-    width: 100%;
-    max-width: 960px; /* Inte för bred layout */
-    background-color: #FFFFFF;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Lätt skugga */
-    position: relative; /* För språkknapp */
-}
-
-/* Header */
-.main-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Sprida ut innehållet */
-    padding-bottom: 20px;
-    border-bottom: 1px solid #EEE;
-    margin-bottom: 30px;
-    position: relative; /* För profilbild och knapp */
-}
-
-.site-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #4A4A4A; /* Mörkare grå för rubrik */
-    font-size: 2.2em;
-    flex-grow: 1; /* Låter rubriken ta upp utrymme */
-}
-
-.profile-img {
-    width: 70px; /* Storlek på profilbild */
-    height: 70px;
-    border-radius: 50%; /* Rund form */
-    object-fit: cover;
-    margin-left: 20px; /* Mellanrum till rubrik */
-    border: 3px solid #E0E0E0; /* Lätt kantlinje */
-}
-
-/* Språkväljare */
-.lang-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #E0E0E0; /* Ljusare grå bakgrund */
-    color: #4A4A4A;
-    border: none;
-    padding: 8px 15px;
+.service {
+    width: 300px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
     border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-}
-
-.lang-toggle:hover {
-    background-color: #CCC;
-}
-
-/* Introduktionstext */
-.intro-section {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
 }
 
-.tagline {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1em;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
+.service i {
+    margin-bottom: 1rem;
+    color: #007bff;
 }
 
-/* Informationsrutor (Grid) */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsiv 2x2 */
-    gap: 25px; /* Mellanrum mellan rutor */
-    margin-bottom: 50px;
+#about {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-.info-box {
-    background-color: #FDFDFD; /* Ljusare bakgrund för rutorna */
-    border-radius: 12px; /* Rundade hörn */
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Snygg skugga */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #EAEAEA; /* Subtil kantlinje */
-}
-
-.info-box:hover {
-    transform: translateY(-5px); /* Lätt lyft vid hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.box-icon {
-    width: 60px; /* Storlek på ikoner */
-    height: 60px;
-    margin-bottom: 15px;
-    filter: invert(30%) sepia(0%) saturate(10%) hue-rotate(0deg) brightness(50%) contrast(100%); /* Gör ikoner mörkgrå */
-}
-
-.box-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #4A4A4A;
-    font-size: 1.35em;
-    margin-bottom: 10px;
-}
-
-.box-text {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.95em;
-    color: #666;
-}
-
-/* Om mig-sektion */
-.about-me-section {
+.about-content {
     display: flex;
-    justify-content: center; /* Centrera rutan */
-    margin-bottom: 40px;
-}
-
-.about-me-box {
-    background-color: #FDFDFD;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    max-width: 700px; /* Maxbredd för om mig-rutan */
-    border: 1px solid #EAEAEA;
-    text-align: center; /* Centrera rubrik */
-}
-
-.about-me-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #4A4A4A;
-    font-size: 1.8em;
-    margin-bottom: 25px;
-}
-
-.about-me-content {
-    display: flex;
-    flex-direction: column; /* Standard för mindre skärmar */
+    flex-direction: column;
     align-items: center;
-    gap: 25px;
 }
 
-.shield-img {
-    width: 100px; /* Storlek på sköldbild */
-    height: 100px;
-    object-fit: contain;
+.meditation-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
 }
 
-.about-me-text {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.05em;
-    color: #666;
-    text-align: center; /* Centrera texten */
+#contact {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries för responsiv design */
-@media (min-width: 768px) {
-    .main-header {
-        justify-content: flex-start; /* Mer kontroll över placering på större skärmar */
-    }
-
-    .profile-img {
-        margin-left: auto; /* Pusha profilbilden till höger */
-        margin-right: 80px; /* Mellanrum för språkknapp */
-    }
-
-    .lang-toggle {
-        position: static; /* Flytta knappen in i flödet */
-        margin-left: auto; /* Pusha den längst till höger */
-        align-self: flex-start; /* Ligg i topp i headern */
-    }
-
-    .about-me-content {
-        flex-direction: row; /* Sid-vid-sida på större skärmar */
-        text-align: left; /* Justera texten till vänster */
-    }
-
-    .shield-img {
-        flex-shrink: 0; /* Förhindra att bilden krymper */
-        margin-right: 25px; /* Mellanrum till texten */
-    }
-
-    .about-me-text {
-        text-align: left; /* Justera texten till vänster */
-    }
+.contact-form {
+    display: flex;
+    flex-direction: column;
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
+.contact-form label {
+    margin-top: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #services {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .site-title {
-        font-size: 1.8em;
+    .service {
+        width: 100%;
     }
 
-    .profile-img {
-        width: 60px;
-        height: 60px;
-        margin-left: 10px;
+    .about-content {
+        flex-direction: column;
     }
 
-    .lang-toggle {
-        padding: 6px 12px;
-        font-size: 0.8em;
-    }
-
-    .info-box {
-        padding: 20px;
-    }
-
-    .box-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .box-title {
-        font-size: 1.2em;
-    }
-
-    .box-text {
-        font-size: 0.9em;
-    }
-
-    .about-me-box {
-        padding: 20px;
-    }
-
-    .about-me-title {
-        font-size: 1.6em;
-    }
-
-    .shield-img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .about-me-text {
-        font-size: 0.95em;
+    .meditation-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 }

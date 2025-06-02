@@ -6,11 +6,11 @@
 }
 
 :root {
-    /* Madam Elise's New French-inspired Palette */
+    /* Madam Elise's New French-inspired Palette - Justerade för bättre kontrast */
     --color-primary-dark: #3F2C50;   /* Deep Plum / Dark Violet */
-    --color-primary-light: #6A4C93;  /* Muted Lavender / Amethyst */
+    --color-primary-light: #5A3F7A;  /* Darker Muted Lavender / Amethyst (för bättre kontrast) */
     --color-accent-gold: #C09A4D;    /* Antique Gold */
-    --color-accent-rose: #C78283;    /* Dusty Rose */
+    --color-accent-rose: #A06A6B;    /* Darker Dusty Rose (för bättre kontrast) */
     --color-neutral-dark: #333333;   /* Charcoal Gray for headings */
     --color-neutral-medium: #666666; /* Medium Gray for body text */
     --color-neutral-light: #F8F5F2;  /* Off-White / Cream background */
@@ -19,7 +19,7 @@
 
     /* General usage mappings */
     --main-bg-color: var(--color-neutral-light);
-    --card-bg-color: var(--color-white);
+    --card-bg-color: var(--color-white); /* Används för inre kort-element */
     --header-footer-bg: var(--color-primary-dark);
     --button-bg-color: var(--color-primary-light);
     --heading-color: var(--color-neutral-dark);
@@ -40,18 +40,6 @@ html, body {
     background-color: var(--main-bg-color);
     color: var(--body-text-color);
 }
-
-/* Snap-sektioner - dessa stilar är inte längre aktiva för snap-scroll */
-.snap-section {
-    /* Borttagen height: 100vh; och scroll-snap-align: start; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
-
 
 /* Navigering */
 .main-nav {
@@ -124,15 +112,15 @@ html, body {
 
 /* Hero Sektion (Header) - Nu med <img>-tagg för bakgrundsbilden */
 .hero-section {
-    position: relative; /* Nödvändigt för absolut positionering av bilden */
+    position: relative;
     text-align: center;
     overflow: hidden;
-    height: 100vh; /* Säkerställer full viewport-höjd */
-    width: 100vw;  /* Säkerställer full viewport-bredd */
-    display: flex; /* Använd flexbox för att centrera innehållet */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrera innehållet vertikalt */
-    align-items: center; /* Centrera innehållet horisontellt */
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-background-image {
@@ -141,51 +129,47 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fyller området, beskär vid behov för att undvika tomrum */
-    z-index: -1; /* Placerar bilden bakom innehållsöverlägget */
+    object-fit: cover;
+    z-index: -1;
 }
 
 .hero-content-overlay {
-    position: relative; /* Säkerställer att överlägget ligger ovanpå bilden */
+    position: relative;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
-    padding: 50px 40px; /* Ökad padding för att fylla utrymme */
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 50px 40px;
     border-radius: 10px;
     box-shadow: var(--shadow-subtle);
     color: var(--color-white);
-    max-width: 900px; /* Ökad max-bredd */
+    max-width: 900px;
 }
 
 .hero-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 4rem; /* Större rubrik */
+    font-size: 4rem;
     line-height: 1.1;
-    margin-bottom: 25px; /* Mer utrymme */
+    margin-bottom: 25px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 1.8rem; /* Större tagline */
+    font-size: 1.8rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Allmänna sektionsstilar */
+/* Allmänna sektionsstilar - Dessa är nu transparenta för att smälta ihop med bakgrunden */
 .content-section {
     padding: 60px 20px;
     max-width: 1100px;
-    margin: 40px auto; /* Återställer standardmarginaler för fri scroll */
-    background-color: var(--card-bg-color);
-    box-shadow: var(--shadow-subtle);
-    border-radius: 12px;
-}
-
-/* Specifika justeringar för snap-sektioner - dessa är nu vanliga sektioner */
-.snap-section.content-section {
-    box-sizing: border-box;
+    margin: 40px auto;
+    background-color: transparent; /* Ingen egen bakgrundsfärg */
+    box-shadow: none;             /* Ingen skugga på sektionen */
+    border-radius: 0;             /* Inga rundade hörn på sektionen */
+    border: none;                 /* Ingen kantlinje på sektionen */
 }
 
 .section-title {
@@ -197,15 +181,15 @@ html, body {
     margin-bottom: 60px;
 }
 
-/* Tjänster/Info-rutor */
+/* Tjänster/Info-rutor - Innehålls-rutorna behåller sin kort-stil */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 900px;
     margin: 0 auto;
-    align-items: stretch; /* Säkerställ att objekt sträcker sig för att fylla tillgänglig höjd */
-    grid-auto-rows: 1fr; /* Gör att alla rader i rutnätet får samma höjd */
+    align-items: stretch;
+    grid-auto-rows: 1fr;
 }
 
 .info-box-link {
@@ -213,7 +197,7 @@ html, body {
     color: inherit;
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Gör länken fyller rutnätscellens höjd */
+    height: 100%;
 }
 
 .info-box-link:hover {
@@ -222,16 +206,16 @@ html, body {
 }
 
 .info-box {
-    background-color: var(--card-bg-color);
+    background-color: var(--card-bg-color); /* Dessa ska vara vita kort */
     border-radius: 15px;
     padding: 30px;
     text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
-    height: 100%; /* Säkerställ att info-box fyller sin föräldralänks höjd */
-    display: flex; /* Använd flexbox för vertikal distribution */
-    flex-direction: column; /* Stapla innehållet vertikalt */
-    justify-content: space-between; /* Fördela innehållet jämnt */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .service-icon {
@@ -257,35 +241,35 @@ html, body {
     font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
     color: var(--body-text-color);
-    flex-grow: 1; /* Tillåt stycket att växa och fylla utrymme */
+    flex-grow: 1;
 }
 
-/* Nya detaljsektioner för tjänster - Behåller vanlig scroll och styling */
+/* Nya detaljsektioner för tjänster - Behåller sin unika kort-stil och nu med förbättrad textkontrast */
 .service-detail-section {
-    margin-top: 80px; /* Utrymme ovanför */
-    margin-bottom: 80px; /* Utrymme nedanför */
+    margin-top: 80px;
+    margin-bottom: 80px;
     padding: 50px 40px;
-    border-radius: 20px; /* Mjukare kanter */
+    border-radius: 20px;
     box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--color-border); /* Alltid med en mjuk border */
-    max-width: 1100px; /* Säkerställ konsistens med content-section max-bredd */
-    margin-left: auto; /* Centrera dessa sektioner också */
+    border: 1px solid var(--color-border);
+    max-width: 1100px;
+    margin-left: auto;
     margin-right: auto;
 }
 
 /* Specifika färger för varje detaljsektion från nya paletten */
 .anxiety-detail {
-    background-color: var(--color-primary-light);
-    color: var(--color-white); /* Vit text för kontrast */
+    background-color: var(--color-primary-light); /* Använder den mörkare lavendel */
+    color: var(--color-white); /* Vit text för bra kontrast */
 }
 
 .anxiety-detail .section-title,
 .anxiety-detail p {
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställ vit textfärg för alla element */
 }
 
 .depression-detail {
-    background-color: var(--color-accent-rose);
+    background-color: var(--color-accent-rose); /* Använder den mörkare rosen */
     color: var(--color-white);
 }
 
@@ -306,7 +290,7 @@ html, body {
 
 .talksupport-detail {
     background-color: var(--color-accent-gold);
-    color: var(--color-neutral-dark); /* Mörkare text för kontrast på guld */
+    color: var(--color-neutral-dark); /* Mörk text för kontrast på guld */
 }
 
 .talksupport-detail .section-title,
@@ -316,8 +300,8 @@ html, body {
 
 /* Stilar för "Tillbaka till Tjänster"-länken i detaljsektionerna */
 .service-detail-section .back-to-services {
-    background-color: rgba(255, 255, 255, 0.2); /* Lättare bakgrund för kontrast mot sektionsfärgen */
-    color: var(--color-white); /* Standard vit, åsidosätts om texten är mörk */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
     border: 1px solid rgba(255, 255, 255, 0.4);
     display: inline-block;
     margin-top: 30px;
@@ -330,10 +314,9 @@ html, body {
 
 /* Överlagring för back-to-services om texten på bakgrunden är mörk */
 .talksupport-detail .back-to-services {
-    color: var(--color-neutral-dark); /* Mörk text för guld-bakgrund */
+    color: var(--color-neutral-dark);
     border-color: rgba(0, 0, 0, 0.2);
 }
-
 
 .service-detail-section .back-to-services:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -345,7 +328,8 @@ html, body {
     border-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Om mig-sektion */
+
+/* Om mig-sektion - Innehålls-kortet har nu sin egen stil */
 .about-me-container {
     text-align: center;
 }
@@ -358,10 +342,10 @@ html, body {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px;
-    background-color: var(--card-bg-color);
-    border-radius: 10px;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--color-border);
+    background-color: var(--card-bg-color); /* Vit bakgrund för kortet */
+    border-radius: 15px; /* Rundare hörn för kortet */
+    box-shadow: var(--shadow-subtle); /* Subtil skugga för kortet */
+    border: 1px solid var(--color-border); /* Kantlinje för kortet */
 }
 
 .about-me-image-wrapper {
@@ -396,7 +380,7 @@ html, body {
     line-height: 1.7;
 }
 
-/* Kontaktformulär */
+/* Kontaktformulär - Innehålls-kortet har nu sin egen stil */
 .contact-form-section {
     text-align: center;
 }
@@ -405,7 +389,7 @@ html, body {
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    background-color: var(--card-bg-color);
+    background-color: var(--card-bg-color); /* Vit bakgrund för formulärkortet */
     border-radius: 15px;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
@@ -443,7 +427,7 @@ html, body {
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
     border-color: var(--button-bg-color);
-    box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.2); /* Mjukare fokusfärg */
+    box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.2);
     outline: none;
 }
 
@@ -523,13 +507,6 @@ footer {
 
     .hamburger {
         display: block;
-    }
-
-    /* Snap sections adjustments for mobile - now regular sections */
-    .snap-section {
-        padding: 0 20px; /* Lägg till horisontell padding för innehåll på mobil */
-        box-sizing: border-box; /* Säkerställ att padding inkluderas i höjden */
-        height: auto; /* Återställer höjden för att tillåta fri scroll */
     }
 
     .hero-section h1 {

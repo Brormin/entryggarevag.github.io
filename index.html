@@ -1,71 +1,69 @@
-<!DOCTYPE html>
-<html lang="sv">
+<!DOCTYPE html><html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En tryggare väg</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En tryggare väg</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>En tryggare väg</h1>
-        <p>Din partner för personlig utveckling och välmående.</p>
-    </header>
-
-    <main>
-        <section id="services">
-            <div class="service">
-                <i class="fas fa-head-side-virus fa-3x"></i>
-                <h2>Ångesthantering</h2>
-                <p>Lär dig hantera oro, ältande och tankefällor.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-heart-broken fa-3x"></i>
-                <h2>Depression</h2>
-                <p>Få stöd att hitta riktning, energi och hopp.</p>
-            </div>
-            <div class="service">
-                 <i class="fas fa-user-friends fa-3x"></i>
-                <h2>Coaching</h2>
-                <p>Utforska mål, mening och nästa steg i livet.</p>
-            </div>
-             <div class="service">
-                <i class="fas fa-comments fa-3x"></i>
-                <h2>Samtalsstöd</h2>
-                <p>Någon att prata med när du behöver det.</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="about-content">
-                <h2>Om mig</h2>
-                <p>
-                    <img src="http://googleusercontent.com/generated_image_content/0" alt="Man mediterar" class="meditation-image">
-                    Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.
-                </p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Kontakta mig</h2>
-            <form action="#" method="POST" class="contact-form">
-                <label for="name">Namn:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">E-post:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Meddelande:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Skicka</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 En tryggare väg</p>
-    </footer>
-</body>
+  <header>
+    <div class="header-content">
+      <h1>En tryggare väg</h1>
+      <img src="jag.jpg" alt="Profilbild" class="profile-pic">
+      <button class="lang-toggle" onclick="toggleLanguage()">English</button>
+    </div>
+    <p class="tagline" data-lang="sv">Samtalsstöd med trygghet och närvaro</p>
+    <p class="tagline" data-lang="en" style="display:none;">Counseling with safety and presence</p>
+  </header>  <section class="features">
+    <div class="feature">
+      <img src="icons/thinking.svg" alt="Grubblande ikon">
+      <h2 data-lang="sv">Ångesthantering</h2>
+      <h2 data-lang="en" style="display:none;">Anxiety Management</h2>
+      <p data-lang="sv">Lär dig hantera oro, ältande och tankefällor.</p>
+      <p data-lang="en" style="display:none;">Learn to manage worry, rumination, and thinking traps.</p>
+    </div>
+    <div class="feature">
+      <img src="icons/sad.svg" alt="Nedstämd ikon">
+      <h2 data-lang="sv">Depression</h2>
+      <h2 data-lang="en" style="display:none;">Depression</h2>
+      <p data-lang="sv">Få stöd att hitta riktning, energi och hopp.</p>
+      <p data-lang="en" style="display:none;">Get support to find direction, energy, and hope.</p>
+    </div>
+    <div class="feature">
+      <img src="icons/mentorship.svg" alt="Mentorskap ikon">
+      <h2 data-lang="sv">Coaching</h2>
+      <h2 data-lang="en" style="display:none;">Coaching</h2>
+      <p data-lang="sv">Utforska mål, mening och nästa steg i livet.</p>
+      <p data-lang="en" style="display:none;">Explore goals, meaning, and your next steps in life.</p>
+    </div>
+    <div class="feature">
+      <img src="icons/chat.svg" alt="Chatt ikon">
+      <h2 data-lang="sv">Samtalsstöd</h2>
+      <h2 data-lang="en" style="display:none;">Counseling</h2>
+      <p data-lang="sv">Någon att prata med när du behöver det.</p>
+      <p data-lang="en" style="display:none;">Someone to talk to when you need it.</p>
+    </div>
+  </section>  <section class="about">
+    <div class="about-container">
+      <img src="images/shield.png" alt="Sköldsymbol" class="shield">
+      <div class="about-text">
+        <h2 data-lang="sv">Om mig</h2>
+        <h2 data-lang="en" style="display:none;">About Me</h2>
+        <p data-lang="sv">
+          Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.
+        </p>
+        <p data-lang="en" style="display:none;">
+          I offer counseling for those seeking to feel better, find direction, or get help with mental distress. With empathy and safety, we work together toward your goals – always using proven and evidence-based methods.
+        </p>
+      </div>
+    </div>
+  </section>  <script>
+    function toggleLanguage() {
+      const elements = document.querySelectorAll('[data-lang]');
+      elements.forEach(el => {
+        el.style.display = (el.style.display === 'none') ? '' : 'none';
+      });
+    }
+  </script></body>
 </html>

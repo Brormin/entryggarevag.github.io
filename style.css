@@ -6,48 +6,64 @@
 }
 
 :root {
-    /* Färgpalett från Coolors.co */
-    --color-pink: #F72585;
-    --color-purple1: #B5179E;
-    --color-purple2: #7209B7;
-    --color-purple3: #560BAD;
-    --color-purple4: #480CA8;
-    --color-purple5: #3A0CA3;
-    --color-blue1: #3F37C9;
-    --color-blue2: #4361EE;
-    --color-blue3: #4895EF;
-    --color-blue4: #4CC9F0; /* Ljusare blå för variation */
+    /* Madam Elise's New French-inspired Palette */
+    --color-primary-dark: #3F2C50;   /* Deep Plum / Dark Violet */
+    --color-primary-light: #6A4C93;  /* Muted Lavender / Amethyst */
+    --color-accent-gold: #C09A4D;    /* Antique Gold */
+    --color-accent-rose: #C78283;    /* Dusty Rose */
+    --color-neutral-dark: #333333;   /* Charcoal Gray for headings */
+    --color-neutral-medium: #666666; /* Medium Gray for body text */
+    --color-neutral-light: #F8F5F2;  /* Off-White / Cream background */
+    --color-border: #E0DFDF;        /* Soft Gray for borders */
+    --color-white: #FFFFFF;          /* Pure White for elements */
 
-    /* Färgpalettens användning i designen */
-    --primary-color: var(--color-purple3); /* Huvudfärg för nav, knappar, huvudrubriker */
-    --secondary-color: var(--color-blue3); /* Accentfärg för ikoner, hover-effekter */
-    --text-dark: #2a2a2a; /* Mörk text för rubriker och viktig text */
-    --text-light: #555555; /* Ljusare text för brödtext */
-    --bg-light: #fdfdff; /* Lättaste bakgrund, nästan vit */
-    --bg-accent: #ebebeb; /* Lätt accentbakgrund, för att bryta av */
-    --border-color: #e0e0e0; /* Lätt kantlinje för boxar och fält */
+    /* General usage mappings */
+    --main-bg-color: var(--color-neutral-light);
+    --card-bg-color: var(--color-white);
+    --header-footer-bg: var(--color-primary-dark);
+    --button-bg-color: var(--color-primary-light);
+    --heading-color: var(--color-neutral-dark);
+    --body-text-color: var(--color-neutral-medium);
+    --icon-color: var(--color-accent-gold);
 
-    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-elevated: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-body {
+html, body {
+    height: 100%;
+    overflow-y: scroll; /* Aktivera scrollning */
+    scroll-snap-type: y mandatory; /* Aktivera snap-scroll */
+    scroll-behavior: smooth; /* Mjuk scroll mellan snap-punkter */
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
-    background-color: var(--bg-accent);
-    color: var(--text-light);
-    overflow-x: hidden; /* För att förhindra horisontell scroll */
+    background-color: var(--main-bg-color);
+    color: var(--body-text-color);
 }
+
+/* Snap-sektioner - dessa kommer att "snäppa" i viewporten */
+.snap-section {
+    scroll-snap-align: start;
+    height: 100vh; /* Varje sektion tar hela viewport-höjden */
+    width: 100vw;  /* Varje sektion tar hela viewport-bredden */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrera innehållet vertikalt */
+    align-items: center; /* Centrera innehållet horisontellt */
+    padding: 0; /* Ingen specifik padding här, innehållet hanterar det */
+    margin: 0; /* Inga marginaler för snap-sektioner */
+}
+
 
 /* Navigering */
 .main-nav {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--header-footer-bg);
+    color: var(--color-white);
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-subtle);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -57,19 +73,19 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
-    flex-shrink: 0; /* Hindrar att den krymper */
+    flex-shrink: 0;
 }
 
 .nav-links {
     display: flex;
     gap: 30px;
-    margin-left: auto; /* Pushar länkarna till höger */
+    margin-left: auto;
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     font-weight: 400;
     font-size: 1.05rem;
@@ -77,12 +93,12 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--color-blue4); /* En av de ljusare blåa från paletten */
+    color: var(--color-accent-gold);
 }
 
 .lang-toggle {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--color-white);
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -95,86 +111,99 @@ body {
 }
 
 .lang-toggle:hover {
-    background-color: var(--color-blue4);
+    background-color: var(--color-accent-gold);
 }
 
 .hamburger {
-    display: none; /* Dold på större skärmar */
+    display: none;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--color-white);
     font-size: 2rem;
     cursor: pointer;
     margin-left: 20px;
 }
 
-/* Hero Sektion (Header) - Justerad för att visa mer av bilden */
+/* Hero Sektion (Header) - Nu med <img>-tagg för bakgrundsbilden */
 .hero-section {
-    background: url('image.jpg') no-repeat center center/cover; /* Använder .jpg och cover */
-    padding: 80px 20px; /* Ökad padding för att ge mer utrymme */
+    position: relative; /* Nödvändigt för absolut positionering av bilden */
     text-align: center;
-    position: relative;
     overflow: hidden;
-    min-height: 450px; /* Ökad min-höjd för att visa mer av bilden */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh; /* Säkerställer full viewport-höjd */
+    width: 100vw;  /* Säkerställer full viewport-bredd */
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fyller området, beskär vid behov för att undvika tomrum */
+    z-index: -1; /* Placerar bilden bakom innehållsöverlägget */
 }
 
 .hero-content-overlay {
+    position: relative; /* Säkerställer att överlägget ligger ovanpå bilden */
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
-    padding: 40px 30px; /* Ökad padding för en mer kompakt look */
+    padding: 40px 30px;
     border-radius: 10px;
-    box-shadow: var(--shadow-light);
-    color: #fff; /* Vit text över overlay */
-    max-width: 800px; /* Begränsa bredden för texten */
+    box-shadow: var(--shadow-subtle);
+    color: var(--color-white);
+    max-width: 800px;
 }
 
 .hero-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3.5rem; /* Lite större rubrik */
+    font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Textskugga för kontrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 1.6rem; /* Lite större tagline */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Textskugga för kontrast */
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Allmänna sektionsstilar */
+/* Allmänna sektionsstilar - Justerad för snap-scroll */
 .content-section {
-    padding: 60px 20px;
     max-width: 1100px;
-    margin: 40px auto;
-    background-color: var(--bg-light);
-    box-shadow: var(--shadow-light);
+    background-color: var(--card-bg-color); /* Uppdaterad till kortbakgrund */
+    box-shadow: var(--shadow-subtle); /* Uppdaterad skugga */
     border-radius: 12px;
+    padding: 60px 40px; /* Konsekvent padding inuti innehållet */
+    margin: auto; /* Centrerad i viewporten när den är snappad */
+}
+
+/* Specifika justeringar för snap-sektioner för att säkerställa att innehållet är vertikalt centrerat och maxbredden respekteras */
+.snap-section.content-section {
+    box-sizing: border-box; /* Inkludera padding i höjdberäkningen */
 }
 
 .section-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 2.8rem;
-    color: var(--text-dark);
+    color: var(--heading-color);
     text-align: center;
-    margin-bottom: 60px; /* Säkerställer att titeln är ovanför rutorna */
+    margin-bottom: 60px;
 }
 
-/* Tjänster/Info-rutor - Justerad för 2x2 layout på större skärmar */
+/* Tjänster/Info-rutor */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Tvingar 2 kolumner på större skärmar */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    max-width: 900px; /* Begränsa rutnätets bredd vid behov inom 100vh */
+    margin: 0 auto; /* Centrera rutnätet */
 }
 
-/* Länk-wrapper för info-box */
 .info-box-link {
     text-decoration: none;
     color: inherit;
@@ -184,21 +213,21 @@ body {
 
 .info-box-link:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-elevated);
 }
 
 .info-box {
-    background-color: #fff;
+    background-color: var(--card-bg-color);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
 }
 
 .service-icon {
     font-size: 3.8rem;
-    color: var(--secondary-color);
+    color: var(--icon-color);
     margin-bottom: 25px;
     transition: transform 0.3s ease;
 }
@@ -210,7 +239,7 @@ body {
 .info-box h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--heading-color);
     font-size: 1.7rem;
     margin-bottom: 15px;
 }
@@ -218,126 +247,139 @@ body {
 .info-box p {
     font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: var(--body-text-color);
 }
 
-/* Nya detaljsektioner för tjänster - Mer "luft" och FÄRGvariation */
+/* Nya detaljsektioner för tjänster - Behåller vanlig scroll och styling */
 .service-detail-section {
-    margin-top: 100px; /* Ökat utrymme ovanför */
-    margin-bottom: 100px; /* Lägg till utrymme nedanför */
+    margin-top: 80px; /* Utrymme ovanför */
+    margin-bottom: 80px; /* Utrymme nedanför */
     padding: 50px 40px;
-    border-radius: 20px; /* Mjukare kanter */
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-light); /* Enhetlig skugga */
-    color: var(--text-dark); /* Säkerställ läsbarhet */
+    border-radius: 20px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border); /* Alltid med en mjuk border */
 }
 
-/* Specifika färger för varje detaljsektion */
+/* Specifika färger för varje detaljsektion från nya paletten */
 .anxiety-detail {
-    background-color: var(--color-purple1); /* Exempel: Rosa-lila */
-    color: #fff; /* Ljus text för kontrast */
+    background-color: var(--color-primary-light);
+    color: var(--color-white); /* Vit text för kontrast */
 }
 
 .anxiety-detail .section-title,
 .anxiety-detail p {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .depression-detail {
-    background-color: var(--color-pink); /* Exempel: Stark rosa */
-    color: #fff; /* Ljus text för kontrast */
+    background-color: var(--color-accent-rose);
+    color: var(--color-white);
 }
 
 .depression-detail .section-title,
 .depression-detail p {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .coaching-detail {
-    background-color: var(--color-purple2); /* Exempel: Mörkare lila */
-    color: #fff; /* Ljus text för kontrast */
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
 }
 
 .coaching-detail .section-title,
 .coaching-detail p {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .talksupport-detail {
-    background-color: var(--color-blue3); /* Exempel: Mellanblå */
-    color: #fff; /* Ljus text för kontrast */
+    background-color: var(--color-accent-gold);
+    color: var(--color-neutral-dark); /* Mörkare text för kontrast på guld */
 }
 
 .talksupport-detail .section-title,
 .talksupport-detail p {
-    color: #fff;
+    color: var(--color-neutral-dark);
 }
-
 
 /* Stilar för "Tillbaka till Tjänster"-länken i detaljsektionerna */
 .service-detail-section .back-to-services {
     background-color: rgba(255, 255, 255, 0.2); /* Lättare bakgrund för kontrast mot sektionsfärgen */
-    color: #fff;
+    color: var(--color-white); /* Standard vit, åsidosätts om texten är mörk */
     border: 1px solid rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
+/* Överlagring för back-to-services om texten på bakgrunden är mörk */
+.talksupport-detail .back-to-services {
+    color: var(--color-neutral-dark); /* Mörk text för guld-bakgrund */
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
 
 .service-detail-section .back-to-services:hover {
     background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
+.talksupport-detail .back-to-services:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+}
 
-/* Om mig-sektion - Förfinad utseende och font */
+/* Om mig-sektion */
 .about-me-container {
-    text-align: center; /* Centrera titeln */
-    position: relative;
-    padding: 80px 40px;
-    background-color: var(--bg-light); /* Huvudbakgrund för sektionen */
-    border-radius: 12px;
+    text-align: center;
 }
 
 .about-me-layout {
     display: flex;
-    flex-wrap: wrap; /* Tillåt omslag på mindre skärmar */
-    align-items: center; /* Centrera vertikalt */
-    gap: 40px; /* Utrymme mellan bild och text */
-    max-width: 900px; /* Maxbredd för layouten */
-    margin: 0 auto; /* Centrera layouten */
-    padding: 30px; /* Inre padding för hela boxen */
-    background-color: #fff; /* Bakgrund för layouten */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-bg-color);
     border-radius: 10px;
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
 }
 
 .about-me-image-wrapper {
-    flex: 0 0 auto; /* Fixerad storlek, ej krymbar/växande */
-    width: 200px; /* Bredd för bildbehållaren */
-    height: 200px; /* Höjd för bildbehållaren, för att göra den till en kvadrat */
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent; /* Säkerställ ingen vit bakgrund från denna wrapper */
-    border-radius: 50%; /* Gör behållaren rund om bilden ska vara rund */
-    overflow: hidden; /* Dölj delar av bilden om den är större än behållaren */
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
-.about-icon-img { /* Stil för den uppladdade bilden */
-    width: 150px; /* Större bildstorlek */
+.about-icon-img {
+    width: 150px;
     height: auto;
     display: block;
-    object-fit: contain; /* Säkerställ att hela bilden syns inom wrapper */
+    object-fit: contain;
 }
 
 .about-me-text-wrapper {
-    flex: 1; /* Ta upp resterande utrymme */
-    text-align: left; /* Justera texten till vänster */
-    min-width: 280px; /* Minimibredd för texten på mindre skärmar */
+    flex: 1;
+    text-align: left;
+    min-width: 280px;
 }
 
 .about-me-text-wrapper p {
     font-family: 'Lato', sans-serif;
     font-size: 1.15rem;
-    color: var(--text-dark);
+    color: var(--body-text-color);
     line-height: 1.7;
 }
 
@@ -350,10 +392,10 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    background-color: #fff;
+    background-color: var(--card-bg-color);
     border-radius: 15px;
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
 }
 
 .form-group {
@@ -366,7 +408,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    color: var(--text-dark);
+    color: var(--heading-color);
     margin-bottom: 8px;
 }
 
@@ -375,26 +417,26 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
+    color: var(--color-neutral-dark);
+    background-color: var(--main-bg-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--color-blue1);
+    border-color: var(--button-bg-color);
+    box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.2); /* Mjukare fokusfärg */
     outline: none;
 }
 
 .contact-form button[type="submit"] {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--color-white);
     padding: 16px 35px;
     border: none;
     border-radius: 8px;
@@ -406,19 +448,19 @@ body {
     width: auto;
     display: inline-block;
     margin-top: 25px;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-subtle);
 }
 
 .contact-form button[type="submit"]:hover {
-    background-color: var(--color-purple2);
+    background-color: var(--color-accent-gold);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-elevated);
 }
 
 /* Footer */
 footer {
-    background-color: var(--text-dark);
-    color: #fff;
+    background-color: var(--header-footer-bg);
+    color: var(--color-white);
     text-align: center;
     padding: 30px 20px;
     margin-top: 60px;
@@ -440,8 +482,8 @@ footer {
         position: absolute;
         top: 65px;
         left: 0;
-        background-color: var(--primary-color);
-        box-shadow: var(--shadow-light);
+        background-color: var(--header-footer-bg);
+        box-shadow: var(--shadow-subtle);
         padding: 10px 0;
     }
 
@@ -470,13 +512,10 @@ footer {
         display: block;
     }
 
-    .hero-section {
-        padding: 40px 20px;
-        min-height: 350px; /* Justerad för mobil */
-    }
-
-    .hero-content-overlay {
-        padding: 25px 20px;
+    /* Snap sections adjustments for mobile */
+    .snap-section {
+        padding: 0 20px; /* Lägg till horisontell padding för innehåll på mobil */
+        box-sizing: border-box; /* Säkerställ att padding inkluderas i höjden */
     }
 
     .hero-section h1 {
@@ -493,7 +532,7 @@ footer {
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* Endast 1 kolumn på mobil */
+        grid-template-columns: 1fr;
     }
 
     .info-box {
@@ -514,22 +553,22 @@ footer {
 
     /* Anpassning för Om mig-sektionen på mobil */
     .about-me-layout {
-        flex-direction: column; /* Stacka på varandra på mobil */
+        flex-direction: column;
         gap: 20px;
         padding: 20px;
     }
 
     .about-me-image-wrapper {
-        width: 150px; /* Mindre på mobil */
+        width: 150px;
         height: 150px;
     }
 
     .about-icon-img {
-        width: 120px; /* Mindre bild på mobil */
+        width: 120px;
     }
 
     .about-me-text-wrapper {
-        text-align: center; /* Centrera texten på mobil */
+        text-align: center;
         min-width: unset;
     }
 

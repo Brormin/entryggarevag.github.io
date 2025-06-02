@@ -1,63 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>En Tryggare Väg</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En tryggare väg</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#angest">Ångest</a></li>
-        <li><a href="#depression">Depression</a></li>
-        <li><a href="#coaching">Coaching</a></li>
-        <li><a href="#samtalsstod">Samtalsstöd</a></li>
-        <li><a href="#om-mig">Om mig</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="site-title">En tryggare väg</h1>
+            <img src="jag.jpg" alt="Profilbild" class="profile-img">
+            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+        </header>
 
-  <main>
-    <section id="angest" class="section">
-      <h2>Ångest</h2>
-      <p>Ångest är en naturlig men ibland överväldigande känsla. Vi arbetar med att förstå, acceptera och skapa strategier för att hantera den på ett hållbart sätt.</p>
-    </section>
+        <section class="intro-section">
+            <p class="tagline">Din partner för personlig utveckling och välmående.</p>
+        </section>
 
-    <section id="depression" class="section">
-      <h2>Depression</h2>
-      <p>Depression påverkar både tankar, känslor och beteenden. Här får du stöd i att återfinna mening, kraft och riktning i tillvaron.</p>
-    </section>
+        <section class="info-grid">
+            <div class="info-box">
+                <img src="icons/thinking.svg" alt="Ikon för ångesthantering" class="box-icon">
+                <h2 class="box-title">Ångesthantering</h2>
+                <p class="box-text">Lär dig hantera oro, ältande och tankefällor.</p>
+            </div>
+            <div class="info-box">
+                <img src="icons/sad.svg" alt="Ikon för depression" class="box-icon">
+                <h2 class="box-title">Depression</h2>
+                <p class="box-text">Få stöd att hitta riktning, energi och hopp.</p>
+            </div>
+            <div class="info-box">
+                <img src="icons/mentorship.svg" alt="Ikon för coaching" class="box-icon">
+                <h2 class="box-title">Coaching</h2>
+                <p class="box-text">Utforska mål, mening och nästa steg i livet.</p>
+            </div>
+            <div class="info-box">
+                <img src="icons/chat.svg" alt="Ikon för samtalsstöd" class="box-icon">
+                <h2 class="box-title">Samtalsstöd</h2>
+                <p class="box-text">Någon att prata med när du behöver det.</p>
+            </div>
+        </section>
 
-    <section id="coaching" class="section">
-      <h2>Coaching</h2>
-      <p>Genom coaching får du hjälp att tydliggöra mål, övervinna hinder och agera i linje med dina värderingar. Vi bygger på styrkor och riktning.</p>
-    </section>
+        <section class="about-me-section">
+            <div class="about-me-box">
+                <h2 class="about-me-title">Om mig</h2>
+                <div class="about-me-content">
+                    <img src="images/shield.png" alt="Sköldsymbol" class="shield-img">
+                    <p class="about-me-text">
+                        Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <section id="samtalsstod" class="section">
-      <h2>Samtalsstöd</h2>
-      <p>I samtalsstödet får du ett tryggt utrymme att reflektera, sörja, växa eller bara vara. Allians, närvaro och empati står i centrum.</p>
-    </section>
+    <script>
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            if (currentLang === 'sv') {
+                document.documentElement.lang = 'en';
+                document.title = 'A Safer Path';
+                document.querySelector('.site-title').textContent = 'A Safer Path';
+                document.querySelector('.lang-toggle').textContent = 'SV';
+                document.querySelector('.tagline').textContent = 'Your partner for personal growth and well-being.';
+                
+                document.querySelectorAll('.info-box')[0].querySelector('.box-title').textContent = 'Anxiety Management';
+                document.querySelectorAll('.info-box')[0].querySelector('.box-text').textContent = 'Learn to manage worry, rumination, and thought traps.';
+                
+                document.querySelectorAll('.info-box')[1].querySelector('.box-title').textContent = 'Depression';
+                document.querySelectorAll('.info-box')[1].querySelector('.box-text').textContent = 'Get support to find direction, energy, and hope.';
+                
+                document.querySelectorAll('.info-box')[2].querySelector('.box-title').textContent = 'Coaching';
+                document.querySelectorAll('.info-box')[2].querySelector('.box-text').textContent = 'Explore goals, meaning, and the next steps in life.';
+                
+                document.querySelectorAll('.info-box')[3].querySelector('.box-title').textContent = 'Talk Support';
+                document.querySelectorAll('.info-box')[3].querySelector('.box-text').textContent = 'Someone to talk to when you need it.';
+                
+                document.querySelector('.about-me-title').textContent = 'About me';
+                document.querySelector('.about-me-text').textContent = 'I offer talk support for those who want to feel better, find direction, or get help with mental health issues. With empathy and security, we work together towards your goals – always with proven and evidence-based methods.';
 
-    <section id="om-mig" class="section about">
-      <h2>Om mig</h2>
-      <p>Jag är legitimerad behandlare med lång erfarenhet av ångest, stress, trauma och förändringsarbete. Mitt fokus ligger alltid på din upplevelse, trygghet och riktning.</p>
-      <img src="https://placehold.co/400x250?text=Om+Mig" alt="Porträttbild" />
-    </section>
+            } else {
+                document.documentElement.lang = 'sv';
+                document.title = 'En tryggare väg';
+                document.querySelector('.site-title').textContent = 'En tryggare väg';
+                document.querySelector('.lang-toggle').textContent = 'EN';
+                document.querySelector('.tagline').textContent = 'Din partner för personlig utveckling och välmående.';
 
-    <section id="kontakt" class="section contact">
-      <h2>Kontakta mig</h2>
-      <form>
-        <input type="text" name="name" placeholder="Namn" required />
-        <input type="email" name="email" placeholder="E-post" required />
-        <textarea name="message" placeholder="Ditt meddelande..." required></textarea>
-        <button type="submit">Skicka</button>
-      </form>
-    </section>
-  </main>
+                document.querySelectorAll('.info-box')[0].querySelector('.box-title').textContent = 'Ångesthantering';
+                document.querySelectorAll('.info-box')[0].querySelector('.box-text').textContent = 'Lär dig hantera oro, ältande och tankefällor.';
+                
+                document.querySelectorAll('.info-box')[1].querySelector('.box-title').textContent = 'Depression';
+                document.querySelectorAll('.info-box')[1].querySelector('.box-text').textContent = 'Få stöd att hitta riktning, energi och hopp.';
+                
+                document.querySelectorAll('.info-box')[2].querySelector('.box-title').textContent = 'Coaching';
+                document.querySelectorAll('.info-box')[2].querySelector('.box-text').textContent = 'Utforska mål, mening och nästa steg i livet.';
+                
+                document.querySelectorAll('.info-box')[3].querySelector('.box-title').textContent = 'Samtalsstöd';
+                document.querySelectorAll('.info-box')[3].querySelector('.box-text').textContent = 'Någon att prata med när du behöver det.';
+
+                document.querySelector('.about-me-title').textContent = 'Om mig';
+                document.querySelector('.about-me-text').textContent = 'Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.';
+            }
+        }
+    </script>
 </body>
 </html>

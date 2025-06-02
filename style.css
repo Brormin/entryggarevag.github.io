@@ -108,14 +108,14 @@ body {
     margin-left: 20px;
 }
 
-/* Hero Sektion (Header) - Justerad för att inte vara för stor */
+/* Hero Sektion (Header) - Justerad för att visa mer av bilden */
 .hero-section {
-    background: url('image.jpg') no-repeat center center/cover; /* Ändrat till .jpg */
-    padding: 60px 20px; /* Mindre padding */
+    background: url('image.png') no-repeat center center/cover; /* Använder .png och cover */
+    padding: 50px 20px; /* Mindre padding för att minska vertikalt utrymme */
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 320px; /* Mindre min-höjd för att minska storleken */
+    min-height: 280px; /* Mindre min-höjd för att göra den mindre "tjock" */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -221,13 +221,15 @@ body {
     color: var(--text-light);
 }
 
-/* Nya detaljsektioner för tjänster */
+/* Nya detaljsektioner för tjänster - Mer "luft" och färg från paletten */
 .service-detail-section {
-    margin-top: 80px;
+    margin-top: 100px; /* Ökat utrymme ovanför */
+    margin-bottom: 100px; /* Lägg till utrymme nedanför */
     padding: 50px 40px;
     border-radius: 15px;
-    background-color: #fff;
+    background-color: var(--bg-accent); /* Färg från paletten */
     border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light); /* Enhetlig skugga */
 }
 
 .service-detail-section p {
@@ -236,6 +238,16 @@ body {
     margin-bottom: 20px;
     color: var(--text-dark);
 }
+
+.detail-section-image {
+    max-width: 100%; /* Gör bilden responsiv */
+    height: auto; /* Bibehåll proportioner */
+    display: block; /* Säkerställ att bilden är ett blockelement */
+    margin: 0 auto 30px auto; /* Centrera och ge utrymme under */
+    border-radius: 10px; /* Lite rundade hörn för bilden */
+    box-shadow: var(--shadow-light); /* Lätt skugga */
+}
+
 
 .back-to-services {
     display: inline-block;
@@ -275,12 +287,11 @@ body {
     border: 1px solid var(--border-color);
 }
 
-.about-icon {
-    font-size: 3.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 25px;
+.about-icon-img { /* Ny stil för den uppladdade bilden */
+    width: 70px; /* Justera storlek vid behov */
+    height: auto;
     display: block;
-    text-align: center;
+    margin: 0 auto 25px auto;
 }
 
 .about-me-content-box p {
@@ -459,6 +470,10 @@ footer {
         font-size: 1.5rem;
     }
 
+    .info-box p {
+        font-size: 1rem;
+    }
+
     .about-me-container {
         padding: 60px 20px;
     }
@@ -514,12 +529,6 @@ footer {
         font-size: 1rem;
     }
 
-    .form-group label {
-        font-size: 1rem;
-    }
-    .form-group input, .form-group textarea {
-        padding: 10px;
-    }
     .contact-form button[type="submit"] {
         padding: 12px 20px;
         font-size: 1rem;

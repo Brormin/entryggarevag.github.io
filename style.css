@@ -1,203 +1,644 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-text-sv="En tryggare väg" data-text-en="A Safer Path">En tryggare väg</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600;700;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+/* Grundläggande stil för att nollställa och sätta upp typsnitt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <nav class="main-nav">
-        <a href="#home" class="nav-brand" data-text-sv="En tryggare väg" data-text-en="A Safer Path">En tryggare väg</a>
-        <div class="nav-links">
-            <a href="#services-section" data-text-sv="Tjänster" data-text-en="Services">Tjänster</a>
-            <a href="#about-section" data-text-sv="Om mig" data-text-en="About me">Om mig</a>
-            <a href="#contact-section" data-text-sv="Kontakt" data-text-en="Contact">Kontakt</a>
-        </div>
-        <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
-        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
-    </nav>
+:root {
+    /* Madam Elise's New French-inspired Palette */
+    --color-primary-dark: #3F2C50;   /* Deep Plum / Dark Violet */
+    --color-primary-light: #6A4C93;  /* Muted Lavender / Amethyst */
+    --color-accent-gold: #C09A4D;    /* Antique Gold */
+    --color-accent-rose: #C78283;    /* Dusty Rose */
+    --color-neutral-dark: #333333;   /* Charcoal Gray for headings */
+    --color-neutral-medium: #666666; /* Medium Gray for body text */
+    --color-neutral-light: #F8F5F2;  /* Off-White / Cream background */
+    --color-border: #E0DFDF;        /* Soft Gray for borders */
+    --color-white: #FFFFFF;          /* Pure White for elements */
 
-    <header id="home" class="hero-section">
-        <img src="image.jpg" alt="Bakgrundsbild för En tryggare väg" class="hero-background-image">
-        <div class="hero-content-overlay">
-            <h1 data-text-sv="En tryggare väg" data-text-en="A Safer Path">En tryggare väg</h1>
-            <p class="tagline" data-text-sv="Din partner för personlig utveckling och välmående." data-text-en="Your partner for personal development and well-being.">Din partner för personlig utveckling och välmående.</p>
-        </div>
-    </header>
+    /* General usage mappings */
+    --main-bg-color: var(--color-neutral-light);
+    --card-bg-color: var(--color-white);
+    --header-footer-bg: var(--color-primary-dark);
+    --button-bg-color: var(--color-primary-light);
+    --heading-color: var(--color-neutral-dark);
+    --body-text-color: var(--color-neutral-medium);
+    --icon-color: var(--color-accent-gold);
 
-    <main>
-        <section id="services-section" class="content-section">
-            <h2 class="section-title" data-text-sv="Våra Tjänster" data-text-en="Our Services">Våra Tjänster</h2>
-            <div class="services-grid" id="servicesOverviewGrid">
-                <a href="#anxiety-info" class="info-box-link">
-                    <div class="info-box">
-                        <i class="fas fa-brain service-icon" aria-hidden="true"></i> <h3 data-text-sv="Ångesthantering" data-text-en="Anxiety Management">Ångesthantering</h3>
-                        <p data-text-sv="Lär dig konkreta strategier för att effektivt hantera oro, stress och ångest. Vi utforskar tankemönster och utvecklar verktyg för ett lugnare sinne och ökad livskvalitet." data-text-en="Learn concrete strategies to effectively manage worry, stress, and anxiety. We explore thought patterns and develop tools for a calmer mind and improved quality of life.">Lär dig konkreta strategier för att effektivt hantera oro, stress och ångest. Vi utforskar tankemönster och utvecklar verktyg för ett lugnare sinne och ökad livskvalitet.</p>
-                    </div>
-                </a>
-                <a href="#depression-info" class="info-box-link">
-                    <div class="info-box">
-                        <i class="fas fa-cloud-showers-heavy service-icon" aria-hidden="true"></i> <h3 data-text-sv="Depression" data-text-en="Depression">Depression</h3>
-                        <p data-text-sv="Få professionellt stöd att navigera genom nedstämdhet och depression. Tillsammans arbetar vi för att återfå energi, hitta glädje och skapa en meningsfull riktning framåt." data-text-en="Receive professional support to navigate through low mood and depression. Together, we work to regain energy, find joy, and create a meaningful path forward.">Få professionellt stöd att navigera genom nedstämdhet och depression. Tillsammans arbetar vi för att återfå energi, hitta glädje och skapa en meningsfull riktning framåt.</p>
-                    </div>
-                </a>
-                <a href="#coaching-info" class="info-box-link">
-                    <div class="info-box">
-                        <i class="fas fa-shield-alt service-icon" aria-hidden="true"></i> <h3 data-text-sv="Coaching" data-text-en="Coaching">Coaching</h3>
-                        <p data-text-sv="Upptäck din fulla potential genom personlig coaching. Vi definierar tydliga mål, övervinner hinder och formulerar konkreta handlingsplaner för din professionella och personliga utveckling." data-text-en="Discover your full potential through personal coaching. We define clear goals, overcome obstacles, and formulate concrete action plans for your professional and personal development.">Upptäck din fulla potential genom personlig coaching. Vi definierar tydliga mål, övervinner hinder och formulerar konkreta handlingsplaner för din professionella och personliga utveckling.</p>
-                    </div>
-                </a>
-                <a href="#talksupport-info" class="info-box-link">
-                    <div class="info-box">
-                        <i class="fas fa-comments service-icon" aria-hidden="true"></i> <h3 data-text-sv="Samtalsstöd" data-text-en="Talk Support">Samtalsstöd</h3>
-                        <p data-text-sv="Ett tryggt och konfidentiellt utrymme där du kan utforska tankar och känslor. Vi erbjuder empatiskt lyssnande och vägledning för att hantera livets utmaningar och stärka din inre balans." data-text-en="A safe and confidential space where you can explore thoughts and feelings. We offer empathetic listening and guidance to manage life's challenges and strengthen your inner balance.">Ett tryggt och konfidentiellt utrymme där du kan utforska tankar och känslor. Vi erbjuder empatiskt lyssnande och vägledning för att hantera livets utmaningar och stärka din inre balans.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+    --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-elevated: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
-        <section id="anxiety-info" class="service-detail-section anxiety-detail content-section">
-            <h2 class="section-title" data-text-sv="Ångesthantering" data-text-en="Anxiety Management">Ångesthantering</h2>
-            <p data-text-sv="Ångest kan kännas som en tyngd som begränsar din värld, fyller dina tankar med oro och skapar obehag i din kropp. Från en molande, allmän oro till plötsliga, överväldigande panikattacker – ångest tar sig många uttryck och kan göra vardagen till en ständig kamp. Vi vet att ångest är mer än bara en känsla; det är en komplex reaktion som påverkar ditt sinne, din kropp och ditt beteende. Här arbetar vi tillsammans för att förstå ångestens mekanismer och återta kontrollen. Jag guidar dig att identifiera dina specifika triggers, utveckla andnings- och avslappningstekniker för att lugna systemet, samt att omstrukturera tankemönster som vidmakthåller ångesten. Målet är att utrusta dig med konkreta, beprövade verktyg som hjälper dig att möta dina rädslor, minska symtomen och återupptäcka en känsla av lugn och trygghet i ditt liv. Du är inte ensam i denna upplevelse, och tillsammans kan vi bygga en tryggare väg framåt." data-text-en="Anxiety can feel like a weight limiting your world, filling your thoughts with worry, and causing discomfort in your body. From a nagging, general unease to sudden, overwhelming panic attacks – anxiety manifests in many ways and can make everyday life a constant struggle. We know that anxiety is more than just a feeling; it is a complex reaction that affects your mind, body, and behavior. Here, we work together to understand the mechanisms of anxiety and regain control. I guide you to identify your specific triggers, develop breathing and relaxation techniques to calm the system, and restructure thought patterns that perpetuate anxiety. The goal is to equip you with concrete, proven tools that help you confront your fears, reduce symptoms, and rediscover a sense of calm and security in your life. You are not alone in this experience, and together we can build a safer path forward.">Ångest kan kännas som en tyngd som begränsar din värld, fyller dina tankar med oro och skapar obehag i din kropp. Från en molande, allmän oro till plötsliga, överväldigande panikattacker – ångest tar sig många uttryck och kan göra vardagen till en ständig kamp. Vi vet att ångest är mer än bara en känsla; det är en komplex reaktion som påverkar ditt sinne, din kropp och ditt beteende. Här arbetar vi tillsammans för att förstå ångestens mekanismer och återta kontrollen. Jag guidar dig att identifiera dina specifika triggers, utveckla andnings- och avslappningstekniker för att lugna systemet, samt att omstrukturera tankemönster som vidmakthåller ångesten. Målet är att utrusta dig med konkreta, beprövade verktyg som hjälper dig att möta dina rädslor, minska symtomen och återupptäcka en känsla av lugn och trygghet i ditt liv. Du är inte ensam i denna upplevelse, och tillsammans kan vi bygga en tryggare väg framåt.</p>
-            <a href="#services-section" class="back-to-services" data-text-sv="&larr; Tillbaka till Tjänster" data-text-en="&larr; Back to Services">&larr; Tillbaka till Tjänster</a>
-        </section>
+html, body {
+    height: 100%;
+    overflow-y: scroll; /* Aktivera scrollning */
+    scroll-snap-type: none; /* TA BORT SNAP-SCROLL FÖR HELA SIDAN */
+    scroll-behavior: smooth; /* Mjuk scroll för alla länkar */
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    background-color: var(--main-bg-color);
+    color: var(--body-text-color);
+}
 
-        <section id="depression-info" class="service-detail-section depression-detail content-section">
-            <h2 class="section-title" data-text-sv="Depression och nedstämdhet" data-text-en="Depression and low mood">Depression och nedstämdhet</h2>
-            <p data-text-sv="När glädjen bleknar och vardagen känns tung, kan depressionens skugga breda ut sig. Det är en djupgående känsla av nedstämdhet som kan påverka allt från din energi, sömn och aptit till din förmåga att känna glädje och meningsfullhet. Kanske känner du dig tom, apatisk, eller har svårt att se en väg ut ur mörkret. Det är viktigt att veta att depression är en verklig och behandlingsbar sjukdom, och du behöver inte bära den ensam. I våra samtal skapar vi ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående." data-text-en="When joy fades and everyday life feels heavy, the shadow of depression can spread. It is a profound feeling of low mood that can affect everything from your energy, sleep, and appetite to your ability to feel joy and meaning. Perhaps you feel empty, apathy, or find it difficult to see a way out of the darkness. It is important to know that depression is a real and treatable illness, and you don't have to bear it alone. In our conversations, we create a safe and understanding space where you can explore your feelings without judgment. We focus on gently reintroducing activities that provide energy and zest for life, building healthy routines, and identifying thought patterns that keep you in a state of low mood. The goal is to gradually help you regain your inner strength, discover new perspectives and find your way back to the light and meaning in your life. Together, we can work to build a stable foundation for your well-being.">När glädjen bleknar och vardagen känns tung, kan depressionens skugga breda ut sig. Det är en djupgående känsla av nedstämdhet som kan påverka allt från din energi, sömn och aptit till din förmåga att känna glädje och meningsfullhet. Kanske känner du dig tom, apatisk, eller har svårt att se en väg ut ur mörkret. Det är viktigt att veta att depression är en verklig och behandlingsbar sjukdom, och du behöver inte bära den ensam. I våra samtal skapar vi ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående.</p>
-            <a href="#services-section" class="back-to-services" data-text-sv="&larr; Tillbaka till Tjänster" data-text-en="&larr; Back to Services">&larr; Tillbaka till Tjänster</a>
-        </section>
-
-        <section id="coaching-info" class="service-detail-section coaching-detail content-section">
-            <h2 class="section-title" data-text-sv="Coaching för utveckling" data-text-en="Coaching for development">Coaching för utveckling</h2>
-            <p data-text-sv="Är du redo att ta nästa stora kliv i livet, oavsett om det handlar om din karriär, dina relationer, din hälsa, eller din personliga självförverkligande? Coaching är en kraftfull process som inte bara hjälper dig att definiera vad du *verkligen* vill uppnå, utan också att formulera de konkreta stegen för att nå dit. Som din coach agerar jag som en katalysator för din tillväxt. Vi kommer att dyka djupt för att identifiera dina unika styrkor och resurser, samt de hinder som kanske håller dig tillbaka. Tillsammans utvecklar vi tydliga, inspirerande mål och skapar en handlingsplan som är skräddarsydd för just dig. Jag kommer att utmana dig, ge dig perspektiv och hålla dig ansvarig på ett stärkande sätt. Coaching handlar om att låsa upp din fulla potential och hjälpa dig att transformera dina visioner till påtagliga resultat. Låt oss tillsammans skapa en väg där du inte bara drömmer, utan också lever ditt mest meningsfulla liv." data-text-en="Are you ready to take the next big step in life, whether it's about your career, your relationships, your health, or your personal self-actualization? Coaching is a powerful process that not only helps you define what you *really* want to achieve but also to formulate the concrete steps to get there. As your coach, I act as a catalyst for your growth. We will delve deep to identify your unique strengths and resources, as well as the obstacles that might be holding you back. Together, we develop clear, inspiring goals and create an action plan tailored just for you. I will challenge you, give you perspective, and hold you accountable in an empowering way. Coaching is about unlocking your full potential and helping you transform your visions into tangible results. Låt oss tillsammans skapa en väg där du inte bara drömmer, utan också lever ditt mest meningsfulla liv.</p>
-            <a href="#services-section" class="back-to-services" data-text-sv="&larr; Tillbaka till Tjänster" data-text-en="&larr; Back to Services">&larr; Tillbaka till Tjänster</a>
-        </section>
-
-        <section id="talksupport-info" class="service-detail-section talksupport-detail content-section">
-            <h2 class="section-title" data-text-sv="Samtalsstöd och vägledning" data-text-en="Talk Support and Guidance">Samtalsstöd och vägledning</h2>
-            <p data-text-sv="Livet kan kasta många bollar i luften, och ibland behöver man helt enkelt ett tryggt utrymme för att sortera tankar, ventilera känslor och finna klarhet. Samtalsstöd är just det – en konfidentiell fristad där du kan tala fritt, utan rädsla för att bli dömd, och med en engagerad lyssnare vid din sida. Oavsett om du går igenom en svår sorg, kämpar med stress, navigerar komplexa relationsproblem, eller bara söker en djupare förståelse för dig själv och din situation, är jag här för dig. Vi kommer att utforska dina utmaningar, identifiera dina inre resurser och gemensamt finna nya perspektiv och handlingsvägar. Mitt mål är att du ska känna dig hörd, förstådd och stärkt att hantera livets upp- och nedgångar på ett mer konstruktivt sätt. Det handlar om att stärka din inre balans och ge dig verktygen att själv hitta din egen väg framåt med ökad trygghet och självkännedom." data-text-en="Life can throw many balls in the air, and sometimes you simply need a safe space to sort through thoughts, express feelings, and find clarity. Talk support is just that – a confidential sanctuary where you can speak freely, without fear of judgment, and with an engaged listener by your side. Whether you are going through a difficult grief, struggling with stress, navigating complex relationship problems, or simply seeking a deeper understanding of yourself and your situation, I am here for you. We will explore your challenges, identify your inner resources, and together find new perspectives and courses of action. My goal is to feel heard, understood, and empowered to handle life's ups and downs in a more constructive way. It's about strengthening your inner balance and giving you the tools to find your own path forward with increased security and self-awareness.">Livet kan kasta många bollar i luften, och ibland behöver man helt enkelt ett tryggt utrymme för att sortera tankar, ventilera känslor och finna klarhet. Samtalsstöd är just det – en konfidentiell fristad där du kan tala fritt, utan rädsla för att bli dömd, och med en engagerad lyssnare vid din sida. Oavsett om du går igenom en svår sorg, kämpar med stress, navigerar komplexa relationsproblem, eller bara söker en djupare förståelse för dig själv och din situation, är jag här för dig. Vi kommer att utforska dina utmaningar, identifiera dina inre resurser och gemensamt finna nya perspektiv och handlingsvägar. Mitt mål är att du ska känna dig hörd, förstådd och stärkt att hantera livets upp- och nedgångar på ett mer konstruktivt sätt. Det handlar om att stärka din inre balans och ge dig verktygen att själv hitta din egen väg framåt med ökad trygghet och självkännedom.</p>
-            <a href="#services-section" class="back-to-services" data-text-sv="&larr; Tillbaka till Tjänster" data-text-en="&larr; Back to Services">&larr; Tillbaka till Tjänster</a>
-        </section>
-        <section id="about-section" class="content-section about-me-container">
-            <h2 class="section-title" data-text-sv="Om mig" data-text-en="About Me">Om mig</h2>
-            <div class="about-me-layout">
-                <div class="about-me-image-wrapper">
-                    <img src="ChatGPT Image 2 juni 2025 20_13_10.png" alt="Ikon av en sköld med ett hjärta i mitten, symboliserar empati och skydd." class="about-icon-img">
-                </div>
-                <div class="about-me-text-wrapper">
-                    <p data-text-sv="Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder." data-text-en="I offer talk support for those who want to feel better, find direction, or get help with mental health issues. With empathy and security, we work together towards your goals – always with proven and evidence-based methods.">Jag erbjuder samtalsstöd för dig som vill må bättre, hitta riktning eller få hjälp med psykisk ohälsa. Med empati och trygghet arbetar vi tillsammans mot dina mål – alltid med beprövade och evidensbaserade metoder.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact-section" class="content-section contact-form-section">
-            <h2 class="section-title" data-text-sv="Kontakta mig" data-text-en="Contact Me">Kontakta mig</h2>
-            <form action="https://formspree.io/f/your_form_id" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="name" data-text-sv="Namn:" data-text-en="Name:">Namn:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email" data-text-sv="E-post:" data-text-en="Email:">E-post:</label>
-                    <input type="email" id="email" name="_replyto" required>
-                </div>
-                <div class="form-group">
-                    <label for="message" data-text-sv="Meddelande:" data-text-en="Message:">Meddelande:</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-                <button type="submit" data-text-sv="Skicka meddelande" data-text-en="Send Message">Skicka meddelande</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p data-text-sv="&copy; 2025 En tryggare väg. Alla rättigheter förbehållna." data-text-en="&copy; 2025 A Safer Path. All rights reserved.">&copy; 2025 En tryggare väg. Alla rättigheter förbehållna.</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling för navlänkar och service-detaljlänkar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.length > 1 && href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href;
-                    
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                if (document.querySelector('.main-nav').classList.contains('active')) {
-                    document.querySelector('.main-nav').classList.remove('active');
-                }
-            });
-        });
-
-        // Hamburger menyn för mobil
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('active');
-        });
-
-        // Språk-växling
-        function toggleLanguage() {
-            const html = document.documentElement;
-            const toggleButton = document.querySelector('.lang-toggle');
-
-            if (html.lang === 'sv') {
-                html.lang = 'en';
-                toggleButton.textContent = 'SV';
-                document.title = document.querySelector('title').getAttribute('data-text-en');
-                updateTexts('en');
-            } else {
-                html.lang = 'sv';
-                toggleButton.textContent = 'EN';
-                document.title = document.querySelector('title').getAttribute('data-text-sv');
-                updateTexts('sv');
-            }
-        }
-
-        function updateTexts(lang) {
-            document.querySelectorAll('[data-text-sv]').forEach(element => {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    // För formulärfält som använder placeholder, inte textContent
-                } else {
-                    element.textContent = element.getAttribute(lang === 'sv' ? 'data-text-sv' : 'data-text-en');
-                }
-            });
-
-            // Specifika uppdateringar för knappar och labels
-            document.querySelector('button[type="submit"]').textContent = lang === 'sv' ? 'Skicka meddelande' : 'Send Message';
-            document.querySelector('.lang-toggle').textContent = lang === 'sv' ? 'EN' : 'SV';
-
-            document.querySelector('label[for="name"]').textContent = lang === 'sv' ? 'Namn:' : 'Name:';
-            document.querySelector('label[for="email"]').textContent = lang === 'sv' ? 'E-post:' : 'Email:';
-            document.querySelector('label[for="message"]').textContent = lang === 'sv' ? 'Meddelande:' : 'Message:';
-
-            // Uppdatera titlar för detaljsektioner
-            const anxietyTitle = document.querySelector('#anxiety-info .section-title');
-            if (anxietyTitle) anxietyTitle.textContent = lang === 'sv' ? 'Ångesthantering' : 'Anxiety Management';
-            
-            const depressionTitle = document.querySelector('#depression-info .section-title');
-            if (depressionTitle) depressionTitle.textContent = lang === 'sv' ? 'Depression och nedstämdhet' : 'Depression and low mood';
-            
-            const coachingTitle = document.querySelector('#coaching-info .section-title');
-            if (coachingTitle) coachingTitle.textContent = lang === 'sv' ? 'Coaching för utveckling' : 'Coaching for development';
-            
-            const talksupportTitle = document.querySelector('#talksupport-info .section-title');
-            if (talksupportTitle) talksupportTitle.textContent = lang === 'sv' ? 'Samtalsstöd och vägledning' : 'Talk Support and Guidance';
+/* Snap-sektioner - dessa stilar är inte längre aktiva för snap-scroll */
+.snap-section {
+    /* Borttagen height: 100vh; och scroll-snap-align: start; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
 
 
-            // Uppdatera "Back to Services" länkar
-            document.querySelectorAll('.back-to-services').forEach(link => {
-                link.textContent = lang === 'sv' ? '← Tillbaka till Tjänster' : '← Back to Services';
-            });
-        }
-    </script>
-</body>
-</html>
+/* Navigering */
+.main-nav {
+    background-color: var(--header-footer-bg);
+    color: var(--color-white);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--color-white);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent-gold);
+}
+
+.lang-toggle {
+    background-color: var(--button-bg-color);
+    color: var(--color-white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 30px;
+}
+
+.lang-toggle:hover {
+    background-color: var(--color-accent-gold);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* Hero Sektion (Header) - Nu med <img>-tagg för bakgrundsbilden */
+.hero-section {
+    position: relative; /* Nödvändigt för absolut positionering av bilden */
+    text-align: center;
+    overflow: hidden;
+    height: 100vh; /* Säkerställer full viewport-höjd */
+    width: 100vw;  /* Säkerställer full viewport-bredd */
+    display: flex; /* Använd flexbox för att centrera innehållet */
+    flex-direction: column;
+    justify-content: center; /* Centrera innehållet vertikalt */
+    align-items: center; /* Centrera innehållet horisontellt */
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fyller området, beskär vid behov för att undvika tomrum */
+    z-index: -1; /* Placerar bilden bakom innehållsöverlägget */
+}
+
+.hero-content-overlay {
+    position: relative; /* Säkerställer att överlägget ligger ovanpå bilden */
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
+    padding: 50px 40px; /* Ökad padding för att fylla utrymme */
+    border-radius: 10px;
+    box-shadow: var(--shadow-subtle);
+    color: var(--color-white);
+    max-width: 900px; /* Ökad max-bredd */
+}
+
+.hero-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 4rem; /* Större rubrik */
+    line-height: 1.1;
+    margin-bottom: 25px; /* Mer utrymme */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section .tagline {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem; /* Större tagline */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Allmänna sektionsstilar */
+.content-section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 40px auto; /* Återställer standardmarginaler för fri scroll */
+    background-color: var(--card-bg-color);
+    box-shadow: var(--shadow-subtle);
+    border-radius: 12px;
+}
+
+/* Specifika justeringar för snap-sektioner - dessa är nu vanliga sektioner */
+.snap-section.content-section {
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Tjänster/Info-rutor */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: stretch; /* Säkerställ att objekt sträcker sig för att fylla tillgänglig höjd */
+    grid-auto-rows: 1fr; /* Gör att alla rader i rutnätet får samma höjd */
+}
+
+.info-box-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Gör länken fyller rutnätscellens höjd */
+}
+
+.info-box-link:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.info-box {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+    height: 100%; /* Säkerställ att info-box fyller sin föräldralänks höjd */
+    display: flex; /* Använd flexbox för vertikal distribution */
+    flex-direction: column; /* Stapla innehållet vertikalt */
+    justify-content: space-between; /* Fördela innehållet jämnt */
+}
+
+.service-icon {
+    font-size: 3.8rem;
+    color: var(--icon-color);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.info-box-link:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.info-box h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: var(--body-text-color);
+    flex-grow: 1; /* Tillåt stycket att växa och fylla utrymme */
+}
+
+/* Nya detaljsektioner för tjänster - Behåller vanlig scroll och styling */
+.service-detail-section {
+    margin-top: 80px; /* Utrymme ovanför */
+    margin-bottom: 80px; /* Utrymme nedanför */
+    padding: 50px 40px;
+    border-radius: 20px; /* Mjukare kanter */
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border); /* Alltid med en mjuk border */
+    max-width: 1100px; /* Säkerställ konsistens med content-section max-bredd */
+    margin-left: auto; /* Centrera dessa sektioner också */
+    margin-right: auto;
+}
+
+/* Specifika färger för varje detaljsektion från nya paletten */
+.anxiety-detail {
+    background-color: var(--color-primary-light);
+    color: var(--color-white); /* Vit text för kontrast */
+}
+
+.anxiety-detail .section-title,
+.anxiety-detail p {
+    color: var(--color-white);
+}
+
+.depression-detail {
+    background-color: var(--color-accent-rose);
+    color: var(--color-white);
+}
+
+.depression-detail .section-title,
+.depression-detail p {
+    color: var(--color-white);
+}
+
+.coaching-detail {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+.coaching-detail .section-title,
+.coaching-detail p {
+    color: var(--color-white);
+}
+
+.talksupport-detail {
+    background-color: var(--color-accent-gold);
+    color: var(--color-neutral-dark); /* Mörkare text för kontrast på guld */
+}
+
+.talksupport-detail .section-title,
+.talksupport-detail p {
+    color: var(--color-neutral-dark);
+}
+
+/* Stilar för "Tillbaka till Tjänster"-länken i detaljsektionerna */
+.service-detail-section .back-to-services {
+    background-color: rgba(255, 255, 255, 0.2); /* Lättare bakgrund för kontrast mot sektionsfärgen */
+    color: var(--color-white); /* Standard vit, åsidosätts om texten är mörk */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Överlagring för back-to-services om texten på bakgrunden är mörk */
+.talksupport-detail .back-to-services {
+    color: var(--color-neutral-dark); /* Mörk text för guld-bakgrund */
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.service-detail-section .back-to-services:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.talksupport-detail .back-to-services:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Om mig-sektion */
+.about-me-container {
+    text-align: center;
+}
+
+.about-me-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+}
+
+.about-me-image-wrapper {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.about-icon-img {
+    width: 150px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.about-me-text-wrapper {
+    flex: 1;
+    text-align: left;
+    min-width: 280px;
+}
+
+.about-me-text-wrapper p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    color: var(--body-text-color);
+    line-height: 1.7;
+}
+
+/* Kontaktformulär */
+.contact-form-section {
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--color-neutral-dark);
+    background-color: var(--main-bg-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--button-bg-color);
+    box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.2); /* Mjukare fokusfärg */
+    outline: none;
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--button-bg-color);
+    color: var(--color-white);
+    padding: 16px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto;
+    display: inline-block;
+    margin-top: 25px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--color-accent-gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--color-white);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+}
+
+/* Mobilanpassning */
+@media (max-width: 900px) {
+    .main-nav {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background-color: var(--header-footer-bg);
+        box-shadow: var(--shadow-subtle);
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .lang-toggle {
+        order: 1;
+        margin-left: auto;
+        margin-right: 15px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Snap sections adjustments for mobile - now regular sections */
+    .snap-section {
+        padding: 0 20px; /* Lägg till horisontell padding för innehåll på mobil */
+        box-sizing: border-box; /* Säkerställ att padding inkluderas i höjden */
+        height: auto; /* Återställer höjden för att tillåta fri scroll */
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section .tagline {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        padding: 25px;
+    }
+
+    .service-icon {
+        font-size: 3.2rem;
+    }
+
+    .info-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .info-box p {
+        font-size: 1rem;
+    }
+
+    /* Anpassning för Om mig-sektionen på mobil */
+    .about-me-layout {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .about-me-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-icon-img {
+        width: 120px;
+    }
+
+    .about-me-text-wrapper {
+        text-align: center;
+        min-width: unset;
+    }
+
+    .about-me-text-wrapper p {
+        font-size: 1.1rem;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+    .contact-form button[type="submit"] {
+        padding: 14px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav {
+        padding: 10px 15px;
+    }
+    .nav-brand {
+        font-size: 1.4rem;
+    }
+    .lang-toggle {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .hamburger {
+        font-size: 1.8rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section .tagline {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .info-box h3 {
+        font-size: 1.4rem;
+    }
+    .info-box p {
+        font-size: 1rem;
+    }
+
+    .about-me-text-wrapper p {
+        font-size: 1rem;
+    }
+
+    .contact-form button[type="submit"] {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}

@@ -6,11 +6,11 @@
 }
 
 :root {
-    /* Madam Elise's New French-inspired Palette - Justerade för bättre kontrast */
+    /* Madam Elise's Original Palette - Justerade för bättre kontrast */
     --color-primary-dark: #3F2C50;   /* Deep Plum / Dark Violet */
-    --color-primary-light: #5A3F7A;  /* Darker Muted Lavender / Amethyst (för bättre kontrast) */
+    --color-primary-light: #5A3F7A;  /* Darker Muted Lavender / Amethyst */
     --color-accent-gold: #C09A4D;    /* Antique Gold */
-    --color-accent-rose: #A06A6B;    /* Darker Dusty Rose (för bättre kontrast) */
+    --color-accent-rose: #A06A6B;    /* Darker Dusty Rose */
     --color-neutral-dark: #333333;   /* Charcoal Gray for headings */
     --color-neutral-medium: #666666; /* Medium Gray for body text */
     --color-neutral-light: #F8F5F2;  /* Off-White / Cream background */
@@ -34,7 +34,6 @@
 html, body {
     height: 100%;
     overflow-y: scroll; /* Aktivera scrollning */
-    scroll-snap-type: none; /* TA BORT SNAP-SCROLL FÖR HELA SIDAN */
     scroll-behavior: smooth; /* Mjuk scroll för alla länkar */
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
@@ -111,7 +110,7 @@ html, body {
     margin-left: 20px;
 }
 
-/* Hero Sektion (Header) - Nu med <img>-tagg för bakgrundsbilden */
+/* Hero Sektion (Header) */
 .hero-section {
     position: relative;
     text-align: center;
@@ -132,75 +131,75 @@ html, body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    filter: brightness(0.7) contrast(1.1); /* Lätt mörkare och mer kontrast */
 }
 
 .hero-content-overlay {
     position: relative;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)); /* Subtle gradient */
-    backdrop-filter: blur(2px); /* Soft blur effect */
-    -webkit-backdrop-filter: blur(2px); /* For Safari compatibility */
-    padding: 50px 40px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-subtle);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)); /* Mjukare gradient */
+    backdrop-filter: blur(3px); /* Lite mer blur */
+    -webkit-backdrop-filter: blur(3px); /* För Safari */
+    padding: 70px 50px; /* Mer padding */
+    border-radius: 15px; /* Något rundare hörn */
+    box-shadow: var(--shadow-elevated); /* Mer framträdande skugga */
     color: var(--color-white);
-    max-width: 900px;
+    max-width: 950px; /* Större maxbredd */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Tydligare textskugga */
 }
 
 .hero-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 4.8rem; /* Större rubrik */
     line-height: 1.1;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
 }
 
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-    max-width: 800px;
+    font-size: 2.2rem; /* Större tagline */
+    max-width: 850px;
     margin: 0 auto;
 }
 
-/* Allmänna sektionsstilar - Dessa är nu transparenta för att smälta ihop med bakgrunden */
+/* Allmänna sektionsstilar */
 .content-section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: 40px auto;
-    background-color: transparent; /* Ingen egen bakgrundsfärg */
-    box-shadow: none;             /* Ingen skugga på sektionen */
-    border-radius: 0;             /* Inga rundade hörn på sektionen */
-    border: none;                 /* Ingen kantlinje på sektionen */
+    padding: 80px 30px; /* Mer padding */
+    max-width: 1200px; /* Bredare sektioner */
+    margin: 80px auto; /* Mer marginal mellan sektioner */
+    background-color: var(--main-bg-color); /* Använder huvudbakgrundsfärgen */
+    border-radius: 15px; /* Rundade hörn */
+    box-shadow: var(--shadow-subtle); /* Subtil skugga */
 }
 
 .section-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 2.8rem;
+    font-size: 3.2rem; /* Större sektionsrubrik */
     color: var(--heading-color);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px; /* Mer marginal */
 }
 
-/* Tjänster/Info-rutor - Innehålls-rutorna behåller sin kort-stil */
+/* Tjänster/Info-rutor */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Anpassningsbara kolumner */
     gap: 30px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    /* align-items: stretch; */ /* Borttagen för att förhindra utsträckning */
-    /* grid-auto-rows: 1fr; */ /* Borttagen för att förhindra utsträckning */
+    align-items: stretch; /* Säkerställer att rutorna sträcker sig till samma höjd */
+    grid-auto-rows: 1fr; /* Får alla rutor att ha samma höjd */
 }
 
 .info-box-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex; /* Använd flex för att centrera innehåll vertikalt */
+    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* height: 100%; */ /* Borttagen för att förhindra utsträckning */
+    height: 100%; /* Fyller tillgänglig höjd i rutnätet */
 }
 
 .info-box-link:hover {
@@ -209,24 +208,23 @@ html, body {
 }
 
 .info-box {
-    background-color: var(--card-bg-color); /* Dessa ska vara vita kort */
+    background-color: var(--card-bg-color);
     border-radius: 15px;
-    padding: 30px;
+    padding: 35px; /* Mer padding inuti rutan */
     text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
-    /* height: 100%; */ /* Borttagen för att förhindra utsträckning */
+    height: 100%; /* Fyller tillgänglig höjd i rutnätet */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */ /* Borttagen för att förhindra utsträckning */
-    justify-content: flex-start; /* Justerar innehåll till toppen */
+    justify-content: space-between; /* Fördelar innehållet jämnt */
     align-items: center; /* Centrerar innehåll horisontellt */
 }
 
 .service-icon {
-    font-size: 3.8rem;
+    font-size: 4.2rem; /* Större ikoner */
     color: var(--icon-color);
-    margin-bottom: 25px;
+    margin-bottom: 30px; /* Mer marginal under ikon */
     transition: transform 0.3s ease;
 }
 
@@ -238,43 +236,44 @@ html, body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: var(--heading-color);
-    font-size: 1.7rem;
-    margin-bottom: 15px;
+    font-size: 1.9rem; /* Större rubrik */
+    margin-bottom: 20px;
 }
 
 .info-box p {
     font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Något större text */
     color: var(--body-text-color);
-    /* flex-grow: 1; */ /* Borttagen för att förhindra utsträckning */
+    flex-grow: 1; /* Låter texten fylla utrymmet */
 }
 
-/* Nya detaljsektioner för tjänster - Behåller sin unika kort-stil och nu med förbättrad textkontrast */
+/* Detaljsektioner för tjänster */
 .service-detail-section {
-    margin-top: 100px; /* Ökat mellanrum */
-    margin-bottom: 100px; /* Ökat mellanrum */
-    padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--color-border);
-    max-width: 1100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 70px 60px; /* Mer padding */
+    border-radius: 15px;
+    box-shadow: var(--shadow-elevated); /* Mer framträdande skugga */
+    border: none; /* Ingen kantlinje */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
 }
 
-/* Specifika färger för varje detaljsektion från nya paletten */
+/* Specifika färger för varje detaljsektion */
 .anxiety-detail {
-    background-color: var(--color-primary-light); /* Använder den mörkare lavendel */
-    color: var(--color-white); /* Vit text för bra kontrast */
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
 }
 
 .anxiety-detail .section-title,
 .anxiety-detail p {
-    color: var(--color-white); /* Säkerställ vit textfärg för alla element */
+    color: var(--color-white);
 }
 
 .depression-detail {
-    background-color: var(--color-accent-rose); /* Använder den mörkare rosen */
+    background-color: var(--color-primary-dark);
     color: var(--color-white);
 }
 
@@ -284,27 +283,27 @@ html, body {
 }
 
 .coaching-detail {
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
+    background-color: var(--color-accent-gold); /* Använder accent-gold */
+    color: var(--color-neutral-dark); /* Mörk text för kontrast */
 }
 
 .coaching-detail .section-title,
 .coaching-detail p {
-    color: var(--color-white);
+    color: var(--color-neutral-dark);
 }
 
 .talksupport-detail {
-    background-color: var(--color-accent-gold);
-    color: var(--color-neutral-dark); /* Mörk text för kontrast på guld */
+    background-color: var(--color-accent-rose); /* Använder accent-rose */
+    color: var(--color-white);
 }
 
 .talksupport-detail .section-title,
 .talksupport-detail p {
-    color: var(--color-neutral-dark);
+    color: var(--color-white);
 }
 
 .couples-therapy-detail {
-    background-color: var(--color-secondary-blue); /* Ny färg för parterapi */
+    background-color: var(--color-secondary-blue);
     color: var(--color-white);
 }
 
@@ -315,38 +314,38 @@ html, body {
 
 /* Stilar för "Kontakta mig"-knappen i detaljsektionerna */
 .service-detail-section .back-to-services {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--button-bg-color);
     color: var(--color-white);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: none;
     display: inline-block;
-    margin-top: 30px;
-    padding: 10px 20px;
+    margin-top: 40px;
+    padding: 15px 30px; /* Större padding */
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Överlagring för back-to-services om texten på bakgrunden är mörk */
-.talksupport-detail .back-to-services,
-.couples-therapy-detail .back-to-services { /* Lägg till för den nya tjänsten */
-    color: var(--color-neutral-dark);
-    border-color: rgba(0, 0, 0, 0.2);
+    font-size: 1.15rem; /* Större text */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-subtle);
 }
 
 .service-detail-section .back-to-services:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.6);
+    background-color: var(--color-primary-dark); /* Mörkare vid hover */
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
 }
 
-.talksupport-detail .back-to-services:hover,
-.couples-therapy-detail .back-to-services:hover { /* Lägg till för den nya tjänsten */
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0.3);
+/* Överlagring för back-to-services om texten på bakgrunden är mörk */
+.coaching-detail .back-to-services {
+    background-color: var(--color-neutral-dark); /* Mörkare knapp för kontrast */
+    color: var(--color-white);
+}
+
+.coaching-detail .back-to-services:hover {
+    background-color: #000000; /* Ännu mörkare vid hover */
 }
 
 
-/* Om mig-sektion - Innehålls-kortet har nu sin egen stil */
+/* Om mig-sektion */
 .about-me-container {
     text-align: center;
 }
@@ -355,30 +354,32 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 40px;
+    justify-content: center; /* Centrera innehållet */
+    gap: 50px; /* Större mellanrum */
     max-width: 900px;
     margin: 0 auto;
-    padding: 30px;
-    background-color: var(--card-bg-color); /* Nu vit bakgrund igen */
-    border-radius: 15px; /* Rundade hörn igen */
-    box-shadow: var(--shadow-subtle); /* Subtil skugga igen */
-    border: 1px solid var(--color-border); /* Kantlinje igen */
+    padding: 40px; /* Mer padding */
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
 }
 
 .about-me-image-wrapper {
     flex: 0 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 220px; /* Större bildram */
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
+    background-color: var(--color-neutral-light); /* Lätt bakgrund för bildram */
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: var(--shadow-subtle);
 }
 
 .about-icon-img {
-    width: 150px;
+    width: 180px; /* Större bild */
     height: auto;
     display: block;
     object-fit: contain;
@@ -387,46 +388,46 @@ html, body {
 .about-me-text-wrapper {
     flex: 1;
     text-align: left;
-    min-width: 280px;
+    min-width: 300px; /* Ökad min-bredd */
 }
 
 .about-me-text-wrapper p {
     font-family: 'Lato', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem; /* Större text */
     color: var(--body-text-color);
     line-height: 1.7;
 }
 
-/* Nya stilar för inbäddade rubriker */
+/* Inbäddade rubriker */
 .about-me-title,
 .contact-form-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 2.2rem; /* Något mindre än sektionsrubriken */
-    color: var(--heading-color); /* Behåll mörkgrå */
+    font-size: 2.5rem; /* Större rubrik */
+    color: var(--heading-color);
     text-align: center;
-    margin-bottom: 30px; /* Justera marginal */
-    width: 100%; /* Säkerställ full bredd inom sin flex-container */
+    margin-bottom: 40px; /* Mer marginal */
+    width: 100%;
 }
 
 
-/* Kontaktformulär - Innehålls-kortet har nu sin egen stil */
+/* Kontaktformulär */
 .contact-form-section {
     text-align: center;
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 650px; /* Bredare formulär */
     margin: 0 auto;
-    padding: 30px;
-    background-color: var(--card-bg-color); /* Vit bakgrund för formulärkortet */
+    padding: 40px; /* Mer padding */
+    background-color: var(--card-bg-color);
     border-radius: 15px;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Mer marginal */
     text-align: left;
 }
 
@@ -434,20 +435,20 @@ html, body {
     display: block;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Större labeltext */
     color: var(--heading-color);
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Mer marginal */
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
     width: 100%;
-    padding: 14px;
+    padding: 16px; /* Mer padding */
     border: 1px solid var(--color-border);
     border-radius: 8px;
     font-family: 'Lato', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem; /* Något större text */
     color: var(--color-neutral-dark);
     background-color: var(--main-bg-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -457,29 +458,29 @@ html, body {
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
     border-color: var(--button-bg-color);
-    box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.2);
+    box-shadow: 0 0 0 4px rgba(90, 63, 122, 0.2); /* Tydligare fokus */
     outline: none;
 }
 
 .contact-form button[type="submit"] {
     background-color: var(--button-bg-color);
     color: var(--color-white);
-    padding: 16px 35px;
+    padding: 18px 40px; /* Större knapp */
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.3rem; /* Större text */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     width: auto;
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 30px;
     box-shadow: var(--shadow-subtle);
 }
 
 .contact-form button[type="submit"]:hover {
-    background-color: var(--color-accent-gold);
+    background-color: var(--color-primary-dark); /* Mörkare vid hover */
     transform: translateY(-3px);
     box-shadow: var(--shadow-elevated);
 }
@@ -489,10 +490,10 @@ footer {
     background-color: var(--header-footer-bg);
     color: var(--color-white);
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 60px;
+    padding: 40px 20px; /* Mer padding */
+    margin-top: 80px; /* Mer marginal */
     font-family: 'Lato', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem; /* Något större text */
 }
 
 /* Mobilanpassning */
@@ -540,16 +541,21 @@ footer {
     }
 
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem; /* Anpassad storlek för mobil */
     }
 
     .hero-section .tagline {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Anpassad storlek för mobil */
+    }
+
+    .content-section {
+        padding: 60px 20px;
+        margin: 60px auto;
     }
 
     .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 40px;
+        font-size: 2.8rem; /* Anpassad storlek för mobil */
+        margin-bottom: 50px;
     }
 
     .services-grid {
@@ -557,35 +563,35 @@ footer {
     }
 
     .info-box {
-        padding: 25px;
+        padding: 30px;
     }
 
     .service-icon {
-        font-size: 3.2rem;
+        font-size: 3.8rem;
     }
 
     .info-box h3 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     .info-box p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     /* Anpassning för Om mig-sektionen på mobil */
     .about-me-layout {
         flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        gap: 30px;
+        padding: 30px;
     }
 
     .about-me-image-wrapper {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
 
     .about-icon-img {
-        width: 120px;
+        width: 140px;
     }
 
     .about-me-text-wrapper {
@@ -594,21 +600,21 @@ footer {
     }
 
     .about-me-text-wrapper p {
-        font-size: 1.1rem;
-    }
-
-    .contact-form {
-        padding: 25px;
-    }
-    .contact-form button[type="submit"] {
-        padding: 14px 25px;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
 
     .about-me-title,
     .contact-form-title {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .contact-form {
+        padding: 30px;
+    }
+    .contact-form button[type="submit"] {
+        padding: 16px 30px;
+        font-size: 1.2rem;
     }
 }
 
@@ -628,19 +634,24 @@ footer {
     }
 
     .hero-section h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
     .hero-section .tagline {
-        font-size: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .content-section {
+        padding: 40px 15px;
+        margin: 40px auto;
     }
 
     .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
     }
 
     .info-box h3 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
     .info-box p {
         font-size: 1rem;
@@ -650,14 +661,19 @@ footer {
         font-size: 1rem;
     }
 
-    .contact-form button[type="submit"] {
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
-
     .about-me-title,
     .contact-form-title {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .contact-form button[type="submit"] {
+        padding: 14px 25px;
+        font-size: 1.1rem;
+    }
+
+    footer {
+        padding: 30px 15px;
+        margin-top: 50px;
     }
 }

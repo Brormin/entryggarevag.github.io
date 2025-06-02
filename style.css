@@ -16,6 +16,7 @@
     --color-neutral-light: #F8F5F2;  /* Off-White / Cream background */
     --color-border: #E0DFDF;        /* Soft Gray for borders */
     --color-white: #FFFFFF;          /* Pure White for elements */
+    --color-secondary-blue: #82A0C7; /* Ny färg för Parterapi */
 
     /* General usage mappings */
     --main-bg-color: var(--color-neutral-light);
@@ -184,12 +185,12 @@ html, body {
 /* Tjänster/Info-rutor - Innehålls-rutorna behåller sin kort-stil */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Anpassningsbara kolumner */
     gap: 30px;
     max-width: 900px;
     margin: 0 auto;
-    align-items: stretch;
-    grid-auto-rows: 1fr;
+    align-items: flex-start; /* Justera till toppen så de inte sträcker ut sig */
+    grid-auto-rows: minmax(min-content, max-content); /* Anpassa höjden efter innehåll */
 }
 
 .info-box-link {
@@ -197,7 +198,7 @@ html, body {
     color: inherit;
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
+    height: auto; /* Låt höjden anpassa sig till innehållet */
 }
 
 .info-box-link:hover {
@@ -212,10 +213,10 @@ html, body {
     text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
-    height: 100%;
+    height: auto; /* Låt höjden anpassa sig till innehållet */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */ /* Tog bort denna för att förhindra utsträckning */
 }
 
 .service-icon {
@@ -241,7 +242,7 @@ html, body {
     font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
     color: var(--body-text-color);
-    flex-grow: 1;
+    /* flex-grow: 1; */ /* Tog bort denna för att förhindra utsträckning */
 }
 
 /* Nya detaljsektioner för tjänster - Behåller sin unika kort-stil och nu med förbättrad textkontrast */
@@ -298,6 +299,16 @@ html, body {
     color: var(--color-neutral-dark);
 }
 
+.couples-therapy-detail {
+    background-color: var(--color-secondary-blue); /* Ny färg för parterapi */
+    color: var(--color-white);
+}
+
+.couples-therapy-detail .section-title,
+.couples-therapy-detail p {
+    color: var(--color-white);
+}
+
 /* Stilar för "Kontakta mig"-knappen i detaljsektionerna */
 .service-detail-section .back-to-services {
     background-color: rgba(255, 255, 255, 0.2);
@@ -313,7 +324,8 @@ html, body {
 }
 
 /* Överlagring för back-to-services om texten på bakgrunden är mörk */
-.talksupport-detail .back-to-services {
+.talksupport-detail .back-to-services,
+.couples-therapy-detail .back-to-services { /* Lägg till för den nya tjänsten */
     color: var(--color-neutral-dark);
     border-color: rgba(0, 0, 0, 0.2);
 }
@@ -323,7 +335,8 @@ html, body {
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-.talksupport-detail .back-to-services:hover {
+.talksupport-detail .back-to-services:hover,
+.couples-therapy-detail .back-to-services:hover { /* Lägg till för den nya tjänsten */
     background-color: rgba(0, 0, 0, 0.1);
     border-color: rgba(0, 0, 0, 0.3);
 }
@@ -342,10 +355,10 @@ html, body {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px;
-    background-color: var(--card-bg-color); /* Vit bakgrund för kortet */
-    border-radius: 15px; /* Rundare hörn för kortet */
-    box-shadow: var(--shadow-subtle); /* Subtil skugga för kortet */
-    border: 1px solid var(--color-border); /* Kantlinje för kortet */
+    background-color: transparent; /* Nu transparent för att smälta in */
+    border-radius: 0;             /* Inga rundade hörn */
+    box-shadow: none;             /* Ingen skugga */
+    border: none;                 /* Ingen kantlinje */
 }
 
 .about-me-image-wrapper {

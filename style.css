@@ -110,7 +110,7 @@ body {
 
 /* Hero Sektion (Header) - Justerad för att inte vara för stor */
 .hero-section {
-    background: url('image.jpeg') no-repeat center center/cover;
+    background: url('image.jpg') no-repeat center center/cover; /* Ändrat till .jpg */
     padding: 60px 20px; /* Mindre padding */
     text-align: center;
     position: relative;
@@ -268,28 +268,28 @@ body {
 .about-me-content-box {
     max-width: 800px;
     margin: 0 auto;
-    padding: 30px; /* Mer padding för innehållet */
-    background-color: #fff; /* Ljusare bakgrund för boxen */
+    padding: 30px;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: var(--shadow-light); /* Lätt skugga */
+    box-shadow: var(--shadow-light);
     border: 1px solid var(--border-color);
 }
 
 .about-icon {
-    font-size: 3.5rem; /* Större ikon */
+    font-size: 3.5rem;
     color: var(--secondary-color);
-    margin-bottom: 25px; /* Mer utrymme under ikonen */
+    margin-bottom: 25px;
     display: block;
     text-align: center;
 }
 
 .about-me-content-box p {
     font-family: 'Lato', sans-serif;
-    font-size: 1.15rem; /* Mindre font för bättre läsbarhet i längre text */
-    color: var(--text-dark); /* Mörkare text för bättre kontrast */
-    line-height: 1.7; /* Ökat radavstånd för läsbarhet */
-    max-width: 700px; /* Begränsa bredden för textblock för optimal läsbarhet */
-    margin: 0 auto; /* Centrera textblocket */
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* Kontaktformulär */
@@ -423,7 +423,7 @@ footer {
 
     .hero-section {
         padding: 40px 20px;
-        min-height: 250px; /* Justerad min-höjd för mobil */
+        min-height: 250px;
     }
 
     .hero-content-overlay {

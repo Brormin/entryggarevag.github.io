@@ -110,51 +110,40 @@ body {
 
 /* Hero Sektion (Header) */
 .hero-section {
-    background-color: var(--bg-light);
-    padding: 60px 20px;
+    background: url('image.jpeg') no-repeat center center/cover; /* NU MED image.jpeg! */
+    padding: 80px 20px; /* Lite mer padding för att ge utrymme */
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 350px;
+    min-height: 400px; /* Säkrar en viss höjd */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.header-top {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centrerar innehållet */
-    gap: 20px; /* Mellanrum mellan h1 och bild */
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* För att hantera mindre skärmar */
+.hero-content-overlay {
+    background-color: rgba(0, 0, 0, 0.45); /* Mörkare overlay för läsbarhet */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    color: #fff; /* Vit text över overlay */
 }
 
 .hero-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3.2rem;
-    color: var(--text-dark);
+    font-size: 3.5rem;
     line-height: 1.1;
-    flex-shrink: 0;
-}
-
-.profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--secondary-color);
-    box-shadow: var(--shadow-light);
-    flex-shrink: 0;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Textskugga för kontrast */
 }
 
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 1.4rem;
-    color: var(--text-light);
-    max-width: 700px;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Textskugga för kontrast */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -227,39 +216,29 @@ body {
 /* Om mig-sektion */
 .about-me-container {
     text-align: center;
-    position: relative; /* För bakgrundsbilden */
-    overflow: hidden;
-    padding: 80px 40px; /* Mer padding */
+    position: relative;
+    padding: 80px 40px;
     background-color: var(--bg-light);
     border-radius: 12px;
 }
 
-.about-me-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Ersätt med din egen bakgrundsbild för en mediterande siluett */
-    /* Exempel: background: url('images/meditation-silhouette.jpg') no-repeat center center/cover; */
-    background: url('https://via.placeholder.com/1200x600/EFEFEF/CCCCCC?text=Din+bakgrundsbild+här') no-repeat center center/cover; /* Placeholder */
-    opacity: 0.1; /* Diskret transparens */
-    z-index: 0;
-    border-radius: 12px;
-}
-
 .about-me-content-box {
-    position: relative;
-    z-index: 1; /* Se till att innehållet ligger ovanpå bakgrundsbilden */
     max-width: 800px;
     margin: 0 auto;
 }
 
+.about-icon {
+    font-size: 3rem; /* Storlek på den lilla ikonen */
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    display: block; /* För att centrera den */
+    text-align: center;
+}
+
 .about-me-content-box p {
     font-family: 'Lato', sans-serif;
-    font-size: 1.25rem; /* Större text */
-    color: var(--text-dark); /* Mörkare för bättre läsbarhet */
+    font-size: 1.25rem;
+    color: var(--text-dark);
     line-height: 1.8;
 }
 
@@ -296,7 +275,7 @@ body {
 .form-group input[type="email"],
 .form-group textarea {
     width: 100%;
-    padding: 14px; /* Större padding */
+    padding: 14px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-family: 'Lato', sans-serif;
@@ -317,7 +296,7 @@ body {
 .contact-form button[type="submit"] {
     background-color: var(--primary-color);
     color: #fff;
-    padding: 16px 35px; /* Större knapp */
+    padding: 16px 35px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -343,7 +322,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 30px 20px;
-    margin-top: 60px; /* Mer utrymme */
+    margin-top: 60px;
     font-family: 'Lato', sans-serif;
     font-size: 0.95rem;
 }
@@ -351,16 +330,16 @@ footer {
 /* Mobilanpassning */
 @media (max-width: 900px) {
     .main-nav {
-        flex-wrap: wrap; /* Tillåter wrapping */
+        flex-wrap: wrap;
         padding: 15px 20px;
     }
 
     .nav-links {
-        display: none; /* Dölj navlänkar som standard */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 65px; /* Justera baserat på navhöjd */
+        top: 65px;
         left: 0;
         background-color: var(--primary-color);
         box-shadow: var(--shadow-light);
@@ -368,7 +347,7 @@ footer {
     }
 
     .nav-links.active {
-        display: flex; /* Visa när aktiv */
+        display: flex;
     }
 
     .nav-links a {
@@ -383,36 +362,30 @@ footer {
     }
 
     .lang-toggle {
-        order: 1; /* Placera knappen efter hamburger */
+        order: 1;
         margin-left: auto;
-        margin-right: 15px; /* Lite utrymme */
+        margin-right: 15px;
     }
 
     .hamburger {
-        display: block; /* Visa hamburger på små skärmar */
+        display: block;
     }
 
     .hero-section {
         padding: 40px 20px;
-        min-height: auto;
+        min-height: 300px; /* Justerad min-höjd för mobil */
     }
 
-    .header-top {
-        flex-direction: column; /* Vertikal stack på mobil */
-        gap: 15px;
+    .hero-content-overlay {
+        padding: 30px 20px;
     }
 
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .hero-section .tagline {
-        font-size: 1.2rem;
-    }
-
-    .profile-img {
-        width: 90px;
-        height: 90px;
+        font-size: 1.3rem;
     }
 
     .section-title {
@@ -421,7 +394,7 @@ footer {
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* En kolumn på små skärmar */
+        grid-template-columns: 1fr;
     }
 
     .info-box {
@@ -469,14 +442,10 @@ footer {
     }
 
     .hero-section h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     .hero-section .tagline {
         font-size: 1rem;
-    }
-    .profile-img {
-        width: 80px;
-        height: 80px;
     }
 
     .section-title {
@@ -505,4 +474,4 @@ footer {
         padding: 12px 20px;
         font-size: 1rem;
     }
-        }
+}

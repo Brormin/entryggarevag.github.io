@@ -457,7 +457,7 @@ html, body {
 }
 
 .timeline-card-icon {
-    font-size: 2.8rem; /* Minskad storlek för ikonerna */
+    font-size: 2.2rem; /* Minskad storlek för ikonerna */
     color: var(--icon-color);
     margin-bottom: 20px;
 }

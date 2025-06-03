@@ -159,8 +159,12 @@ html, body {
 .hero-section .tagline {
     font-family: 'Lato', sans-serif;
     font-size: 2.2rem; /* Större tagline */
-    max-width: 850px;
+    /* max-width: 850px; */ /* Borttagen för att låta texten flöda mer fritt */
     margin: 0 auto;
+    white-space: nowrap; /* Tvingar texten att stanna på en rad */
+    overflow: hidden; /* Döljer text som går utanför */
+    text-overflow: ellipsis; /* Lägger till "..." om texten döljs */
+    display: block; /* Säkerställer att den beter sig som ett blockelement */
 }
 
 /* Allmänna sektionsstilar */
@@ -909,6 +913,9 @@ footer a:hover {
 
     .hero-section .tagline {
         font-size: 1.4rem; /* Anpassad storlek för mobil - JUSTERAD */
+        white-space: nowrap; /* Tvingar texten att stanna på en rad */
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .hero-content-overlay {
@@ -1080,6 +1087,9 @@ footer a:hover {
     }
     .hero-section .tagline {
         font-size: 1.2rem; /* Anpassad storlek för mobil - JUSTERAD */
+        white-space: nowrap; /* Tvingar texten att stanna på en rad */
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .hero-content-overlay {
         padding: 40px 20px;

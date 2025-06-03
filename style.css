@@ -277,54 +277,45 @@ html, body {
 }
 
 /* Specifika färger för varje detaljsektion */
+/* Säkerställer att textfärgen är explicit satt för kontrast */
 .anxiety-detail {
     background-color: var(--color-primary-light);
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
-
 .anxiety-detail .section-title,
 .anxiety-detail p {
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
+    color: var(--color-white);
 }
 
 .depression-detail {
     background-color: var(--color-primary-dark);
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
-
 .depression-detail .section-title,
 .depression-detail p {
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
+    color: var(--color-white);
 }
 
 .coaching-detail {
-    background-color: var(--color-accent-gold); /* Använder accent-gold */
-    color: var(--color-neutral-dark); /* Mörk text för kontrast */
+    background-color: var(--color-accent-gold);
 }
-
 .coaching-detail .section-title,
 .coaching-detail p {
-    color: var(--color-neutral-dark); /* Säkerställer mörk text för kontrast */
+    color: var(--color-neutral-dark);
 }
 
 .talksupport-detail {
-    background-color: var(--color-accent-rose); /* Använder accent-rose */
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
+    background-color: var(--color-accent-rose);
 }
-
 .talksupport-detail .section-title,
 .talksupport-detail p {
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
+    color: var(--color-white);
 }
 
 .couples-therapy-detail {
     background-color: var(--color-secondary-blue);
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
-
 .couples-therapy-detail .section-title,
 .couples-therapy-detail p {
-    color: var(--color-white); /* Säkerställer vit text för kontrast */
+    color: var(--color-white);
 }
 
 /* Stilar för "Kontakta mig"-knappen i detaljsektionerna - BORTTAGEN */

@@ -132,6 +132,8 @@ html, body {
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.65) contrast(1.1); /* Lätt mörkare och mer kontrast */
+    /* Transition for parallax effect (handled by JS, but good to have a base) */
+    transition: transform 0.1s ease-out; 
 }
 
 .hero-content-overlay {
@@ -175,7 +177,16 @@ html, body {
     background-color: var(--main-bg-color); /* Använder huvudbakgrundsfärgen */
     border-radius: 15px; /* Rundade hörn */
     box-shadow: var(--shadow-subtle); /* Subtil skugga */
+    opacity: 0; /* Dölj som standard för animation */
+    transform: translateY(20px); /* Flytta ner som standard för animation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Långsammare och mjukare övergång */
 }
+
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .section-title {
     font-family: 'Poppins', sans-serif;
@@ -202,13 +213,13 @@ html, body {
     color: inherit;
     display: flex; /* Använd flex för att centrera innehåll vertikalt */
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* Mer uttalad övergång */
     height: 100%; /* Fyller tillgänglig höjd i rutnätet */
 }
 
 .info-box-link:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-12px); /* Mer uttalad lyftning */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Tydligare skugga */
 }
 
 .info-box {
@@ -229,11 +240,11 @@ html, body {
     font-size: 4.2rem; /* Större ikoner */
     color: var(--icon-color);
     margin-bottom: 30px; /* Mer marginal under ikon */
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Mjukare ikon-övergång */
 }
 
 .info-box-link:hover .service-icon {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg); /* Mer dynamisk ikon-effekt */
 }
 
 .info-box h3 {
@@ -336,8 +347,8 @@ html, body {
 
 .service-detail-section .back-to-services:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-5px); /* Mer uttalad lyftning */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tydligare skugga */
 }
 
 /* Överlagring för back-to-services om texten på bakgrunden är mörk */
@@ -356,15 +367,15 @@ html, body {
     text-align: center;
 }
 
-.about-me-layout {
+.about-me-content-wrapper { /* Ny wrapper för bild och text i Om mig */
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start; /* Justera till start för att text och tidslinje inte ska centreras vertikalt mot bilden */
+    align-items: center;
     justify-content: center;
-    gap: 60px; /* Större mellanrum mellan bild och text */
+    gap: 40px;
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 30px;
     background-color: var(--card-bg-color);
     border-radius: 15px;
     box-shadow: var(--shadow-subtle);
@@ -382,7 +393,6 @@ html, body {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: var(--shadow-subtle);
-    margin-bottom: 20px; /* Lägg till marginal under bilden */
 }
 
 .about-icon-img {
@@ -392,131 +402,87 @@ html, body {
     object-fit: contain;
 }
 
-.about-me-text-wrapper {
-    flex: 1;
-    text-align: left;
-    min-width: 300px;
-}
-
-.about-me-text-wrapper p {
+.about-me-intro-content p { /* Uppdaterad selector för intro text */
     font-family: 'Lato', sans-serif;
     font-size: 1.2rem;
     color: var(--body-text-color);
     line-height: 1.7;
-    margin-bottom: 40px; /* Marginal under introduktionstexten */
+    flex: 1; /* Låter texten ta upp tillgängligt utrymme */
+    min-width: 300px; /* Säkerställer att texten inte blir för smal */
+    text-align: left;
 }
 
 /* Inbäddade rubriker */
-.about-me-title,
+.subsection-title, /* Denna används inte längre i HTML-strukturen */
 .contact-form-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
     color: var(--heading-color);
     text-align: center;
+    margin-top: 60px; /* Marginal ovanför underrubrik */
     margin-bottom: 40px;
     width: 100%;
 }
 
-/* NYA STYLAR FÖR TIDSLINJEN I "OM MIG" */
-.timeline-area {
-    position: relative;
-    padding: 20px 0;
-    max-width: 600px; /* Begränsa tidslinjens bredd */
-    margin: 0 auto; /* Centrera tidslinjen */
+/* NYA STYLAR FÖR HORISONTELL TIDSLINJE */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Anpassningsbara kolumner */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch; /* Säkerställer att korten sträcker sig till samma höjd */
+    grid-auto-rows: 1fr; /* Får alla kort att ha samma höjd */
 }
 
-.timeline-area .timeline-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: var(--color-border); /* Mjukgrå linje */
-    transform: translateX(-50%);
-}
-
-.timeline-area .timeline-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    position: relative;
-    width: 100%; /* Säkerställ att item fyller utrymmet */
-}
-
-.timeline-area .timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-area .timeline-item.left {
-    flex-direction: row-reverse; /* Innehåll till höger om ikon */
-    justify-content: flex-end;
-}
-
-.timeline-area .timeline-item.right {
-    flex-direction: row; /* Innehåll till vänster om ikon */
-    justify-content: flex-start;
-}
-
-.timeline-area .timeline-icon-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    background-color: var(--color-primary-light); /* Mörkare lila bakgrund */
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: var(--shadow-subtle);
-    border: 3px solid var(--main-bg-color); /* Ljus kantlinje runt ikon */
-}
-
-.timeline-area .timeline-icon {
-    font-size: 2.2rem;
-    color: var(--color-accent-gold); /* Guldikon */
-}
-
-.timeline-area .timeline-content {
-    background-color: var(--main-bg-color); /* Ljus bakgrund för innehållsbox */
-    padding: 20px;
-    border-radius: 10px;
+.timeline-item-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
-    flex: 1;
-    max-width: calc(50% - 45px); /* Justera bredd för att ge plats för ikon */
+    height: 100%; /* Fyller tillgänglig höjd i rutnätet */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Justera innehållet till toppen */
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* Mer uttalad övergång */
 }
 
-.timeline-area .timeline-item.left .timeline-content {
-    margin-right: 45px; /* Marginal från ikon */
+.timeline-item-card:hover {
+    transform: translateY(-12px); /* Mer uttalad lyftning */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Tydligare skugga */
 }
 
-.timeline-area .timeline-item.right .timeline-content {
-    margin-left: 45px; /* Marginal från ikon */
+.timeline-card-icon {
+    font-size: 3.5rem;
+    color: var(--icon-color);
+    margin-bottom: 20px;
 }
 
-.timeline-area .timeline-content .year {
+.timeline-item-card .year {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--color-primary-dark); /* Djup plommonfärg */
-    margin-bottom: 5px;
+    color: var(--color-primary-dark);
+    margin-bottom: 10px;
 }
 
-.timeline-area .timeline-content h4 {
+.timeline-item-card h4 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--heading-color); /* Mörkgrå rubrik */
-    margin-bottom: 5px;
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
 }
 
-.timeline-area .timeline-content p {
-    font-size: 0.95rem;
-    color: var(--body-text-color); /* Mellangrå text */
-    line-height: 1.4;
+.timeline-item-card p {
+    font-size: 1rem;
+    color: var(--body-text-color);
+    line-height: 1.5;
+    flex-grow: 1; /* Låter texten fylla utrymmet */
 }
 
 
@@ -592,8 +558,8 @@ html, body {
 
 .contact-form button[type="submit"]:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-5px); /* Mer uttalad lyftning */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tydligare skugga */
 }
 
 /* Footer */
@@ -649,12 +615,12 @@ footer a:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* Mer uttalad övergång */
 }
 
 .price-box:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-12px); /* Mer uttalad lyftning */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Tydligare skugga */
 }
 
 .price-box.featured {
@@ -748,8 +714,8 @@ footer a:hover {
 
 .price-box .button-cta:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-5px); /* Mer uttalad lyftning */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tydligare skugga */
 }
 
 .price-box.featured .button-cta {
@@ -763,7 +729,7 @@ footer a:hover {
 }
 
 .free-consultation {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-color);
     border-radius: 15px;
     padding: 40px;
     margin-top: 50px;
@@ -821,8 +787,8 @@ footer a:hover {
 .free-consultation .primary-cta:hover {
     background-color: var(--color-primary-dark);
     color: var(--color-white);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateY(-5px); /* Mer uttalad lyftning */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tydligare skugga */
 }
 
 .payment-info {
@@ -862,6 +828,12 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* Mer uttalad övergång */
+}
+
+.step-box:hover {
+    transform: translateY(-8px); /* Mer uttalad lyftning */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Tydligare skugga */
 }
 
 .step-icon {
@@ -965,6 +937,30 @@ footer a:hover {
     background-color: var(--color-primary-dark);
 }
 
+/* Fixed CTA Button */
+.fixed-cta-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-accent-gold);
+    color: var(--color-neutral-dark);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-elevated);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+.fixed-cta-button:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    transform: translateY(-5px); /* Mer uttalad lyftning */
+}
+
 
 /* Mobilanpassning */
 @media (max-width: 900px) {
@@ -1056,7 +1052,7 @@ footer a:hover {
     }
 
     /* Anpassning för Om mig-sektionen på mobil */
-    .about-me-layout {
+    .about-me-content-wrapper { /* Ny wrapper för bild och text i Om mig */
         flex-direction: column;
         gap: 30px;
         padding: 30px;
@@ -1065,27 +1061,23 @@ footer a:hover {
     .about-me-image-wrapper {
         width: 180px;
         height: 180px;
-        margin-bottom: 30px; /* Mer marginal under bilden på mobil */
     }
 
     .about-icon-img {
         width: 140px;
     }
 
-    .about-me-text-wrapper {
+    .about-me-intro-content p { /* Uppdaterad selector för intro text */
         text-align: center;
         min-width: unset;
-    }
-
-    .about-me-text-wrapper p {
         font-size: 1.15rem;
-        margin-bottom: 30px; /* Mer marginal under introduktionstexten på mobil */
     }
 
-    .about-me-title,
+    .subsection-title, /* Denna används inte längre i HTML-strukturen */
     .contact-form-title {
         font-size: 2.2rem;
         margin-bottom: 30px;
+        margin-top: 40px; /* Justera marginal för mobil */
     }
 
     .contact-form {
@@ -1154,33 +1146,24 @@ footer a:hover {
     }
 
     /* Tidslinje mobilanpassning */
-    .timeline-area {
-        padding: 0; /* Ingen extra padding på sidorna */
-        max-width: 100%; /* Fyller tillgänglig bredd */
+    .timeline-grid {
+        grid-template-columns: 1fr; /* En kolumn på mobil */
+        gap: 20px;
     }
-
-    .timeline-area .timeline-line {
-        left: 30px; /* Flytta linjen till vänster */
-        transform: translateX(0);
+    .timeline-item-card {
+        padding: 25px;
     }
-
-    .timeline-area .timeline-item {
-        flex-direction: row; /* Alltid rad för att ikon och text ska vara bredvid varandra */
-        justify-content: flex-start; /* Justera till vänster */
-        margin-bottom: 30px;
+    .timeline-card-icon {
+        font-size: 3rem;
     }
-
-    .timeline-area .timeline-item.left .timeline-content,
-    .timeline-area .timeline-item.right .timeline-content {
-        margin: 0; /* Nollställ marginaler */
-        margin-left: 60px; /* Marginal för ikon */
-        text-align: left;
-        max-width: calc(100% - 90px); /* Justera bredd för att ge plats för ikon och marginal */
+    .timeline-item-card h4 {
+        font-size: 1.2rem;
     }
-
-    .timeline-area .timeline-icon-wrapper {
-        left: 30px; /* Ikonerna ska vara centrerade på den vänstra linjen */
-        transform: translateX(-50%);
+    .timeline-item-card .year {
+        font-size: 1rem;
+    }
+    .timeline-item-card p {
+        font-size: 0.9rem;
     }
 
     /* Cookie banner smaller mobile adjustments */
@@ -1198,6 +1181,14 @@ footer a:hover {
     }
     .cookie-consent-banner button {
         width: 100%;
+    }
+
+    /* Fixed CTA Button Mobile */
+    .fixed-cta-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 1rem;
     }
 }
 
@@ -1246,14 +1237,15 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .about-me-text-wrapper p {
+    .about-me-intro-content p {
         font-size: 1rem;
     }
 
-    .about-me-title,
+    .subsection-title,
     .contact-form-title {
         font-size: 1.8rem;
         margin-bottom: 25px;
+        margin-top: 30px; /* Justera marginal för mobil */
     }
 
     .contact-form button[type="submit"] {
@@ -1293,14 +1285,5 @@ footer a:hover {
     }
     .step-box p {
         font-size: 0.95rem;
-    }
-
-    /* Cookie banner smaller mobile adjustments */
-    .cookie-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    .cookie-consent-banner button {
-        width: 100%;
     }
 }

@@ -77,7 +77,7 @@
 
         <section id="depression-info" class="service-detail-section depression-detail content-section js-scroll fade-in">
             <h2 class="section-title" data-text-sv="Stöd vid nedstämdhet och orkeslöshet" data-text-en="Support for Low Mood and Lack of Energy">Stöd vid nedstämdhet och orkeslöshet</h2>
-            <p data-text-sv="När glädjen bleknar och vardagen känns tung, kan känslor av nedstämdhet och brist på energi ta över. Det är en djupgående känsla som kan påverka allt från din energi, sömn och aptit till din förmåga att känna glädje och meningsfullhet. Kanske känner du dig tom, apatisk, eller har svårt att se en väg ut ur mörkret. Det är viktigt att veta att dessa känslor är verkliga och att du inte behöver bära dem ensam. I våra samtal skapar we ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående." data-text-en="When joy fades and everyday life feels heavy, feelings of low mood and lack of energy can take over. It is a profound feeling that can affect everything from your energy, sleep, and appetite to your ability to feel joy and meaning. Perhaps you feel empty, apathetic, or find it difficult to see a way out of the darkness. It is important to know that these feelings are real and that you don't have to bear them alone. In our conversations, we create a safe and understanding space where you can explore your feelings without judgment. We focus on gently reintroducing activities that provide energy and zest for life, building healthy routines, and identifying thought patterns that keep you in a state of low mood. The goal is to gradually help you regain your inner strength, discover new perspectives and find your way back to the light and meaning in your life. Together, we can work to build a stable foundation for your well-being.">När glädjen bleknar och vardagen känns tung, kan känslor av nedstämdhet och brist på energi ta över. Det är en djupgående känsla som kan påverka allt från din energi, sömn och aptit till din förmåga att känna glädje och meningsfullhet. Kanske känner du dig tom, apatisk, eller har svårt att se en väg ut ur mörkret. Det är viktigt att veta att depression är en verklig och behandlingsbar sjukdom, och du behöver inte bära den ensam. I våra samtal skapar vi ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående.</p>
+            <p data-text-sv="När glädjen bleknar och vardagen känns tung, kan känslor av nedstämdhet och brist på energi ta över. Det är en djupgående känsla som kan påverka allt från din energi, sömn och aptit till din förmåga att känna glädje och meningsfullhet. Kanske känner du dig tom, apatisk, eller har svårt att se en väg ut ur mörkret. Det är viktigt att veta att dessa känslor är verkliga och att du inte behöver bära dem ensam. I våra samtal skapar we ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående." data-text-en="When joy fades and everyday life feels heavy, feelings of low mood and lack of energy can take over. It is a profound feeling that can affect everything from your energy, sleep, and appetite to your ability to feel joy and meaning. Perhaps you feel empty, apathetic, or find it difficult to see a way out of the darkness. It is important to know that depression is a verklig och behandlingsbar sjukdom, och du behöver inte bära den ensam. I våra samtal skapar vi ett tryggt och förstående rum där du kan utforska dina känslor utan dömande. Vi fokuserar på att varsamt återinföra aktiviteter som ger energi och livsglädje, bygga upp sunda rutiner och identifiera tankemönster som håller dig kvar i nedstämdheten. Målet är att steg för steg hjälpa dig att återfå din inre styrka, upptäcka nya perspektiv och hitta tillbaka till ljuset och meningsfullheten i ditt liv. Tillsammans kan vi arbeta för att bygga en stabil grund för ditt välmående.</p>
             <a href="#contact-section" class="back-to-services" data-text-sv="Kontakta mig" data-text-en="Contact Me">Kontakta mig <i class="fas fa-envelope"></i></a>
         </section>
 
@@ -269,7 +269,9 @@
         </div>
     </div>
 
-    <script>
+    <script defer>
+        console.log("Script loaded and running."); // Felsökningsmeddelande från Beatrice
+
         // Smooth scrolling för navlänkar och service-detaljlänkar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -489,11 +491,12 @@
         // Scroll-triggered animations (Fade-in and Slide-up)
         const scrollElements = document.querySelectorAll(".js-scroll");
 
-        const elementInView = (el, dividend = 1) => {
-            const elementTop = el.getBoundingClientRect().top;
+        const elementInView = (el, offset = 0) => {
+            const elementRect = el.getBoundingClientRect();
+            // Check if any part of the element is within the viewport
             return (
-                elementTop <=
-                (window.innerHeight || document.documentElement.clientHeight) / dividend
+                elementRect.bottom >= offset &&
+                elementRect.top <= (window.innerHeight || document.documentElement.clientHeight) - offset
             );
         };
 
@@ -507,7 +510,7 @@
 
         const handleScrollAnimation = () => {
             scrollElements.forEach((el) => {
-                if (elementInView(el, 1.25)) { // Adjust dividend for earlier/later trigger
+                if (elementInView(el)) {
                     displayScrollElement(el);
                 } else {
                     // Optional: hide element if out of view to re-trigger on scroll up

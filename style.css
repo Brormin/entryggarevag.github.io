@@ -139,15 +139,17 @@ html, body {
 .hero-content-overlay {
     position: relative;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25)); /* Mjukare gradient */
-    backdrop-filter: blur(4px); /* Lite mer blur */
-    -webkit-backdrop-filter: blur(4px); /* För Safari */
+    /* Uppdaterad bakgrund för att matcha Beatrice's palett och vara mer inbjudande */
+    background: linear-gradient(to bottom, rgba(42, 26, 48, 0.75), rgba(76, 59, 96, 0.55)); /* Från primary-dark till primary-light med transparens */
+    backdrop-filter: blur(5px); /* Lite mer blur för att mjuka upp */
+    -webkit-backdrop-filter: blur(5px); /* För Safari */
     padding: 70px 50px; /* Mer padding */
     border-radius: 15px; /* Något rundare hörn */
-    box-shadow: var(--shadow-elevated); /* Mer framträdande skugga */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* Mer framträdande skugga */
     color: var(--color-white);
     max-width: 950px; /* Större maxbredd */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Tydligare textskugga */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9); /* Tydligare textskugga */
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Subtil guldram */
 }
 
 .hero-section h1 {
@@ -457,7 +459,7 @@ html, body {
 }
 
 .timeline-card-icon {
-    font-size: 2.2rem; /* Minskad storlek för ikonerna */
+    font-size: 1.8rem; /* Ytterligare minskad storlek för ikonerna */
     color: var(--icon-color);
     margin-bottom: 20px;
 }

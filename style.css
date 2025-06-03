@@ -500,6 +500,281 @@ footer {
     font-size: 1rem;
 }
 
+/* NYA STYLAR FÖR PRISSÄTTNINGSSEKTIONEN */
+.pricing-section {
+    text-align: center;
+    padding: 80px 30px;
+    max-width: 1200px;
+    margin: 80px auto;
+    background-color: var(--main-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: stretch; /* Säkerställer att boxarna har samma höjd */
+}
+
+.price-box {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-box:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.price-box.featured {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+    border-color: var(--color-primary-dark);
+    box-shadow: var(--shadow-elevated);
+}
+
+.price-box.featured h3,
+.price-box.featured .duration,
+.price-box.featured .price,
+.price-box.featured .description,
+.price-box.featured .save-info {
+    color: var(--color-white);
+}
+
+.price-box h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.price-box.featured h3 {
+    color: var(--color-white);
+}
+
+.price-box .duration {
+    font-size: 1.1rem;
+    color: var(--body-text-color);
+    margin-bottom: 15px;
+}
+
+.price-box.featured .duration {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price-box .price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 10px;
+}
+
+.price-box.featured .price {
+    color: var(--color-white);
+}
+
+.price-box .save-info {
+    font-size: 0.95rem;
+    color: var(--color-accent-rose);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.price-box.featured .save-info {
+    color: var(--color-accent-gold); /* Kontrast på mörk bakgrund */
+}
+
+.price-box .description {
+    font-size: 1rem;
+    color: var(--body-text-color);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Låter beskrivningen fylla utrymmet */
+}
+
+.price-box.featured .description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.price-box .button-cta {
+    background-color: var(--button-bg-color);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-subtle);
+}
+
+.price-box .button-cta:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.price-box.featured .button-cta {
+    background-color: var(--color-accent-gold);
+    color: var(--color-neutral-dark);
+}
+
+.price-box.featured .button-cta:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+}
+
+.free-consultation {
+    background-color: var(--color-white);
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: var(--shadow-elevated);
+    border: 2px solid var(--color-accent-gold); /* Tydligare ram för gratis konsultation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.free-consultation h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.free-consultation .duration {
+    font-size: 1.2rem;
+    color: var(--body-text-color);
+    margin-bottom: 10px;
+}
+
+.free-consultation .price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: var(--color-accent-gold);
+    margin-bottom: 20px;
+}
+
+.free-consultation .description {
+    font-size: 1.1rem;
+    color: var(--body-text-color);
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.free-consultation .primary-cta {
+    background-color: var(--color-accent-gold);
+    color: var(--color-neutral-dark);
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-elevated);
+}
+
+.free-consultation .primary-cta:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.payment-info {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: var(--color-neutral-medium);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* NYA STYLAR FÖR HUR DET FUNGERAR-SEKTIONEN */
+.how-it-works-section {
+    text-align: center;
+    padding: 80px 30px;
+    max-width: 1200px;
+    margin: 80px auto;
+    background-color: var(--main-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.step-box {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-icon {
+    font-size: 3.5rem;
+    color: var(--icon-color);
+    margin-bottom: 20px;
+}
+
+.step-box h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+.step-box p {
+    font-size: 1.05rem;
+    color: var(--body-text-color);
+}
+
+.step-box p a {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.step-box p a:hover {
+    color: var(--color-primary-dark);
+}
+
+
 /* Mobilanpassning */
 @media (max-width: 900px) {
     .main-nav {
@@ -633,6 +908,54 @@ footer {
         padding: 16px 30px;
         font-size: 1.2rem;
     }
+
+    /* Prissättning mobil */
+    .pricing-section {
+        padding: 60px 20px;
+    }
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    .price-box {
+        padding: 25px;
+    }
+    .price-box h3 {
+        font-size: 1.8rem;
+    }
+    .price-box .price {
+        font-size: 2.5rem;
+    }
+    .free-consultation {
+        padding: 30px;
+    }
+    .free-consultation h3 {
+        font-size: 1.8rem;
+    }
+    .free-consultation .price {
+        font-size: 2.8rem;
+    }
+    .free-consultation .primary-cta {
+        padding: 16px 30px;
+        font-size: 1.2rem;
+    }
+
+    /* Hur det fungerar mobil */
+    .how-it-works-section {
+        padding: 60px 20px;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .step-box {
+        padding: 25px;
+    }
+    .step-box h3 {
+        font-size: 1.6rem;
+    }
+    .step-icon {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -695,5 +1018,34 @@ footer {
     footer {
         padding: 30px 15px;
         margin-top: 50px;
+    }
+
+    /* Prissättning mobil mindre skärmar */
+    .price-box h3 {
+        font-size: 1.6rem;
+    }
+    .price-box .price {
+        font-size: 2.2rem;
+    }
+    .free-consultation h3 {
+        font-size: 1.6rem;
+    }
+    .free-consultation .price {
+        font-size: 2.5rem;
+    }
+    .free-consultation .primary-cta {
+        font-size: 1.1rem;
+        padding: 14px 25px;
+    }
+
+    /* Hur det fungerar mobil mindre skärmar */
+    .step-box h3 {
+        font-size: 1.4rem;
+    }
+    .step-icon {
+        font-size: 2.8rem;
+    }
+    .step-box p {
+        font-size: 0.95rem;
     }
 }

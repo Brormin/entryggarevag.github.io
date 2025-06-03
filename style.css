@@ -6,7 +6,7 @@
 }
 
 :root {
-    /* Madam Elise's Original Palette - Justerade för bättre kontrast */
+    /* Färgpalett */
     --color-primary-dark: #3F2C50;   /* Deep Plum / Dark Violet */
     --color-primary-light: #5A3F7A;  /* Darker Muted Lavender / Amethyst */
     --color-accent-gold: #C09A4D;    /* Antique Gold */
@@ -359,7 +359,7 @@ html, body {
 .about-me-layout {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start; /* Justera till start för att text och tidslinje inte ska centreras vertikalt mot bilden */
     justify-content: center;
     gap: 60px; /* Större mellanrum mellan bild och text */
     max-width: 900px;
@@ -382,6 +382,7 @@ html, body {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: var(--shadow-subtle);
+    margin-bottom: 20px; /* Lägg till marginal under bilden */
 }
 
 .about-icon-img {
@@ -402,6 +403,7 @@ html, body {
     font-size: 1.2rem;
     color: var(--body-text-color);
     line-height: 1.7;
+    margin-bottom: 40px; /* Marginal under introduktionstexten */
 }
 
 /* Inbäddade rubriker */
@@ -414,6 +416,107 @@ html, body {
     text-align: center;
     margin-bottom: 40px;
     width: 100%;
+}
+
+/* NYA STYLAR FÖR TIDSLINJEN I "OM MIG" */
+.timeline-area {
+    position: relative;
+    padding: 20px 0;
+    max-width: 600px; /* Begränsa tidslinjens bredd */
+    margin: 0 auto; /* Centrera tidslinjen */
+}
+
+.timeline-area .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--color-border); /* Mjukgrå linje */
+    transform: translateX(-50%);
+}
+
+.timeline-area .timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%; /* Säkerställ att item fyller utrymmet */
+}
+
+.timeline-area .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-area .timeline-item.left {
+    flex-direction: row-reverse; /* Innehåll till höger om ikon */
+    justify-content: flex-end;
+}
+
+.timeline-area .timeline-item.right {
+    flex-direction: row; /* Innehåll till vänster om ikon */
+    justify-content: flex-start;
+}
+
+.timeline-area .timeline-icon-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: var(--color-primary-light); /* Mörkare lila bakgrund */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-subtle);
+    border: 3px solid var(--main-bg-color); /* Ljus kantlinje runt ikon */
+}
+
+.timeline-area .timeline-icon {
+    font-size: 2.2rem;
+    color: var(--color-accent-gold); /* Guldikon */
+}
+
+.timeline-area .timeline-content {
+    background-color: var(--main-bg-color); /* Ljus bakgrund för innehållsbox */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--color-border);
+    flex: 1;
+    max-width: calc(50% - 45px); /* Justera bredd för att ge plats för ikon */
+}
+
+.timeline-area .timeline-item.left .timeline-content {
+    margin-right: 45px; /* Marginal från ikon */
+}
+
+.timeline-area .timeline-item.right .timeline-content {
+    margin-left: 45px; /* Marginal från ikon */
+}
+
+.timeline-area .timeline-content .year {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primary-dark); /* Djup plommonfärg */
+    margin-bottom: 5px;
+}
+
+.timeline-area .timeline-content h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--heading-color); /* Mörkgrå rubrik */
+    margin-bottom: 5px;
+}
+
+.timeline-area .timeline-content p {
+    font-size: 0.95rem;
+    color: var(--body-text-color); /* Mellangrå text */
+    line-height: 1.4;
 }
 
 
@@ -671,502 +774,4 @@ footer a:hover {
     align-items: center;
 }
 
-.free-consultation h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 2.2rem;
-    color: var(--heading-color);
-    margin-bottom: 10px;
-}
-
-.free-consultation .duration {
-    font-size: 1.2rem;
-    color: var(--body-text-color);
-    margin-bottom: 10px;
-}
-
-.free-consultation .price {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 3.2rem;
-    color: var(--color-accent-gold);
-    margin-bottom: 20px;
-}
-
-.free-consultation .description {
-    font-size: 1.1rem;
-    color: var(--body-text-color);
-    margin-bottom: 30px;
-    max-width: 700px;
-}
-
-.free-consultation .primary-cta {
-    background-color: var(--color-accent-gold);
-    color: var(--color-neutral-dark);
-    padding: 18px 40px;
-    font-size: 1.3rem;
-    font-weight: 700;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: var(--shadow-elevated);
-}
-
-.free-consultation .primary-cta:hover {
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
-}
-
-.payment-info {
-    margin-top: 40px;
-    font-size: 0.95rem;
-    color: var(--color-neutral-medium);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* NYA STYLAR FÖR HUR DET FUNGERAR-SEKTIONEN */
-.how-it-works-section {
-    text-align: center;
-    padding: 80px 30px;
-    max-width: 1200px;
-    margin: 80px auto;
-    background-color: var(--main-bg-color);
-    border-radius: 15px;
-    box-shadow: var(--shadow-subtle);
-}
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.step-box {
-    background-color: var(--card-bg-color);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.step-icon {
-    font-size: 3.5rem;
-    color: var(--icon-color);
-    margin-bottom: 20px;
-}
-
-.step-box h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.8rem;
-    color: var(--heading-color);
-    margin-bottom: 15px;
-}
-
-.step-box p {
-    font-size: 1.05rem;
-    color: var(--body-text-color);
-}
-
-.step-box p a {
-    color: var(--color-primary-light);
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.step-box p a:hover {
-    color: var(--color-primary-dark);
-}
-
-/* Cookie Consent Banner Styles */
-.cookie-consent-banner {
-    display: none; /* Hidden by default, shown by JS if no consent */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    padding: 20px 30px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1001; /* Above other content */
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.cookie-consent-banner p {
-    margin: 0;
-    color: var(--color-white);
-    text-align: center;
-}
-
-.cookie-consent-banner a {
-    color: var(--color-accent-gold);
-    text-decoration: underline;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.cookie-consent-banner a:hover {
-    color: var(--color-white);
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 15px;
-    margin-left: 20px; /* Space from text */
-}
-
-.cookie-consent-banner button {
-    background-color: var(--button-bg-color);
-    color: var(--color-white);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: var(--shadow-subtle);
-}
-
-.cookie-consent-banner button:hover {
-    background-color: var(--color-accent-gold);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-elevated);
-}
-
-.cookie-consent-banner button#decline-cookies {
-    background-color: var(--color-accent-rose);
-}
-
-.cookie-consent-banner button#decline-cookies:hover {
-    background-color: var(--color-primary-dark);
-}
-
-
-/* Mobilanpassning */
-@media (max-width: 900px) {
-    .main-nav {
-        flex-wrap: wrap;
-        padding: 15px 20px;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        background-color: var(--header-footer-bg);
-        box-shadow: var(--shadow-subtle);
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        margin: 0;
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-    .lang-toggle {
-        order: 1;
-        margin-left: auto;
-        margin-right: 15px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hero-section h1 {
-        font-size: 3.5rem; /* Anpassad storlek för mobil */
-    }
-
-    .hero-section .tagline {
-        font-size: 1.4rem; /* Anpassad storlek för mobil - JUSTERAD */
-        white-space: normal; /* Tillåter texten att brytas på rader */
-        overflow: visible;
-        text-overflow: clip;
-    }
-
-    .hero-content-overlay {
-        padding: 50px 30px; /* Anpassad padding för mobil */
-    }
-
-    .content-section {
-        padding: 60px 20px;
-        margin: 60px auto;
-    }
-
-    .section-title {
-        font-size: 2.8rem; /* Anpassad storlek för mobil */
-        margin-bottom: 50px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .info-box {
-        padding: 30px;
-    }
-
-    .service-icon {
-        font-size: 3.8rem;
-    }
-
-    .info-box h3 {
-        font-size: 1.7rem;
-    }
-
-    .info-box p {
-        font-size: 1.1rem;
-    }
-
-    /* Anpassning för Om mig-sektionen på mobil */
-    .about-me-layout {
-        flex-direction: column;
-        gap: 30px;
-        padding: 30px;
-    }
-
-    .about-me-image-wrapper {
-        width: 180px;
-        height: 180px;
-    }
-
-    .about-icon-img {
-        width: 140px;
-    }
-
-    .about-me-text-wrapper {
-        text-align: center;
-        min-width: unset;
-    }
-
-    .about-me-text-wrapper p {
-        font-size: 1.15rem;
-    }
-
-    .about-me-title,
-    .contact-form-title {
-        font-size: 2.2rem;
-        margin-bottom: 30px;
-    }
-
-    .contact-form {
-        padding: 30px;
-    }
-    .form-group label {
-        font-size: 1.1rem;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group textarea {
-        padding: 14px;
-        font-size: 1rem;
-    }
-    .contact-form button[type="submit"] {
-        padding: 16px 30px;
-        font-size: 1.2rem;
-    }
-
-    /* Prissättning mobil */
-    .pricing-section {
-        padding: 60px 20px;
-    }
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-    .price-box {
-        padding: 25px;
-    }
-    .price-box h3 {
-        font-size: 1.8rem;
-    }
-    .price-box .price {
-        font-size: 2.5rem;
-    }
-    .free-consultation {
-        padding: 30px;
-    }
-    .free-consultation h3 {
-        font-size: 1.8rem;
-    }
-    .free-consultation .price {
-        font-size: 2.8rem;
-    }
-    .free-consultation .primary-cta {
-        padding: 16px 30px;
-        font-size: 1.2rem;
-    }
-
-    /* Hur det fungerar mobil */
-    .how-it-works-section {
-        padding: 60px 20px;
-    }
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .step-box {
-        padding: 25px;
-    }
-    .step-box h3 {
-        font-size: 1.6rem;
-    }
-    .step-icon {
-        font-size: 3rem;
-    }
-    /* Cookie banner mobile adjustments */
-    .cookie-consent-banner {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 20px;
-        text-align: center;
-    }
-    .cookie-buttons {
-        margin-left: 0;
-        margin-top: 10px;
-        justify-content: center;
-        width: 100%;
-    }
-    .cookie-consent-banner button {
-        width: 48%; /* Make buttons take up almost half width */
-        font-size: 0.9rem;
-        padding: 10px 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-nav {
-        padding: 10px 15px;
-    }
-    .nav-brand {
-        font-size: 1.4rem;
-    }
-    .lang-toggle {
-        padding: 6px 10px;
-        font-size: 0.8em;
-    }
-    .hamburger {
-        font-size: 1.8rem;
-    }
-
-    .hero-section h1 {
-        font-size: 2.8rem;
-    }
-    .hero-section .tagline {
-        font-size: 1.2rem; /* Anpassad storlek för mobil - JUSTERAD */
-        white-space: normal; /* Tillåter texten att brytas på rader */
-        overflow: visible;
-        text-overflow: clip;
-    }
-    .hero-content-overlay {
-        padding: 40px 20px;
-    }
-
-    .content-section {
-        padding: 40px 15px;
-        margin: 40px auto;
-    }
-
-    .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 40px;
-    }
-
-    .info-box h3 {
-        font-size: 1.5rem;
-    }
-    .info-box p {
-        font-size: 1rem;
-    }
-
-    .about-me-text-wrapper p {
-        font-size: 1rem;
-    }
-
-    .about-me-title,
-    .contact-form-title {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
-    }
-
-    .contact-form button[type="submit"] {
-        padding: 14px 25px;
-        font-size: 1.1rem;
-    }
-
-    footer {
-        padding: 30px 15px;
-        margin-top: 50px;
-    }
-
-    /* Prissättning mobil mindre skärmar */
-    .price-box h3 {
-        font-size: 1.6rem;
-    }
-    .price-box .price {
-        font-size: 2.2rem;
-    }
-    .free-consultation h3 {
-        font-size: 1.6rem;
-    }
-    .free-consultation .price {
-        font-size: 2.5rem;
-    }
-    .free-consultation .primary-cta {
-        font-size: 1.1rem;
-        padding: 14px 25px;
-    }
-
-    /* Hur det fungerar mobil mindre skärmar */
-    .step-box h3 {
-        font-size: 1.4rem;
-    }
-    .step-icon {
-        font-size: 2.8rem;
-    }
-    .step-box p {
-        font-size: 0.95rem;
-    }
-
-    /* Cookie banner smaller mobile adjustments */
-    .cookie-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    .cookie-consent-banner button {
-        width: 100%;
-    }
-}
+.free-co

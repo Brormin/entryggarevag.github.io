@@ -908,7 +908,7 @@ footer a:hover {
     }
 
     .hero-section .tagline {
-        font-size: 1.5rem; /* Anpassad storlek för mobil */
+        font-size: 1.4rem; /* Anpassad storlek för mobil - JUSTERAD */
     }
 
     .hero-content-overlay {
@@ -1079,7 +1079,7 @@ footer a:hover {
         font-size: 2.8rem;
     }
     .hero-section .tagline {
-        font-size: 1.3rem;
+        font-size: 1.2rem; /* Anpassad storlek för mobil - JUSTERAD */
     }
     .hero-content-overlay {
         padding: 40px 20px;

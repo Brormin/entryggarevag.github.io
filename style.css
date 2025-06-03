@@ -177,7 +177,6 @@ html, body {
     background-color: var(--main-bg-color); /* Använder huvudbakgrundsfärgen */
     border-radius: 15px; /* Rundade hörn */
     box-shadow: var(--shadow-subtle); /* Subtil skugga */
-    /* REMOVED default opacity and transform here */
 }
 
 /* New class for animation */
@@ -278,22 +277,22 @@ html, body {
 /* Specifika färger för varje detaljsektion */
 .anxiety-detail {
     background-color: var(--color-primary-light);
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .anxiety-detail .section-title,
 .anxiety-detail p {
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .depression-detail {
     background-color: var(--color-primary-dark);
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .depression-detail .section-title,
 .depression-detail p {
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .coaching-detail {
@@ -303,27 +302,27 @@ html, body {
 
 .coaching-detail .section-title,
 .coaching-detail p {
-    color: var(--color-neutral-dark);
+    color: var(--color-neutral-dark); /* Säkerställer mörk text för kontrast */
 }
 
 .talksupport-detail {
     background-color: var(--color-accent-rose); /* Använder accent-rose */
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .talksupport-detail .section-title,
 .talksupport-detail p {
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .couples-therapy-detail {
     background-color: var(--color-secondary-blue);
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 .couples-therapy-detail .section-title,
 .couples-therapy-detail p {
-    color: var(--color-white);
+    color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
 /* Stilar för "Kontakta mig"-knappen i detaljsektionerna */
@@ -426,33 +425,61 @@ html, body {
 
 /* NYA STYLAR FÖR HORISONTELL TIDSLINJE */
 .timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Anpassningsbara kolumner */
-    gap: 30px;
+    display: flex; /* Ändrad till flex för horisontell layout */
+    flex-wrap: wrap; /* Tillåt radbrytning på mindre skärmar */
+    justify-content: center;
+    gap: 30px; /* Mellansrum mellan korten */
     max-width: 1000px;
     margin: 0 auto;
-    align-items: stretch; /* Säkerställer att korten sträcker sig till samma höjd */
-    grid-auto-rows: 1fr; /* Får alla kort att ha samma höjd */
+    position: relative; /* För den anslutande linjen */
+    padding-top: 50px; /* Utrymme för linjen ovanför */
+    padding-bottom: 50px; /* Utrymme för linjen nedanför */
+}
+
+/* Horisontell linje */
+.timeline-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* Centrera vertikalt */
+    left: 0;
+    right: 0;
+    height: 4px; /* Linjens tjocklek */
+    background-color: var(--color-primary-light); /* Linjens färg */
+    z-index: 0; /* Bakom korten */
+    transform: translateY(-50%);
 }
 
 .timeline-item-card {
+    position: relative;
+    z-index: 1; /* Ovanför linjen */
+    flex: 1 1 280px; /* Tillåt att växa och krympa, med en bas på 280px */
+    max-width: 300px; /* Maxbredd för varje kort */
     background-color: var(--card-bg-color);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--color-border);
-    height: 100%; /* Fyller tillgänglig höjd i rutnätet */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Justera innehållet till toppen */
+    justify-content: flex-start;
     align-items: center;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* Mer uttalad övergång */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
-.timeline-item-card:hover {
-    transform: translateY(-12px); /* Mer uttalad lyftning */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Tydligare skugga */
+/* Cirklar på linjen */
+.timeline-item-card::after {
+    content: '';
+    position: absolute;
+    top: -25px; /* Positionera ovanför kortet, på linjen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-accent-gold); /* Cirkelns färg */
+    border: 3px solid var(--color-primary-dark); /* Kant runt cirkeln */
+    border-radius: 50%;
+    z-index: 2; /* Ovanför linjen och kortet */
 }
 
 .timeline-card-icon {
@@ -1151,23 +1178,35 @@ footer a:hover {
 
     /* Tidslinje mobilanpassning */
     .timeline-grid {
-        grid-template-columns: 1fr; /* En kolumn på mobil */
-        gap: 20px;
+        flex-direction: column; /* Stacka vertikalt på mobil */
+        align-items: flex-start; /* Justera objekt till vänster */
+        padding-left: 50px; /* Utrymme för vertikal linje */
+        padding-top: 0;
+        padding-bottom: 0;
     }
+
+    .timeline-grid::before {
+        top: 0;
+        left: 20px; /* Positionera vertikal linje */
+        bottom: 0;
+        width: 4px; /* Linjens tjocklek */
+        height: 100%;
+        transform: none;
+    }
+
     .timeline-item-card {
-        padding: 25px;
+        flex: 0 0 auto; /* Återställ flex-egenskaper */
+        width: 100%; /* Full bredd */
+        max-width: none; /* Ingen maxbredd */
+        text-align: left;
+        margin-bottom: 30px; /* Mellansrum mellan vertikala kort */
+        padding-left: 50px; /* Utrymme för cirkeln */
     }
-    .timeline-card-icon {
-        font-size: 3rem;
-    }
-    .timeline-item-card h4 {
-        font-size: 1.2rem;
-    }
-    .timeline-item-card .year {
-        font-size: 1rem;
-    }
-    .timeline-item-card p {
-        font-size: 0.9rem;
+
+    .timeline-item-card::after {
+        top: 30px; /* Positionera cirkeln relativt kortets topp */
+        left: 20px; /* Positionera cirkeln på den vertikala linjen */
+        transform: translateX(-50%);
     }
 
     /* Cookie banner smaller mobile adjustments */

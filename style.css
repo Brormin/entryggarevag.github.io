@@ -325,39 +325,8 @@ html, body {
     color: var(--color-white); /* Säkerställer vit text för kontrast */
 }
 
-/* Stilar för "Kontakta mig"-knappen i detaljsektionerna */
-.service-detail-section .back-to-services {
-    background-color: var(--button-bg-color);
-    color: var(--color-white);
-    border: none;
-    display: inline-flex; /* Använd flex för att centrera ikon och text */
-    align-items: center;
-    gap: 10px; /* Mellansrum mellan text och ikon */
-    margin-top: 40px;
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.15rem;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: var(--shadow-subtle);
-}
-
-.service-detail-section .back-to-services:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-5px); /* Mer uttalad lyftning */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tydligare skugga */
-}
-
-/* Överlagring för back-to-services om texten på bakgrunden är mörk */
-.coaching-detail .back-to-services {
-    background-color: var(--color-neutral-dark);
-    color: var(--color-white);
-}
-
-.coaching-detail .back-to-services:hover {
-    background-color: #000000;
-}
+/* Stilar för "Kontakta mig"-knappen i detaljsektionerna - BORTTAGEN */
+/* .service-detail-section .back-to-services { ... } */
 
 
 /* Om mig-sektion */
@@ -467,6 +436,11 @@ html, body {
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
+.timeline-item-card:hover {
+    transform: translateY(-12px); /* Mer uttalad lyftning */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Tydligare skugga */
+}
+
 /* Cirklar på linjen */
 .timeline-item-card::after {
     content: '';
@@ -483,7 +457,7 @@ html, body {
 }
 
 .timeline-card-icon {
-    font-size: 3.5rem;
+    font-size: 2.8rem; /* Minskad storlek för ikonerna */
     color: var(--icon-color);
     margin-bottom: 20px;
 }
